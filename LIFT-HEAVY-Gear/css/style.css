@@ -1,7 +1,47 @@
 body {
+    margin: 0;
     background-color: #222;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
-    background-color: #333333;
+    background-color: #333;
+    height: 115px;
+    padding: 0 5%;
+}
+
+.header-logo {
+    margin: 0;
+    text-align: center;
+    height: 46px;
+}
+
+header>div>a {
+    display: inline-block;
+}
+
+header>div>a>img {
+    width: 150px;
+    height: 46px;
+}
+
+header>a.right {
+    float: right;
+    display: inline-flex;
+    width: auto;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.search-form {
+    text-align: center;
+}
+
+/*CSS DESKTOP*/
+@media screen and (min-width:768px) {
+    body {
+        background-color: #FFF;
+    }
 }
