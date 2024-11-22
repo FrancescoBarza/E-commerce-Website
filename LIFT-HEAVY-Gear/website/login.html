@@ -9,7 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css" />
-    <title>LIFT HEAVY Gear</title>
+    <title>Login</title>
     <link rel="icon" href="../images/icons/Logo_Icon.ico" />
 </head>
 
@@ -28,29 +28,38 @@
         </div>
     </header>
     <!-- END HEADER -->
-     <head>
-        <h1>Login</h1>
-     </head>
+     <div class="login-main">
+     
      <main>
+        <h1>LOGIN</h1>
+        <div class="login-form">
         <form action="" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <label for="username">Username</label>
             <br>
-            <label for="password">Password:</label>
+            <input type="text" id="username" name="username" required>
+            <br><br>
+            <label for="password">Password</label>
+            <br>
             <input type="password" id="password" name="password" required>
             <br>
-            <a href="forgot-password.html" style="display: block; margin-top: 10px; text-decoration: none; color: #007bff;">
+            <a href="" style="display: block; margin-top: 10px; text-decoration: none; color: #007bff;">
                 Password dimenticata?
             </a>
             <br>
-            <input type="checkbox" id="salesperson" value="salesperson" name="salesperson">
-            <label for="salesperson">Salesperson</label>
+            <label for="venditore">Account venditore?<input type="checkbox" id="venditore" value="venditore" name="venditore"></label>
             <br>
-            <input type="submit" value="Sign in">
+                <button type="submit">Sing in</button>
+            
+            <br><br>
+            <p>Nuovo cliente?<a href=""> Crea un account</a></p>
+            
         </form>
-
+    </div>
+        <div class="login-img">
+            <img src="../images/login/login.png" alt="login-img">
+        </div>
     </main>
-
+</div>
 </body>
 
 </html>

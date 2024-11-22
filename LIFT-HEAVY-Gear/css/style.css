@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     background-color: #222;
@@ -35,13 +36,52 @@ header>a.right {
     text-decoration: none;
 }
 
-.search-form {
+.login-main{
+    color: #fff;
+    padding: 0 5%;
     text-align: center;
 }
+.login-form{
+    text-align: left;
+    margin: 0 15%;
+}
+.login-form input{
+    border-color: #fff;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: #222;
+    padding: 11px 6%;
+    height: 17px; 
+}
+button{
+    align-items: center;
+    width: 100%;
+    height: 16px;
+    padding: 5% 12px;
+    border-radius: 10px;
+    border-color: #BDBDFF;
+    border: 2px;
+    border-style: solid;
+    background-color: #BDBDFF;
+    color: #fff;
+}
 
+.login-img{
+    width: 360px;
+    height: 152px;
+
+}
+.login-img>img{
+    padding-top: 80px;
+    margin:  0 10%;
+    width: 360px;
+    height: 72px;
+
+
+}
 /*CSS DESKTOP*/
 @media screen and (min-width:768px) {
     body {
-        background-color: #FFF;
+        background-color: #fff;
     }
 }
