@@ -17,6 +17,7 @@ body {
 }
 
 body svg {
+    color: #fff;
     fill: none;
     width: 24px;
     height: 24px;
@@ -250,8 +251,8 @@ button {
 
 .cart-header-title {
     display: flex;
-    align-items: center; 
-    gap: 10px; 
+    align-items: center;
+    gap: 10px;
     font-family: 'Arimo';
     font-size: 30px;
     margin-bottom: 50px;
@@ -260,27 +261,28 @@ button {
 /* Icona accanto al titolo */
 
 .cart-header-icon {
-    color: #fff; 
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
-    width: auto; 
+    width: auto;
     height: auto;
 }
 
-.cart-header-icon > a {
+.cart-header-icon>a {
     display: flex;
-    align-items: center; /* Centra l'icona */
+    align-items: center;
+    /* Centra l'icona */
     justify-content: center;
-    width: 46px; /* Dimensione dell'icona */
+    width: 46px;
+    /* Dimensione dell'icona */
     height: 46px;
     cursor: pointer;
 }
 
-.cart-header-sub-title{
+.cart-header-sub-title {
     font-family: 'Libre Franklin';
     font-size: 20px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     text-align: left;
 }
 
@@ -289,11 +291,11 @@ button {
 .cart-table-product,
 .cart-table-total {
     font-family: 'Libre Franklin';
-    table-layout: fixed; 
-    width: 100%; 
+    table-layout: fixed;
+    width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 /* Intestazioni e celle */
@@ -302,21 +304,27 @@ button {
 .cart-table-product td,
 .cart-table-total th,
 .cart-table-total td {
-    width: 33.33%; 
-    text-align: left; 
-    padding: 10px; 
-    box-sizing: border-box; 
+    width: 33.33%;
+    text-align: left;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 /* Solo per le celle numeriche: allinea a destra */
 .cart-table-product td:nth-child(2),
-.cart-table-product td:nth-child(3){
+.cart-table-product td:nth-child(3) {
     text-align: right;
 }
-.cart-table-product th:nth-child(2), /* Intestazione "Quantità" */
-.cart-table-product th:nth-child(3)  /* Intestazione "Prezzo" */ {
-    text-align: right; 
+
+.cart-table-product th:nth-child(2),
+/* Intestazione "Quantità" */
+.cart-table-product th:nth-child(3)
+
+/* Intestazione "Prezzo" */
+    {
+    text-align: right;
 }
+
 .cart-table-total td:nth-child(2) {
     text-align: right;
 }
@@ -325,12 +333,12 @@ button {
 
 .cart-table-product tr,
 .cart-table-total tr {
-    border-bottom: 1px solid #fff; 
+    border-bottom: 1px solid #fff;
 }
 
 .cart-table-product tr:last-child,
 .cart-table-total tr:last-child {
-    border-bottom: none; 
+    border-bottom: none;
 
 }
 
@@ -348,23 +356,25 @@ button {
 .cart-checkout-button {
     background-color: #BDBDFF;
     color: #fff;
-    padding: 15px 20px; 
+    padding: 15px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    display: flex; /* Flexbox attivato */
-    justify-content: center; 
-    align-items: center; 
-    width: 200px; 
+    display: flex;
+    /* Flexbox attivato */
+    justify-content: center;
+    align-items: center;
+    width: 200px;
     margin: 0 auto;
     text-align: center;
 
 }
 
 .cart-checkout-button:hover {
-    background-color: #9C9CFF; 
+    background-color: #9C9CFF;
 
 }
+
 /*END CART*/
 
 
