@@ -1,0 +1,340 @@
+/* HEADER */
+.header-menu {
+    display: block;
+    float: left;
+    align-content: center;
+    width: 25%;
+    height: 46px;
+}
+
+.header-menu>a {
+    display: block;
+    float: left;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* MENU HIDDEN */
+.hidden {
+    display: none;
+}
+
+.header-menu ul {
+    background-color: #333;
+    list-style: none;
+    width: 60%;
+    height: 100%;
+    padding: 10px 5%;
+    position: absolute;
+    top: 115px;
+    left: 0px;
+    box-shadow: 0 4px 8px #000;
+}
+
+.header-menu ul li {
+    margin-bottom: 10px;
+}
+
+.header-menu ul li a {
+    color: #fff;
+    font-family: 'Arimo';
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    border-bottom: #fff;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+.header-menu ul li a:hover {
+    background-color: #555;
+}
+
+
+.header-logo {
+    float: left;
+    text-align: center;
+    width: 50%;
+    height: 46px;
+}
+
+.header-logo>a {
+    display: inline-block;
+    width: 150px;
+    height: 46px;
+    cursor: pointer;
+}
+
+.header-logo>a>img {
+    width: 150px;
+    height: 46px;
+}
+
+.header-icon {
+    float: right;
+    text-align: right;
+    align-content: center;
+    width: 25%;
+    height: 46px;
+}
+
+.header-icon>a {
+    display: inline-block;
+    align-items: right;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.header-search {
+    background-color: #474747;
+    display: inline-block;
+    align-content: center;
+    text-align: center;
+    background-clip: padding-box;
+    border-color: #fff;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 0px;
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+}
+
+.header-search>span {
+    float: left;
+    padding: 8px 0 8px 1%;
+}
+
+.header-search>input {
+    background-color: #474747;
+    color: #fff;
+    float: inline-start;
+    border: none;
+    outline-color: #fff;
+    outline-offset: -2px;
+    outline-width: 0px;
+    font-size: 15px;
+    width: 85%;
+    height: 40px;
+    padding: 11px 0 11px 2%;
+    cursor: text;
+}
+
+/* END HEADER */
+
+
+/* FOOTER */
+
+
+footer>.social,
+footer>.pagamenti {
+    border-bottom: #222;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+footer>.social>h2 {
+    font-size: 16px;
+}
+
+footer>.social>span {
+    width: 24px;
+    height: 24px;
+}
+
+footer>.copyright a {
+    color: #333;
+    font-size: 12px;
+    text-decoration: underline;
+    padding: 0 1%;
+    cursor: pointer;
+}
+
+/* END FOOTER */
+
+
+
+/* LOGIN */
+.login-main {
+    display: block;
+    background: #222;
+    color: #fff;
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.login-form {
+    display: block;
+    text-align: left;
+    margin: 0 15%;
+}
+
+.login-form input {
+    border-color: #fff;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: #222;
+    padding: 11px 6%;
+    height: 17px;
+}
+
+.login-main img {
+
+    margin: 0 10%;
+    width: 360px;
+    height: 72px;
+
+
+}
+
+/* END LOGIN */
+
+/* CART */
+.cart-main {
+    display: block;
+    background: #222;
+    color: #fff;
+    padding: 50px 5%;
+    text-align: center;
+
+}
+
+/* Titolo dell'intestazione */
+
+.cart-header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Arimo';
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+/* Icona accanto al titolo */
+
+.cart-header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+}
+
+.cart-header-icon>a {
+    display: flex;
+    align-items: center;
+    /* Centra l'icona */
+    justify-content: center;
+    width: 46px;
+    /* Dimensione dell'icona */
+    height: 46px;
+    cursor: pointer;
+}
+
+.cart-header-sub-title {
+    font-family: 'Libre Franklin';
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Tabelle: impostazioni generali */
+
+.cart-table-product,
+.cart-table-total {
+    font-family: 'Libre Franklin';
+    table-layout: fixed;
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Intestazioni e celle */
+
+.cart-table-product th,
+.cart-table-product td,
+.cart-table-total th,
+.cart-table-total td {
+    width: 33.33%;
+    text-align: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Solo per le celle numeriche: allinea a destra */
+.cart-table-product td:nth-child(2),
+.cart-table-product td:nth-child(3) {
+    text-align: right;
+}
+
+.cart-table-product th:nth-child(2),
+/* Intestazione "Quantità" */
+.cart-table-product th:nth-child(3)
+
+/* Intestazione "Prezzo" */
+    {
+    text-align: right;
+}
+
+.cart-table-total td:nth-child(2) {
+    text-align: right;
+}
+
+/* Righe e bordi */
+
+.cart-table-product tr,
+.cart-table-total tr {
+    border-bottom: 1px solid #fff;
+}
+
+.cart-table-product tr:last-child,
+.cart-table-total tr:last-child {
+    border-bottom: none;
+
+}
+
+/* Intestazioni in maiuscolo */
+
+.cart-table-product th,
+.cart-table-total th {
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+/* Pulsante checkout */
+
+.cart-checkout-button {
+    background-color: #BDBDFF;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    /* Flexbox attivato */
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+.cart-checkout-button:hover {
+    background-color: #9C9CFF;
+
+}
+
+/*END CART*/
+
+
+/*CSS DESKTOP*/
+@media screen and (min-width:768px) {
+    body {
+        background-color: #680606;
+    }
+}
