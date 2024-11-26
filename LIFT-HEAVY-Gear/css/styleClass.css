@@ -161,31 +161,49 @@ footer>.copyright a {
     display: block;
     background: #222;
     color: #fff;
-    padding: 50px 5%;
+    padding: 50px 10%; 
     text-align: center;
+    margin: 0 auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .login-form {
     display: block;
     text-align: left;
-    margin: 0 15%;
+    margin: 20px auto; 
+    width: 80%; 
 }
 
 .login-form input {
+    display: block; 
+    width: 100%; 
     border-color: #fff;
     border-style: solid;
+    border-width: 1px;
     border-radius: 10px;
     background-color: #222;
-    padding: 11px 6%;
-    height: 17px;
+    color: #fff; 
+    padding: 15px; 
+    font-size: 16px; 
+    margin-bottom: 20px; 
+    box-sizing: border-box; 
+}
+.login-form input[type="checkbox"] {
+    display: inline-block; 
+    width: 15px;
+    height: 15px;
+    accent-color: #b0a5ff; 
+    cursor: pointer;
+}
+.login-main img {
+    display: block; 
+    margin: 0 auto 30px; 
+    width: 50%; 
+    max-width: 360px; 
+    height: auto; 
 }
 
-.login-main img {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 360px;
-    height: 72px;
-}
 
 /* END LOGIN */
 
@@ -220,8 +238,9 @@ footer>.copyright a {
     border-radius: 10px;
     background-color: #222;
     padding: 5px 6%;
-    height: 30px;
+    height: 40px;
     width: 600px;
+    color: #fff;
 }
 .registrazione-main img {
     margin: 20px 20px;
