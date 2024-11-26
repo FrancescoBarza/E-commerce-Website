@@ -93,16 +93,25 @@ footer>section {
 /* LOGIN */
 
 button {
-    align-items: center;
-    width: 100%;
-    height: 16px;
-    padding: 5% 12px;
-    border-radius: 10px;
-    border-color: #BDBDFF;
-    border: 2px;
-    border-style: solid;
     background-color: #BDBDFF;
     color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    /* Flexbox attivato */
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 40px;
+}
+
+button:hover {
+    background-color: #9C9CFF;
+
 }
 
 /* END LOGIN */

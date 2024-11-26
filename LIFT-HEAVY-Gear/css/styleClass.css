@@ -181,16 +181,53 @@ footer>.copyright a {
 }
 
 .login-main img {
-
-    margin: 0 10%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 360px;
     height: 72px;
-
-
 }
 
 /* END LOGIN */
 
+/* REGISTRAZIONE */
+.registrazione-main {
+    display: block;
+    background: #222;
+    color: #fff;
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.registrazione-form {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin: 5px;
+}
+.registrazione-form label {
+    display: block; 
+    text-align: left; 
+    margin-bottom: 0px; 
+    font-size: 16px; 
+    font-weight: bold; 
+}
+
+.registrazione-form input {
+    display: block; 
+    margin-bottom: 15px; 
+    border-color: #fff;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: #222;
+    padding: 5px 6%;
+    height: 30px;
+    width: 600px;
+}
+.registrazione-main img {
+    margin: 20px 20px;
+    width: 360px;
+    height: 72px;
+}
 /* CART */
 .cart-main {
     display: block;
