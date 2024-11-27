@@ -6,7 +6,6 @@
     margin: 0;
     padding: 0;
 }
-
 /* END GENERAL*/
 
 
@@ -22,8 +21,52 @@ body svg {
     width: 24px;
     height: 24px;
 }
-
 /* END BODY */
+
+
+/* LOGIN E RAGISTRAZIONE*/
+form{
+    display: block;
+    text-align: left;
+    margin: 0 auto; 
+    width: 80%; 
+}
+ form a {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+
+ }
+ form input {
+    display: block; 
+    width: 100%; 
+    border-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: #222;
+    color: #fff; 
+    padding: 15px; 
+    font-size: 16px; 
+    margin-bottom: 20px; 
+    box-sizing: border-box;
+    cursor: text; 
+}
+form input[type="checkbox"] {
+    display: inline-block; 
+    width: 15px;
+    height: 15px;
+    accent-color: #b0a5ff; 
+    cursor: pointer;
+}
+main img {
+    display: block; 
+    margin: 0 auto 30px; 
+    width: 50%; 
+    max-width: 360px; 
+    height: auto; 
+}
+/* FINE LOGIN E RAGISTRAZIONE*/
 
 
 /* HEADER */
@@ -70,7 +113,6 @@ h3 {
 }
 
 /* END MAIN */
-
 
 /* FOOTER */
 footer {

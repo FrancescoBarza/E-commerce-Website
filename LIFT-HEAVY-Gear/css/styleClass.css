@@ -51,7 +51,6 @@
     background-color: #555;
 }
 
-
 .header-logo {
     float: left;
     text-align: center;
@@ -121,13 +120,10 @@
     padding: 11px 0 11px 2%;
     cursor: text;
 }
-
 /* END HEADER */
 
 
 /* FOOTER */
-
-
 footer>.social,
 footer>.pagamenti {
     border-bottom: #222;
@@ -151,112 +147,9 @@ footer>.copyright a {
     padding: 0 1%;
     cursor: pointer;
 }
-
 /* END FOOTER */
 
 
-
-/* LOGIN */
-.login-main {
-    display: block;
-    background: #222;
-    color: #fff;
-    padding: 50px 10%; 
-    text-align: center;
-    margin: 0 auto; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.login-form {
-    display: block;
-    text-align: left;
-    margin: 20px auto; 
-    width: 80%; 
-}
-
-.login-form input {
-    display: block; 
-    width: 100%; 
-    border-color: #fff;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    background-color: #222;
-    color: #fff; 
-    padding: 15px; 
-    font-size: 16px; 
-    margin-bottom: 20px; 
-    box-sizing: border-box; 
-}
-.login-form input[type="checkbox"] {
-    display: inline-block; 
-    width: 15px;
-    height: 15px;
-    accent-color: #b0a5ff; 
-    cursor: pointer;
-}
-.login-main img {
-    display: block; 
-    margin: 0 auto 30px; 
-    width: 50%; 
-    max-width: 360px; 
-    height: auto; 
-}
-
-
-/* END LOGIN */
-
-/* REGISTRAZIONE */
-.registrazione-main {
-    display: block;
-    background: #222;
-    color: #fff;
-    padding: 50px 10%; 
-    text-align: center;
-    margin: 0 auto; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.registrazione-form {
-    display: block;
-    text-align: left;
-    margin: 20px auto; 
-    width: 80%; 
-}
-
-
-.registrazione-form label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.registrazione-form input {
-    display: block; 
-    width: 100%; 
-    border-color: #fff;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 10px;
-    background-color: #222;
-    color: #fff; 
-    padding: 15px; 
-    font-size: 16px; 
-    margin-bottom: 20px; 
-    box-sizing: border-box; 
-}
-
-
-.registrazione-main img {
-    margin: 20px auto;
-    width: 100%;
-    max-width: 360px; /* Limita la larghezza dell'immagine */
-    height: auto; /* Mantiene proporzioni */
-}
 /* CART */
 .cart-main {
     display: block;
@@ -268,7 +161,6 @@ footer>.copyright a {
 }
 
 /* Titolo dell'intestazione */
-
 .cart-header-title {
     display: flex;
     align-items: center;
@@ -279,7 +171,6 @@ footer>.copyright a {
 }
 
 /* Icona accanto al titolo */
-
 .cart-header-icon {
     display: flex;
     align-items: center;
@@ -307,7 +198,6 @@ footer>.copyright a {
 }
 
 /* Tabelle: impostazioni generali */
-
 .cart-table-product,
 .cart-table-total {
     font-family: 'Libre Franklin';
@@ -319,7 +209,6 @@ footer>.copyright a {
 }
 
 /* Intestazioni e celle */
-
 .cart-table-product th,
 .cart-table-product td,
 .cart-table-total th,
@@ -350,7 +239,6 @@ footer>.copyright a {
 }
 
 /* Righe e bordi */
-
 .cart-table-product tr,
 .cart-table-total tr {
     border-bottom: 1px solid #fff;
@@ -363,7 +251,6 @@ footer>.copyright a {
 }
 
 /* Intestazioni in maiuscolo */
-
 .cart-table-product th,
 .cart-table-total th {
     font-weight: bold;
@@ -372,7 +259,6 @@ footer>.copyright a {
 }
 
 /* Pulsante checkout */
-
 .cart-checkout-button {
     background-color: #BDBDFF;
     color: #fff;
@@ -394,7 +280,6 @@ footer>.copyright a {
     background-color: #9C9CFF;
 
 }
-
 /*END CART*/
 
 
