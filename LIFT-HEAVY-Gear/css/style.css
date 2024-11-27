@@ -59,7 +59,7 @@ form input[type="checkbox"] {
     accent-color: #b0a5ff; 
     cursor: pointer;
 }
-main img {
+main section img {
     display: block; 
     margin: 0 auto 30px; 
     width: 50%; 
@@ -92,11 +92,15 @@ header svg {
 main {
     background: #222;
     color: #fff;
-    padding: 50px 5%;
+    padding: 50px 0;
 }
-main>section img{
-    width: 30%;
-    height: auto;
+
+section{
+    padding: 0 5%;
+}
+main>img{
+    width: 100%;
+    height: 200px;
 }
 
 h1 {
