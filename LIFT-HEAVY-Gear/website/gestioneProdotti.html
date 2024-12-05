@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/styleClass.css" />
 
-    <title>LIFT HEAVY Gear</title>
+    <title>Prodotti Venditore</title>
     <link rel="icon" href="../images/icons/Logo_Icon.ico" />
 </head>
 
@@ -73,53 +73,82 @@
     </header>
     <!-- END HEADER -->
     <main>
-        <img src="../images/uploads/home_sheffield.png" alt="">
         <section>
+            <h1></span> I MIEI PRODOTTI</h1>
+            <!-- Prodotti -->
             <div class="product">
                 <img src="../images/uploads/eleiko-comp-bar.png" alt="Immagine prodotto" />
-                <h3><a href="prodotto.html">Nome Prodotto</a></h3>
+                <h3><a href="./prodotto.html">Nome Prodotto</a></h3>
                 <p class="price">19.99€</p>
                 <p>Some text about..</p>
-                <p><button type="button"><span class="fas fa-cart-plus"></span></button>
-                    <button type="button"><span class="fas fa-heart"></span></button>
-                </p>
+                <p>Quantità: 100</p>
+                <p class="rifornisci"><span>Rifornisci</span></p>
+                <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                <button type="submit" style="width: 100%; margin-bottom: 0;">Invio</span></button>
             </div>
             <div class="product">
-                <img src="../images/uploads/strengthshop-ipf-bastard.png" alt="Immagine prodotto" />
-                <h3><a href="prodotto.html">Nome Prodotto</a></h3>
+                <img src="../images/uploads/eleiko-comp-bar.png" alt="Immagine prodotto" />
+                <h3><a href="./prodotto.html">Nome Prodotto</a></h3>
                 <p class="price">19.99€</p>
                 <p>Some text about..</p>
-                <p><button type="button"><span class="fas fa-cart-plus"></span></button>
-                    <button type="button"><span class="fas fa-heart"></span></button>
-                </p>
+                <p>Quantità: 100</p>
+                <p class="rifornisci"><span>Rifornisci</span></p>
+                <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                <button type="submit" style="width: 100%; margin-bottom: 0;">Invio</span></button>
             </div>
             <div class="product">
-                <img src="../images/uploads/safety.png" alt="Immagine prodotto" />
-                <h3><a href="prodotto.html">Nome Prodotto</a></h3>
+                <img src="../images/uploads/eleiko-comp-bar.png" alt="Immagine prodotto" />
+                <h3><a href="./prodotto.html">Nome Prodotto</a></h3>
                 <p class="price">19.99€</p>
                 <p>Some text about..</p>
-                <p><button type="button"><span class="fas fa-cart-plus"></span></button>
-                    <button type="button"><span class="fas fa-heart"></span></button>
-                </p>
+                <p>Quantità: 100</p>
+                <p class="rifornisci"><span>Rifornisci</span></p>
+                <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                <button type="submit" style="width: 100%; margin-bottom: 0;">Invio</span></button>
             </div>
-            <div class="product">
-                <img src="../images/uploads/strengthshop-ez.png" alt="Immagine prodotto" />
-                <h3><a href="prodotto.html">Nome Prodotto</a></h3>
-                <p class="price">19.99€</p>
-                <p>Some text about..</p>
-                <p><button type="button"><span class="fas fa-cart-plus"></span></button>
-                    <button type="button"><span class="fas fa-heart"></span></button>
-                </p>
+            <button class="add-button" type="button"
+                onclick="document.getElementById('aggiunta').style.display='block'">Aggiungi un nuovo prodotto</button>
+            <div id="aggiunta" class="modal">
+                <span onclick="document.getElementById('aggiunta').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+                <form class="modal-content" action="#">
+                    <div class="container">
+                        <h1>Aggiunta prodotto</h1>
+                        <p>Completa i seguenti campi per aggiungere un nuovo prodotto.</p>
+                        <hr>
+                        <label for="nome"><b>Nome</b></label>
+                        <input type="text" placeholder="Inserisci Nome Prodotto" name="nome" required>
+
+                        <label for="prezzo"><b>Prezzo</b></label>
+                        <input type="prezzo" placeholder="Inserisci Prezzo" name="prezzo" required>
+
+                        <label for="immagine"><b>Immagine prodotto:</b></label>
+                        <input type="file" name="immagine" id="immagine" required />
+
+                        <label for="descrizione"><b>Descrizione:</b></label>
+                        <br>
+                        <textarea class="form-control" name="descrizione" id="descrizione" required></textarea>
+                        <br>
+
+                        <label for="quantita">Quantità; disponibile in magazzino: </label>
+                        <input type="number" id="quantita" name="quantita" min="1" value="1" required />
+
+                        <button type="submit">Aggiungi</button>
+                    </div>
+                </form>
             </div>
-            <div class="product">
-                <img src="../images/uploads/ipf-collars.png" alt="Immagine prodotto" />
-                <h3><a href="prodotto.html">Nome Prodotto</a></h3>
-                <p class="price">19.99€</p>
-                <p>Some text about..</p>
-                <p><button type="button"><span class="fas fa-cart-plus"></span></button>
-                    <button type="button"><span class="fas fa-heart"></span></button>
-                </p>
-            </div>
+            <script>
+
+                // Get the modal
+                var modal = document.getElementById('aggiunta');
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
         </section>
     </main>
     <footer>

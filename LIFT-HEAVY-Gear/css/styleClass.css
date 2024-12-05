@@ -1,4 +1,4 @@
-/* HEADER */
+/* Header */
 .header-menu {
     display: block;
     float: left;
@@ -15,7 +15,7 @@
     cursor: pointer;
 }
 
-/* MENU HIDDEN */
+/* Menu nascosto */
 .hidden {
     display: none;
 }
@@ -120,10 +120,8 @@
     padding: 11px 0 11px 2%;
     cursor: text;
 }
-/* END HEADER */
 
-
-/* FOOTER */
+/* Footer */
 footer>.social,
 footer>.pagamenti {
     border-bottom: #222;
@@ -147,10 +145,8 @@ footer>.copyright a {
     padding: 0 1%;
     cursor: pointer;
 }
-/* END FOOTER */
 
-
-/* CART */
+/* cart.html */
 .cart-main {
     display: block;
     background: #222;
@@ -280,7 +276,86 @@ footer>.copyright a {
     background-color: #9C9CFF;
 
 }
-/*END CART*/
+
+/* areaCliente.html , areaVenditore.html*/
+.card {
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 2%;
+    width: 100%;
+    height: 40px;
+}
+
+.card a {
+    margin-left: 1%;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Prodotti */
+.product {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 49%;
+    margin: 2% auto;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.product img {
+    width: 200px;
+    height: 170px;
+    margin-top: 2%;
+}
+
+.product a {
+    text-decoration: none;
+    color: black;
+}
+
+.price {
+    color: grey;
+    font-size: 22px;
+}
+
+.product input {
+    max-width: 40%;
+    padding: 6px;
+    margin-bottom: 5%;
+    border-radius: 8px;
+}
+
+.product form {
+    display: inline-block;
+    width: 45%;
+}
+
+.product button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 2%;
+}
+
+.product button:hover {
+    opacity: 0.7;
+}
+
+.add-button {
+    background-color: #caff70;
+    color: black;
+    padding: 14px 20px;
+    margin: 10% 0 0;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+}
 
 
 /*CSS DESKTOP*/
