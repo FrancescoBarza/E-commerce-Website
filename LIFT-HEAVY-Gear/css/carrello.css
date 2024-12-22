@@ -139,11 +139,13 @@
 table{
     width: 100%;
     border-spacing: 0;   /*tolgo lo spazio tra i bordi delle celle*/
-    border-collapse: collapse;
+    border-collapse: separate;
     text-align: center;  
     background-color: #222;  
     margin-bottom: 5%;
     border: 1px solid white;
+    border-radius: 10px; /* Applica border-radius */
+    overflow: hidden; 
 }
 
 table img{
