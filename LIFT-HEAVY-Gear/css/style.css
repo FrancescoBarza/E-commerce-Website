@@ -58,30 +58,35 @@ form input {
 }
 
 form label {
-    font-size: 16px; /* Dimensione leggibile */
-    display: block; /* Posiziona la label su una riga propria */
-    margin-bottom: 5px; /* Margine sotto la label */
+    font-size: 16px;
+    /* Dimensione leggibile */
+    display: block;
+    /* Posiziona la label su una riga propria */
+    margin-bottom: 5px;
+    /* Margine sotto la label */
 }
 
 /* Stile specifico per la label con la checkbox */
 form .checkbox-label {
-    display: flex; 
-    align-items: baseline; 
-    gap: 8px; 
-    cursor: pointer; 
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    cursor: pointer;
 }
 
 form input[type="checkbox"] {
-    width: 20px; 
-    height: 20px; 
-    accent-color: #b0a5ff;
-    cursor: pointer; 
+    width: 20px;
+    height: 20px;
+    accent-color: #000000;
+    cursor: pointer;
     transform: translateY(4px);
 }
 
 form .checkbox-label span {
-    line-height: 20px; /* Altezza del testo uguale alla checkbox */
+    line-height: 20px;
+    /* Altezza del testo uguale alla checkbox */
 }
+
 /* Stile checkbox */
 main section img {
     display: block;
@@ -127,6 +132,7 @@ section {
 main>img {
     width: 100%;
     height: auto;
+    margin-bottom: 5px;
 }
 
 h1 {
@@ -165,7 +171,7 @@ footer>section {
 /* LOGIN */
 
 button {
-    background-color: #BDBDFF;
+    background-color: #000000;
     color: #fff;
     padding: 15px 20px;
     border: none;
@@ -182,7 +188,7 @@ button {
 }
 
 button:hover {
-    background-color: #9C9CFF;
+    background-color: #000000;
 
 }
 

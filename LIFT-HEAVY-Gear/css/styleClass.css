@@ -273,7 +273,7 @@ footer>.copyright a {
 }
 
 .cart-checkout-button:hover {
-    background-color: #9C9CFF;
+    background-color: #000000;
 
 }
 
@@ -294,8 +294,9 @@ footer>.copyright a {
 }
 
 /* Prodotti */
-.product {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.prodotto {
+    background-color: #333;
+    border-width: 2px;
     width: 49%;
     margin: 2% auto;
     text-align: center;
@@ -303,53 +304,58 @@ footer>.copyright a {
     vertical-align: top;
 }
 
-.product img {
+.prodotto img {
     width: 200px;
     height: 170px;
     margin-top: 2%;
 }
 
-.product a {
+.prodotto a {
     text-decoration: none;
-    color: black;
+    color: #fff;
 }
 
 .price {
-    color: grey;
+    color: #fff;
     font-size: 22px;
 }
 
-.product input {
+.prodotto input {
     max-width: 40%;
     padding: 6px;
     margin-bottom: 5%;
     border-radius: 8px;
 }
 
-.product form {
+.prodotto form {
     display: inline-block;
     width: 45%;
 }
 
-.product button {
+.prodotto button {
     border: none;
     outline: 0;
     padding: 12px;
     color: white;
-    background-color: #000;
+    background-color: #000000;
     text-align: center;
     cursor: pointer;
     font-size: 18px;
     margin-bottom: 2%;
 }
 
-.product button:hover {
+.prodotto button:hover {
     opacity: 0.7;
 }
 
+.modal {
+    background-color: #333;
+    width: 100%;
+}
+
 .add-button {
-    background-color: #caff70;
-    color: black;
+    background-color: #000000;
+    color: #fff;
     padding: 14px 20px;
     margin: 10% 0 0;
     border: none;
@@ -357,6 +363,23 @@ footer>.copyright a {
     cursor: pointer;
 }
 
+/* Ordini*/
+.ordine button a {
+    color: #fff;
+}
+
+/* Notifiche*/
+.notifica {
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 2%;
+    width: 100%;
+}
+
+.notifica>form {
+    margin: 0;
+    padding: 0;
+}
 
 /*CSS DESKTOP*/
 @media screen and (min-width:768px) {
