@@ -13,7 +13,7 @@
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/styleClass.css" />
+    <link rel="stylesheet" href="../css/carrello.css" />
 
     <title>Carrello</title>
     <link rel="icon" href="../images/icons/Logo_Icon.ico" />
@@ -73,53 +73,150 @@
     <!-- END HEADER -->
     <div class="cart-main">
         <main>
-            <section>
-                <h1 class="cart-header-title">
-                    <div class="cart-header-icon">
-                        <a href="./cart.html">
-                            <svg>
-                                <path fill="currentColor"
-                                    d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-                    IL TUO CARRELLO
-                </h1>
-                <table class="cart-table-product">
-                    <tr>
-                        <th id="Prodotto">Prodotto</th>
-                        <th id="Quantità">Quantità</th>
-                        <th id="Prezzo">Prezzo</th>
-                    </tr>
-                    <tr>
-                        <td headers="Prodotto">Lever Belt</td>
-                        <td headers="Quantità">1</td>
-                        <td headers="Prezzo">€ 100.00</td>
-                    </tr>
-                    <tr>
-                        <td headers="Prodotto">Straps</td>
-                        <td headers="Quantità">1</td>
-                        <td headers="Prezzo">€ 50.00</td>
-                    </tr>
+            <h1><span class="fas fa-shopping-cart"></span> Carrello</h1>
+            <div class="table-div">
+              <div>
+                <table>
+                  <thead>
+                      <tr>
+                        <th id="img"></th><th id="articolo">Articolo</th></th><th id="prezzo">Prezzo</th><th id="quantita">Quantit&agrave;</th><th id="button"></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td headers="img">
+                            <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto"/></a>
+                          </td>
+                          <td headers="articolo">
+                            <a href="#">Nome Prodotto</a>
+                          </td>
+                          <td headers="prezzo">
+                              <p>10,50€</p>
+                          </td>
+                          <td headers="quantita">
+                              <input type="number" id="quantita" name="quantita" min="1" value="1"/>
+                          </td>
+                          <td headers="button">
+                            <button type="button"><span class="fas fa-heart"></span></button>
+                            <button type="button"><span class="fas fa-trash"></span></button>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td headers="img">
+                          <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto"/></a>
+                        </td>
+                        <td headers="articolo">
+                          <a href="#">Nome Prodotto</a>
+                        </td>
+                        <td headers="prezzo">
+                            <p>10,50€</p>
+                        </td>
+                        <td headers="quantita">
+                            <input type="number" id="quantita" name="quantita" min="1" value="1"/>
+                        </td>
+                        <td headers="button">
+                          <button type="button"><span class="fas fa-heart"></span></button>
+                          <button type="button"><span class="fas fa-trash"></span></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td headers="img">
+                          <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto"/></a>
+                        </td>
+                        <td headers="articolo">
+                          <a href="#">Nome Prodotto</a>
+                        </td>
+                        <td headers="prezzo">
+                            <p>10,50€</p>
+                        </td>
+                        <td headers="quantita">
+                            <input type="number" id="quantita" name="quantita" min="1" value="1"/>
+                        </td>
+                        <td headers="button">
+                          <button type="button"><span class="fas fa-heart"></span></button>
+                          <button type="button"><span class="fas fa-trash"></span></button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td headers="img">
+                          <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto"/></a>
+                        </td>
+                        <td headers="articolo">
+                          <a href="#">Nome Prodotto</a>
+                        </td>
+                        <td headers="prezzo">
+                            <p>10,50€</p>
+                        </td>
+                        <td headers="quantita">
+                            <input type="number" id="quantita" name="quantita" min="1" value="1"/>
+                        </td>
+                        <td headers="button">
+                          <button type="button"><span class="fas fa-heart"></span></button>
+                          <button type="button"><span class="fas fa-trash"></span></button>
+                        </td>
+                      </tr>
+                  </tbody>
                 </table>
-                <h2 class="cart-header-sub-title">Totale</h2>
-                <table class="cart-table-total">
-                    <tr>
-                        <th id="Subtotal">Subtotale</th>
-                        <td id="Amount">€ 150.00</td>
-                    </tr>
-                    <tr>
-                        <th id="Shipping">Spedizione</th>
-                        <td id="Shipping-amount">€ 0.00</td>
-                    </tr>
-                    <tr>
-                        <th id="Total">Totale</th>
-                        <td id="Total-amount">€ 150.00</td>
-                    </tr>
-                </table>
-                <button class="cart-checkout-button">Procedi al checkout</button>
-            </section>
+              </div>
+                <div class="container">
+                  <h4>Riepilogo ordine <span class="prezzo" style="color:white"><span class="fa fa-shopping-cart"></span> <b>4</b></span></h4>
+                  <p><a href="#">Prodotto 1</a> <span class="prezzo">$15</span></p>
+                  <p><a href="#">Prodotto 2</a> <span class="prezzo">$5</span></p>
+                  <p><a href="#">Prodotto 3</a> <span class="prezzo">$8</span></p>
+                  <p><a href="#">Prodotto 4</a> <span class="prezzo">$2</span></p>
+                  <hr>
+                  <p>Totale <span class="prezzo" style="color:white"><b>$30</b></span></p>
+                </div>
+            </div>
+            <!--Riepilogo-->
+            <div class="row">
+                <div class="col-75">
+                  <div class="container">
+                    <form action="#">
+                      <div class="row">
+                        <div class="col-50">
+                          <h3>Indirizzo di fatturazione: </h3>
+                          <label for="indirizzo"><i class="fa fa-address-card-o"></i> Indirizzo</label>
+                          <input type="text" id="indirizzo" name="address" placeholder="Via dell'Università, 50">
+                          <label for="citta"><i class="fa fa-institution"></i> Citt&agrave;</label>
+                          <input type="text" id="citta" name="citta" placeholder="Cesena">
+              
+                          <div class="row">
+                            <div class="col-50">
+                              <label for="cap">Cap</label>
+                              <input type="text" id="cap" name="cap" placeholder="47125">
+                            </div>
+                          </div>
+                        </div>
+              
+                        <div class="col-50">
+                          <h3>Metodo di Pagamento</h3>
+                          <label for="fname">Carte valide</label>
+                          <label for="cname">Titolare carta</label>
+                          <input type="text" id="titolare" name="titolare" placeholder="Mario Rossi">
+                          <label for="ccnum">Numero carta</label>
+                          <input type="text" id="numero" name="numero" placeholder="1111-2222-3333-4444">
+                          <label for="expmonth">Mese di scadenza</label>
+                          <input type="text" id="scadenzam" name="scadenzam" placeholder="Settembre">
+                          <div class="row">
+                            <div class="col-50">
+                              <label for="expyear">Anno di scadenza</label>
+                              <input type="text" id="scadenzaa" name="scadenzaa" placeholder="2022">
+                            </div>
+                            <div class="col-50">
+                              <label for="cvv">CVV</label>
+                              <input type="text" id="cvv" name="cvv" placeholder="123">
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <input type="submit" value="Procedi all'acquisto" class="btn">
+                    </form>
+                  </div>
+                </div>
+                
+              </div>
         </main>
     </div>
 
