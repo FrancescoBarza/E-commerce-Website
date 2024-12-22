@@ -125,18 +125,15 @@
     display: inline-block;
     justify-content: center;
     vertical-align: top;
-    border-radius: 10px;
+    
 }
 
 .table-div div:first-child {
     width: 75%;
-    border-radius: 10px;
-    
 }
 
 .table-div > .container {
     width: 23%;
-    border-radius: 10px;
 }
 
 table{
@@ -147,7 +144,6 @@ table{
     background-color: #222;  
     margin-bottom: 5%;
     border: 1px solid white;
-    border-radius: 20px;
 }
 
 table img{
@@ -227,7 +223,7 @@ label {
 }
   
 .btn {
-    background-color: #BDBDFF;
+    background-color: black;
     color: white;
     padding: 12px;
     margin: 10px 0;
@@ -239,7 +235,7 @@ label {
 }
   
 .btn:hover {
-    background-color: #9C9CFF;
+    background-color: black;
 }
   
   a {
