@@ -120,50 +120,53 @@
     padding: 11px 0 11px 2%;
     cursor: text;
 }
+
 /*Carrello*/
-.table-div div{
+.table-div div {
     display: inline-block;
     justify-content: center;
     vertical-align: top;
-    
+
 }
 
 .table-div div:first-child {
     width: 75%;
 }
 
-.table-div > .container {
+.table-div>.container {
     width: 23%;
 }
 
-table{
+table {
     width: 100%;
-    border-spacing: 0;   /*tolgo lo spazio tra i bordi delle celle*/
+    border-spacing: 0;
+    /*tolgo lo spazio tra i bordi delle celle*/
     border-collapse: separate;
-    text-align: center;  
-    background-color: #222;  
+    text-align: center;
+    background-color: #222;
     margin-bottom: 5%;
     border: 1px solid white;
-    border-radius: 10px; /* Applica border-radius */
-    overflow: hidden; 
+    border-radius: 10px;
+    /* Applica border-radius */
+    overflow: hidden;
 }
 
-table img{
+table img {
     max-width: 100px;
     float: left;
 }
 
-table th{
+table th {
     padding: 10px;
 }
 
-table td{
+table td {
     border-top: 1px solid white;
     padding: 10px;
     width: 20%;
 }
 
-table td p{
+table td p {
     margin: 1% 0;
 }
 
@@ -173,46 +176,51 @@ table button {
     padding: 5px 8px;
     margin: 5px;
     font-size: medium;
-    float: center; 
-    width: 60%; 
-    box-sizing: border-box; 
+    float: center;
+    width: 60%;
+    box-sizing: border-box;
 }
 
-table input{
+table input {
     max-width: 50px;
     padding: 6px;
     border-radius: 10px;
 }
 
 .row {
-    display: -ms-flexbox; /* IE10 */
+    display: -ms-flexbox;
+    /* IE10 */
     display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
+    -ms-flex-wrap: wrap;
+    /* IE10 */
     flex-wrap: wrap;
     margin: 0 -16px;
 }
 
 .col-50 {
-    -ms-flex: 50%; /* IE10 */
+    -ms-flex: 50%;
+    /* IE10 */
     flex: 50%;
 }
-  
+
 .col-75 {
-    -ms-flex: 75%; /* IE10 */
+    -ms-flex: 75%;
+    /* IE10 */
     flex: 75%;
 }
-  
-.col-50, .col-75 {
+
+.col-50,
+.col-75 {
     padding: 0 16px;
 }
-  
+
 .container {
     background-color: #222;
-    padding: 5px 20px 15px 20px;
+    padding: 3px;
     border: 1px solid white;
     border-radius: 10px;
 }
-  
+
 input[type=text] {
     width: 100%;
     margin-bottom: 20px;
@@ -220,12 +228,13 @@ input[type=text] {
     border: 1px solid white;
     border-radius: 10px;
 }
+
 label {
     margin-bottom: 10px;
     display: block;
     color: white;
 }
-  
+
 .btn {
     background-color: black;
     color: white;
@@ -237,35 +246,36 @@ label {
     cursor: pointer;
     font-size: 17px;
 }
-  
+
 .btn:hover {
     background-color: black;
 }
-  
-  a {
+
+a {
     text-decoration: none;
     color: white;
-  }
-  
-  hr {
+}
+
+hr {
     border: 1px solid white;
-  }
-  
-  span.prezzo {
+}
+
+span.prezzo {
     float: right;
     color: white;
-  }
+}
 
 .empty-cart span {
     font-size: 400%;
 }
 
-.empty-cart div, .empty-cart span {
+.empty-cart div,
+.empty-cart span {
     display: inline-block;
     margin: 0 5% 0 5%;
 }
 
-tr form button{
+tr form button {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -273,6 +283,7 @@ tr form button{
     padding: 1%;
     text-align: center;
 }
+
 /* Footer */
 footer>.social,
 footer>.pagamenti {
@@ -301,16 +312,16 @@ footer>.copyright a {
 /*CSS DESKTOP*/
 @media (max-width: 800px) {
     .row {
-      flex-direction: column-reverse;
+        flex-direction: column-reverse;
     }
 
-    .table-div div:first-child{
+    .table-div div:first-child {
         width: 100%;
     }
 
-    .table-div > .container {
+    .table-div>.container {
         margin-bottom: 15px;
         width: 100%;
     }
 
-  }
+}

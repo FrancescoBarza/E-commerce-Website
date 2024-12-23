@@ -3,245 +3,253 @@
 <html lang="it">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- FONT -->
-    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Libre%20Franklin' rel='stylesheet'>
-    <!-- Icone -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/carrello.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- FONT -->
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Libre%20Franklin' rel='stylesheet'>
+  <!-- Icone -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/carrello.css" />
 
-    <title>Carrello</title>
-    <link rel="icon" href="../images/icons/Logo_Icon.ico" />
+  <title>Carrello</title>
+  <link rel="icon" href="../images/icons/Logo_Icon.ico" />
 </head>
 
 <body>
-    <header>
-        <div class="header-menu">
-            <a href="#" id="menu-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 18L20 18" stroke="#fff" stroke-width="2" stroke-linecap="round" />
-                    <path d="M4 12L20 12" stroke="#fff" stroke-width="2" stroke-linecap="round" />
-                    <path d="M4 6L20 6" stroke="#fff" stroke-width="2" stroke-linecap="round" />
-                </svg>
-            </a>
-            <ul id="dropdown-menu" class="hidden">
-                <li><a href="../website/compBars.html">BILANCIERI DA COMPETIZIONE</a></li>
-                <li><a href="../website/specialBars.html">BILANCIERI SPECIALI</a></li>
-                <li><a href="../website/accessori.html">ACCESSORI</a></li>
-            </ul>
-        </div>
-
-        <div class="header-logo">
-            <a href="./index.html"><img src="../images/logos/Logo_Main.png" alt="logo" /></a>
-        </div>
-
-        <div class="header-icon">
-            <a href="./login.html">
-                <svg>
-                    <path fill="currentColor"
-                        d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.429a3.571 3.571 0 1 0 0 7.142 3.571 3.571 0 0 0 0-7.142zm0 10c2.558 0 5.114.471 7.664 1.411A3.571 3.571 0 0 1 22 18.19v3.096c0 .394-.32.714-.714.714H2.714A.714.714 0 0 1 2 21.286V18.19c0-1.495.933-2.833 2.336-3.35 2.55-.94 5.106-1.411 7.664-1.411zm0 1.428c-2.387 0-4.775.44-7.17 1.324a2.143 2.143 0 0 0-1.401 2.01v2.38H20.57v-2.38c0-.898-.56-1.7-1.401-2.01-2.395-.885-4.783-1.324-7.17-1.324z">
-
-                    </path>
-                </svg>
-            </a>
-            <a href="./cart.html">
-                <svg>
-                    <path fill="currentColor"
-                        d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
-                    </path>
-                </svg>
-            </a>
-        </div>
-
-        <div class="header-search">
-            <span>
-                <svg xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M19.9604 11.4802C19.9604 13.8094 19.0227 15.9176 17.5019 17.4512C16.9332 18.0247 16.2834 18.5173 15.5716 18.9102C14.3594 19.5793 12.9658 19.9604 11.4802 19.9604C6.79672 19.9604 3 16.1637 3 11.4802C3 6.79672 6.79672 3 11.4802 3C16.1637 3 19.9604 6.79672 19.9604 11.4802Z"
-                        stroke="#fff" stroke-width="2" />
-                    <path d="M18.1553 18.1553L21.8871 21.8871" stroke="#fff" stroke-width="2" stroke-linecap="round" />
-                </svg>
-            </span>
-            <input type="search" name="search" id="header-search" autocomplete="off" placeholder="Search..." />
-        </div>
-    </header>
-    <!-- END HEADER -->
-    <div class="cart-main">
-        <main>
-            <h1><span class="fas fa-shopping-cart"></span> Carrello</h1>
-            <div class="table-div">
-              <div>
-                <table>
-                  <thead>
-                      <tr>
-                        <th id="img"></th><th id="articolo">Articolo</th></th><th id="prezzo">Prezzo</th><th id="quantita">Quantit&agrave;</th><th id="button"></th>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                          <td headers="img">
-                            <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto"/></a>
-                          </td>
-                          <td headers="articolo">
-                            <a href="#">Nome Prodotto</a>
-                          </td>
-                          <td headers="prezzo">
-                              <p>10,50€</p>
-                          </td>
-                          <td headers="quantita">
-                              <input type="number" id="quantita" name="quantita" min="1" value="1"/>
-                          </td>
-                          <td headers="button">
-                            <button type="button"><span class="fas fa-trash"></span></button>
-                          </td>
-                      </tr>
-                      <tr>
-                        <td headers="img">
-                          <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto"/></a>
-                        </td>
-                        <td headers="articolo">
-                          <a href="#">Nome Prodotto</a>
-                        </td>
-                        <td headers="prezzo">
-                            <p>10,50€</p>
-                        </td>
-                        <td headers="quantita">
-                            <input type="number" id="quantita" name="quantita" min="1" value="1"/>
-                        </td>
-                        <td headers="button">
-                          <button type="button"><span class="fas fa-trash"></span></button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td headers="img">
-                          <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto"/></a>
-                        </td>
-                        <td headers="articolo">
-                          <a href="#">Nome Prodotto</a>
-                        </td>
-                        <td headers="prezzo">
-                            <p>10,50€</p>
-                        </td>
-                        <td headers="quantita">
-                            <input type="number" id="quantita" name="quantita" min="1" value="1"/>
-                        </td>
-                        <td headers="button">
-                          <button type="button"><span class="fas fa-trash"></span></button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td headers="img">
-                          <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto"/></a>
-                        </td>
-                        <td headers="articolo">
-                          <a href="#">Nome Prodotto</a>
-                        </td>
-                        <td headers="prezzo">
-                            <p>10,50€</p>
-                        </td>
-                        <td headers="quantita">
-                            <input type="number" id="quantita" name="quantita" min="1" value="1"/>
-                        </td>
-                        <td headers="button">
-                          <button type="button"><span class="fas fa-trash"></span></button>
-                        </td>
-                      </tr>
-                  </tbody>
-                </table>
-              </div>
-                <div class="container">
-                  <h4>Riepilogo ordine <span class="prezzo" style="color:white"><span class="fa fa-shopping-cart"></span> <b>4</b></span></h4>
-                  <p><a href="#">Prodotto 1</a> <span class="prezzo">$15</span></p>
-                  <p><a href="#">Prodotto 2</a> <span class="prezzo">$5</span></p>
-                  <p><a href="#">Prodotto 3</a> <span class="prezzo">$8</span></p>
-                  <p><a href="#">Prodotto 4</a> <span class="prezzo">$2</span></p>
-                  <hr>
-                  <p>Totale <span class="prezzo" style="color:white"><b>$30</b></span></p>
-                </div>
-            </div>
-            <!--Riepilogo-->
-            <div class="row">
-                <div class="col-75">
-                  <div class="container">
-                    <form action="#">
-                      <div class="row">
-                        <div class="col-50">
-                          <h3>Indirizzo di fatturazione: </h3>
-                          <label for="indirizzo"><i class="fa fa-address-card-o"></i> Indirizzo</label>
-                          <input type="text" id="indirizzo" name="address" placeholder="Via dell'Università, 50">
-                          <label for="citta"><i class="fa fa-institution"></i> Citt&agrave;</label>
-                          <input type="text" id="citta" name="citta" placeholder="Cesena">
-              
-                          <div class="row">
-                            <div class="col-50">
-                              <label for="cap">Cap</label>
-                              <input type="text" id="cap" name="cap" placeholder="47125">
-                            </div>
-                          </div>
-                        </div>
-              
-                        <div class="col-50">
-                          <h3>Metodo di Pagamento</h3>
-                          <label for="cname">Titolare carta</label>
-                          <input type="text" id="titolare" name="titolare" placeholder="Mario Rossi">
-                          <label for="ccnum">Numero carta</label>
-                          <input type="text" id="numero" name="numero" placeholder="1111-2222-3333-4444">
-                          <label for="expmonth">Mese di scadenza</label>
-                          <input type="text" id="scadenzam" name="scadenzam" placeholder="Settembre">
-                          <div class="row">
-                            <div class="col-50">
-                              <label for="expyear">Anno di scadenza</label>
-                              <input type="text" id="scadenzaa" name="scadenzaa" placeholder="2025">
-                            </div>
-                            <div class="col-50">
-                              <label for="cvv">CVV</label>
-                              <input type="text" id="cvv" name="cvv" placeholder="123">
-                            </div>
-                          </div>
-                        </div>
-                        
-                      </div>
-                      <input type="submit" value="Procedi all'acquisto" class="btn">
-                    </form>
-                  </div>
-                </div>
-                
-              </div>
-        </main>
+  <header>
+    <div class="header-menu">
+      <a href="#" id="menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 18L20 18" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 12L20 12" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+          <path d="M4 6L20 6" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </a>
+      <ul id="dropdown-menu" class="hidden">
+        <li><a href="../website/compBars.html">BILANCIERI DA COMPETIZIONE</a></li>
+        <li><a href="../website/specialBars.html">BILANCIERI SPECIALI</a></li>
+        <li><a href="../website/accessori.html">ACCESSORI</a></li>
+      </ul>
     </div>
 
-    <footer>
-        <section class="social">
-            <h2>SEGUICI SU:</h2>
-            <a href="http://www.facebook.com"><span class="fab fa-facebook-f" style="color: #333;"></span></a>
-            <a href="http://instagram.com"><span class="fab fa-instagram" style="color: #333;"></span></a>
-            <a href="http://twitter.com"><span class="fab fa-twitter" style="color: #333;"></span></a>
-        </section>
+    <div class="header-logo">
+      <a href="./index.html"><img src="../images/logos/Logo_Main.png" alt="logo" /></a>
+    </div>
 
-        <section class="pagamenti">
-            <p>Pagamenti con:</p>
-            <a href="https://americanexpress.com"><span class="fab fa-cc-amex" style="color: #006FCF;"></span></a>
-            <a href="https://visa.com"><span class="fab fa-cc-visa" style="color: navy;"></span></a>
-            <a href="https://mastercard.com"><span class="fab fa-cc-mastercard" style="color: red;"></span></a>
-            <a href="https://www.paypal.com"><span class="fab fa-cc-paypal" style="color: #001C64;"></span></a>
-            <a href="https://www.apple.com/it/apple-pay/"><span class="fab fa-cc-apple-pay"
-                    style="color: #000000;"></span></a>
-        </section>
+    <div class="header-icon">
+      <a href="./login.html">
+        <svg>
+          <path fill="currentColor"
+            d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.429a3.571 3.571 0 1 0 0 7.142 3.571 3.571 0 0 0 0-7.142zm0 10c2.558 0 5.114.471 7.664 1.411A3.571 3.571 0 0 1 22 18.19v3.096c0 .394-.32.714-.714.714H2.714A.714.714 0 0 1 2 21.286V18.19c0-1.495.933-2.833 2.336-3.35 2.55-.94 5.106-1.411 7.664-1.411zm0 1.428c-2.387 0-4.775.44-7.17 1.324a2.143 2.143 0 0 0-1.401 2.01v2.38H20.57v-2.38c0-.898-.56-1.7-1.401-2.01-2.395-.885-4.783-1.324-7.17-1.324z">
 
-        <section class="copyright">
-            <p>©2024 LIFT HEAVY Gear.</p>
-            <a href="about.html">About Us</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="termini.html">Termini e Condizioni</a>
-        </section>
-    </footer>
-    <!-- SCRIPT JAVASCRIPT-->
-    <script src="../js/functions.js"></script>
+          </path>
+        </svg>
+      </a>
+      <a href="./cart.html">
+        <svg>
+          <path fill="currentColor"
+            d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+
+    <div class="header-search">
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M19.9604 11.4802C19.9604 13.8094 19.0227 15.9176 17.5019 17.4512C16.9332 18.0247 16.2834 18.5173 15.5716 18.9102C14.3594 19.5793 12.9658 19.9604 11.4802 19.9604C6.79672 19.9604 3 16.1637 3 11.4802C3 6.79672 6.79672 3 11.4802 3C16.1637 3 19.9604 6.79672 19.9604 11.4802Z"
+            stroke="#fff" stroke-width="2" />
+          <path d="M18.1553 18.1553L21.8871 21.8871" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </span>
+      <input type="search" name="search" id="header-search" autocomplete="off" placeholder="Search..." />
+    </div>
+  </header>
+  <!-- END HEADER -->
+  <div class="cart-main">
+    <main>
+      <section>
+        <h1><span class="fas fa-shopping-cart"></span> Carrello</h1>
+        <div class="table-div">
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th id="img"></th>
+                  <th id="articolo">Articolo</th>
+                  </th>
+                  <th id="prezzo">Prezzo</th>
+                  <th id="quantita">Quantit&agrave;</th>
+                  <th id="button"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td headers="img">
+                    <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto" /></a>
+                  </td>
+                  <td headers="articolo">
+                    <a href="#">Nome Prodotto</a>
+                  </td>
+                  <td headers="prezzo">
+                    <p>10,50€</p>
+                  </td>
+                  <td headers="quantita">
+                    <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                  </td>
+                  <td headers="button">
+                    <button type="button"><span class="fas fa-trash"></span></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td headers="img">
+                    <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto" /></a>
+                  </td>
+                  <td headers="articolo">
+                    <a href="#">Nome Prodotto</a>
+                  </td>
+                  <td headers="prezzo">
+                    <p>10,50€</p>
+                  </td>
+                  <td headers="quantita">
+                    <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                  </td>
+                  <td headers="button">
+                    <button type="button"><span class="fas fa-trash"></span></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td headers="img">
+                    <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto" /></a>
+                  </td>
+                  <td headers="articolo">
+                    <a href="#">Nome Prodotto</a>
+                  </td>
+                  <td headers="prezzo">
+                    <p>10,50€</p>
+                  </td>
+                  <td headers="quantita">
+                    <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                  </td>
+                  <td headers="button">
+                    <button type="button"><span class="fas fa-trash"></span></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td headers="img">
+                    <a><img src="../images/uploads/deadliftbar.png" alt="Nome Prodotto" /></a>
+                  </td>
+                  <td headers="articolo">
+                    <a href="#">Nome Prodotto</a>
+                  </td>
+                  <td headers="prezzo">
+                    <p>10,50€</p>
+                  </td>
+                  <td headers="quantita">
+                    <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                  </td>
+                  <td headers="button">
+                    <button type="button"><span class="fas fa-trash"></span></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="container">
+            <h4>Riepilogo ordine <span class="prezzo" style="color:white"><span class="fa fa-shopping-cart"></span>
+                <b>4</b></span></h4>
+            <p><a href="#">Prodotto 1</a> <span class="prezzo">$15</span></p>
+            <p><a href="#">Prodotto 2</a> <span class="prezzo">$5</span></p>
+            <p><a href="#">Prodotto 3</a> <span class="prezzo">$8</span></p>
+            <p><a href="#">Prodotto 4</a> <span class="prezzo">$2</span></p>
+            <hr>
+            <p>Totale <span class="prezzo" style="color:white"><b>$30</b></span></p>
+          </div>
+        </div>
+        <!--Riepilogo-->
+        <div class="row">
+          <div class="col-75">
+            <div class="container">
+              <form action="#">
+                <div class="row">
+                  <div class="col-50">
+                    <h3>Indirizzo di fatturazione: </h3>
+                    <label for="indirizzo"><i class="fa fa-address-card-o"></i> Indirizzo</label>
+                    <input type="text" id="indirizzo" name="address" placeholder="Via dell'Università, 50">
+                    <label for="citta"><i class="fa fa-institution"></i> Citt&agrave;</label>
+                    <input type="text" id="citta" name="citta" placeholder="Cesena">
+
+                    <div class="row">
+                      <div class="col-50">
+                        <label for="cap">Cap</label>
+                        <input type="text" id="cap" name="cap" placeholder="47125">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-50">
+                    <h3>Metodo di Pagamento</h3>
+                    <label for="cname">Titolare carta</label>
+                    <input type="text" id="titolare" name="titolare" placeholder="Mario Rossi">
+                    <label for="ccnum">Numero carta</label>
+                    <input type="text" id="numero" name="numero" placeholder="1111-2222-3333-4444">
+                    <label for="expmonth">Mese di scadenza</label>
+                    <input type="text" id="scadenzam" name="scadenzam" placeholder="Settembre">
+                    <div class="row">
+                      <div class="col-50">
+                        <label for="expyear">Anno di scadenza</label>
+                        <input type="text" id="scadenzaa" name="scadenzaa" placeholder="2025">
+                      </div>
+                      <div class="col-50">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123">
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <input type="submit" value="Procedi all'acquisto" class="btn">
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <section class="social">
+      <h2>SEGUICI SU:</h2>
+      <a href="http://www.facebook.com"><span class="fab fa-facebook-f" style="color: #333;"></span></a>
+      <a href="http://instagram.com"><span class="fab fa-instagram" style="color: #333;"></span></a>
+      <a href="http://twitter.com"><span class="fab fa-twitter" style="color: #333;"></span></a>
+    </section>
+
+    <section class="pagamenti">
+      <p>Pagamenti con:</p>
+      <a href="https://americanexpress.com"><span class="fab fa-cc-amex" style="color: #006FCF;"></span></a>
+      <a href="https://visa.com"><span class="fab fa-cc-visa" style="color: navy;"></span></a>
+      <a href="https://mastercard.com"><span class="fab fa-cc-mastercard" style="color: red;"></span></a>
+      <a href="https://www.paypal.com"><span class="fab fa-cc-paypal" style="color: #001C64;"></span></a>
+      <a href="https://www.apple.com/it/apple-pay/"><span class="fab fa-cc-apple-pay"
+          style="color: #000000;"></span></a>
+    </section>
+
+    <section class="copyright">
+      <p>©2024 LIFT HEAVY Gear.</p>
+      <a href="about.html">About Us</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="termini.html">Termini e Condizioni</a>
+    </section>
+  </footer>
+  <!-- SCRIPT JAVASCRIPT-->
+  <script src="../js/functions.js"></script>
 </body>
 
 </html>
