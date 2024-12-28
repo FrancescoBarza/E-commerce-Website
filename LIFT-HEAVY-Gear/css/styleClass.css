@@ -283,8 +283,7 @@ footer>.copyright a {
     height: 500px; /* Altezza fissa ridotta */
     margin: 0; /* Rimuovi margini */
     overflow: hidden; /* Nasconde le immagini fuori dal contenitore */
-    border: 2px solid white; /* Bordi opzionali */
-    border-radius: 10px; /* Angoli arrotondati opzionali */
+    margin-bottom: 20px; 
 }
 
 
