@@ -150,6 +150,16 @@ h3 {
 
 /* END MAIN */
 
+/* ASIDE */
+aside {
+    background: #222;
+    color: #fff;
+    padding: 50px 5%;
+}
+
+
+/* END ASIDE */
+
 /* FOOTER */
 footer {
     background-color: #fff;

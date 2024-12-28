@@ -1,3 +1,4 @@
+//burger menu a comparsa
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
     const dropdownMenu = document.getElementById('dropdown-menu');
@@ -7,3 +8,4 @@ document.addEventListener('DOMContentLoaded', () => {
         dropdownMenu.classList.toggle('hidden');
     });
 });
+

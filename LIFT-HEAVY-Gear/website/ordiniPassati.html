@@ -15,10 +15,9 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/styleClass.css" />
 
-    <title>Login</title>
+    <title>Storico Ordini</title>
     <link rel="icon" href="../images/icons/Logo_Icon.ico" />
 </head>
-
 
 <body>
     <header>
@@ -38,6 +37,7 @@
                 </ul>
             </nav>
         </div>
+
 
         <div class="header-logo">
             <a href="./index.html"><img src="../images/logos/Logo_Main.png" alt="logo" /></a>
@@ -76,26 +76,32 @@
     <!-- END HEADER -->
     <main>
         <section>
-            <h1>LOGIN</h1>
-            <form action="../website/areaCliente.html" method="post">
-                <label for="email">Email</label>
-                <br>
-                <input type="email" id="email" name="email" required>
-                <br><br>
-                <label for="password">Password</label>
-                <br>
-                <input type="password" id="password" name="password" required>
-                <br>
-                <a href="" style="display: block; margin-top: 10px; text-decoration: none; color: #007bff;">
-                    Password dimenticata?
-                </a>
-                <button type="submit">Sing in</button>
-
-                <br><br>
-                <p>Nuovo cliente?<a href="registrazione.html"> Crea un account</a></p></br>
-
-            </form>
-            <img src="../images/login/login.png" alt="login-img">
+            <h1>ORDINI PASSATI</h1>
+            <!-- Ordini -->
+            <div class="ordine">
+                <div>
+                    <span class="fas fa-clipboard-list"></span>
+                </div>
+                <h3>Numero ordine</h3>
+                <p>Data ordine: 5/12/2024</p>
+                <p>Stato: stato</p>
+                <p>
+                    <button type="button"><a href="infoOrdine.html"><span class="fas fa-info-circle"> </span>
+                            Info ordine</a></button>
+                </p>
+            </div>
+            <div class="ordine">
+                <div>
+                    <span class="fas fa-clipboard-list"></span>
+                </div>
+                <h3>Numero ordine</h3>
+                <p>Data ordine: 4/12/2024</p>
+                <p>Stato: stato</p>
+                <p>
+                    <button type="button"><a href="./infOrdine.html"><span class="fas fa-info-circle"></span>
+                            Info ordine</a></button>
+                </p>
+            </div>
         </section>
     </main>
     <footer>

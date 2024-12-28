@@ -20,7 +20,7 @@
     display: none;
 }
 
-.header-menu ul {
+.header-menu nav ul {
     background-color: #333;
     list-style: none;
     width: 60%;
@@ -32,11 +32,11 @@
     box-shadow: 0 4px 8px #000;
 }
 
-.header-menu ul li {
+.header-menu nav ul li {
     margin-bottom: 10px;
 }
 
-.header-menu ul li a {
+.header-menu nav ul li a {
     color: #fff;
     font-family: 'Arimo';
     text-decoration: none;
@@ -47,7 +47,7 @@
     border-bottom-style: solid;
 }
 
-.header-menu ul li a:hover {
+.header-menu nav ul li a:hover {
     background-color: #555;
 }
 
@@ -121,6 +121,22 @@
     cursor: text;
 }
 
+.articolo {
+    background-color: #333;
+    border-width: 2px;
+    width: 49%;
+    margin: 2% auto;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.articolo img {
+    width: 95%;
+    height: 50%;
+    margin-top: 2%;
+}
+
 /* Footer */
 footer>.social,
 footer>.pagamenti {
@@ -162,6 +178,12 @@ footer>.copyright a {
     cursor: pointer;
 }
 
+
+.dati>button {
+    float: inline-end;
+    margin: 0;
+}
+
 /* Prodotti */
 .prodotto {
     background-color: #333;
@@ -174,8 +196,8 @@ footer>.copyright a {
 }
 
 .prodotto img {
-    width: 200px;
-    height: 170px;
+    width: 95%;
+    height: 50%;
     margin-top: 2%;
 }
 
@@ -250,9 +272,119 @@ footer>.copyright a {
     padding: 0;
 }
 
+.notifica button {
+    float: inline-end;
+    margin: 0;
+}
+
 /*CSS DESKTOP*/
 @media screen and (min-width:768px) {
     body {
         background-color: #680606;
+    }
+
+    .hidden {
+        display: inline-block;
+    }
+
+    .header-menu {
+        width: 0%;
+    }
+
+    .header-menu svg {
+        display: none;
+    }
+
+    .header-menu nav ul {
+        position: absolute;
+        top: 60px;
+        display: inline-block;
+        list-style: none;
+        width: 100%;
+        height: 50px;
+        padding: 10px 5%;
+        box-shadow: none;
+    }
+
+    .header-menu ul li {
+        display: inline-block;
+        margin-right: 2%;
+    }
+
+    .header-menu ul li a {
+        color: #fff;
+        font-family: 'Arimo';
+        text-decoration: none;
+        display: block;
+        padding: 5px;
+        border-bottom: #fff;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+    }
+
+    .header-menu ul li a:hover {
+        background-color: #555;
+    }
+
+    .header-logo {
+        float: left;
+        width: 0%;
+        height: 46px;
+    }
+
+    .header-search {
+        background-color: #474747;
+        float: inline-end;
+        display: block;
+        align-content: center;
+        text-align: center;
+        background-clip: padding-box;
+        border-color: #fff;
+        border-style: solid;
+        border-radius: 5px;
+        border-width: 0px;
+        width: 60%;
+        height: 46px;
+        margin: 0px;
+
+    }
+
+    .header-search>input {
+        background-color: #474747;
+        color: #fff;
+        border: none;
+        outline-color: #fff;
+        outline-offset: -2px;
+        outline-width: 0px;
+        font-size: 15px;
+        width: 92%;
+        height: 46px;
+        padding: 11px 0 11px 2%;
+        cursor: text;
+    }
+
+    .header-icon {
+        float: right;
+        text-align: right;
+        align-content: center;
+        width: 15%;
+        height: 46px;
+    }
+
+    .social,
+    .pagamenti,
+    .copyright {
+        display: inline-block;
+        width: 20%;
+    }
+
+    .copyright li {
+        display: block;
+        text-align: center;
+    }
+
+    footer>.social,
+    footer>.pagamenti {
+        border: none;
     }
 }

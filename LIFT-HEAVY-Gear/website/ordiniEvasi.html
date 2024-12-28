@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/styleClass.css" />
 
-    <title>Storico Ordini</title>
+    <title>Ordini</title>
     <link rel="icon" href="../images/icons/Logo_Icon.ico" />
 </head>
 
@@ -29,11 +29,13 @@
                     <path d="M4 6L20 6" stroke="#fff" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </a>
-            <ul id="dropdown-menu" class="hidden">
-                <li><a href="../website/compBars.html">BILANCIERI DA COMPETIZIONE</a></li>
-                <li><a href="../website/specialBars.html">BILANCIERI SPECIALI</a></li>
-                <li><a href="../website/accessori.html">ACCESSORI</a></li>
-            </ul>
+            <nav>
+                <ul id="dropdown-menu" class="hidden">
+                    <li><a href="../website/compBars.html">BILANCIERI DA COMPETIZIONE</a></li>
+                    <li><a href="../website/specialBars.html">BILANCIERI SPECIALI</a></li>
+                    <li><a href="../website/accessori.html">ACCESSORI</a></li>
+                </ul>
+            </nav>
         </div>
 
 
@@ -50,7 +52,7 @@
                     </path>
                 </svg>
             </a>
-            <a href="./cart.html">
+            <a href="./carrello.html">
                 <svg>
                     <path fill="currentColor"
                         d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
@@ -74,7 +76,7 @@
     <!-- END HEADER -->
     <main>
         <section>
-            <h1>ORDINI PASSATI</h1>
+            <h1>ORDINI DA EVADERE</h1>
             <!-- Ordini -->
             <div class="ordine">
                 <div>
@@ -82,7 +84,8 @@
                 </div>
                 <h3>Numero ordine</h3>
                 <p>Data ordine: 5/12/2024</p>
-                <p>Stato: stato</p>
+                <p class="editable" data-key="Stato">Stato: stato</p>
+                <button type="button" class="modificaOrdine">Modifica stato</button>
                 <p>
                     <button type="button"><a href="infoOrdine.html"><span class="fas fa-info-circle"> </span>
                             Info ordine</a></button>
@@ -94,7 +97,8 @@
                 </div>
                 <h3>Numero ordine</h3>
                 <p>Data ordine: 4/12/2024</p>
-                <p>Stato: stato</p>
+                <p class="editable" data-key="Stato">Stato: stato</p>
+                <button type="button" class="modificaOrdine">Modifica stato</button>
                 <p>
                     <button type="button"><a href="./infOrdine.html"><span class="fas fa-info-circle"></span>
                             Info ordine</a></button>
@@ -129,6 +133,67 @@
     </footer>
     <!-- SCRIPT JAVASCRIPT-->
     <script src="../js/functions.js"></script>
+    <script>
+        //modifica stato
+        document.querySelectorAll('.modificaOrdine').forEach(button => {
+            button.addEventListener('click', function () {
+                // Limita le modifiche all'ordine associato al pulsante cliccato
+                const ordine = this.closest('.ordine'); // Seleziona il contesto dell'ordine
+                const editable = ordine.querySelector('.editable'); // Trova solo il paragrafo dell'ordine corrente
+
+                // Verifica se non è già un menu a tendina
+                if (!editable.querySelector('select')) {
+                    const key = editable.dataset.key; // Tipo di dato
+                    const currentText = editable.textContent.split(': ')[1]; // Valore attuale del paragrafo
+
+                    if (key === 'Stato') {
+                        // Crea un menu a tendina
+                        const select = document.createElement('select');
+                        const options = [
+                            'Ordine effettuato',
+                            'Ordine spedito',
+                            'Ordine pronto per la consegna'
+                        ];
+
+                        options.forEach(option => {
+                            const opt = document.createElement('option');
+                            opt.value = option;
+                            opt.textContent = option;
+                            if (option === currentText) {
+                                opt.selected = true; // Imposta l'opzione selezionata
+                            }
+                            select.appendChild(opt);
+                        });
+
+                        // Sostituisci il paragrafo con il menu a tendina
+                        editable.innerHTML = `${editable.textContent.split(': ')[0]}: `;
+                        editable.appendChild(select);
+                    }
+                }
+                // Cambia il testo del pulsante in "Salva dati"
+                this.textContent = 'Salva dati';
+                this.classList.add('salva');
+
+                // Aggiungi funzionalità di salvataggio al pulsante
+                this.removeEventListener('click', arguments.callee); // Rimuovi il vecchio listener
+                this.addEventListener('click', function () {
+                    const select = ordine.querySelector('.editable select'); // Trova il menu a tendina nell'ordine
+
+                    if (select) {
+                        const selectedValue = select.value;
+
+                        // Ripristina il paragrafo con il valore selezionato
+                        editable.innerHTML = `${editable.dataset.key}: ${selectedValue}`;
+                    }
+
+                    // Ripristina il testo del pulsante a "Modifica dati"
+                    this.textContent = 'Modifica dati';
+                    this.classList.remove('salva');
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

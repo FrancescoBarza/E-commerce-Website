@@ -29,11 +29,13 @@
                     <path d="M4 6L20 6" stroke="#fff" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </a>
-            <ul id="dropdown-menu" class="hidden">
-                <li><a href="../website/compBars.html">BILANCIERI DA COMPETIZIONE</a></li>
-                <li><a href="../website/specialBars.html">BILANCIERI SPECIALI</a></li>
-                <li><a href="../website/accessori.html">ACCESSORI</a></li>
-            </ul>
+            <nav>
+                <ul id="dropdown-menu" class="hidden">
+                    <li><a href="../website/compBars.html">BILANCIERI DA COMPETIZIONE</a></li>
+                    <li><a href="../website/specialBars.html">BILANCIERI SPECIALI</a></li>
+                    <li><a href="../website/accessori.html">ACCESSORI</a></li>
+                </ul>
+            </nav>
         </div>
 
 
@@ -50,7 +52,7 @@
                     </path>
                 </svg>
             </a>
-            <a href="./cart.html">
+            <a href="./carrello.html">
                 <svg>
                     <path fill="currentColor"
                         d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
@@ -82,10 +84,12 @@
 
                     </path>
                 </svg>
-                <p>Nome: mario</p>
-                <p>Cognome: rossi</p>
-                <p>E-mail: mario.rossi@gmail.com</p>
+                <p class="editable" data-key="Nome">Nome: Mario</p>
+                <p class="editable" data-key="Cognome">Cognome: Rossi</p>
+                <p class="editable" data-key="E-mail">E-mail: mario.rossi@gmail.com</p>
+                <p class="editable" data-key="Password">Password: ********</p>
                 <!--se vogliamo aggiungere la modifica-->
+                <button type="button" class="modificaDati">Modifica dati</button>
             </div>
             <button type="button" class="logout">Logout</button>
         </section>
@@ -117,6 +121,58 @@
     </footer>
     <!-- SCRIPT JAVASCRIPT-->
     <script src="../js/functions.js"></script>
+    <script>
+        //modifica dati
+        document.querySelector('.modificaDati').addEventListener('click', function () {
+            const paragraphs = document.querySelectorAll('.editable');
+
+            paragraphs.forEach(paragraph => {
+                // Check if it's already an input, if not, convert it
+                if (!paragraph.querySelector('input')) {
+                    const key = paragraph.dataset.key; // Identify the data key
+                    let text = paragraph.textContent.split(': ')[1]; // Extract the text after the label
+
+                    // Create an input field
+                    const input = document.createElement('input');
+                    input.type = key === 'Password' ? 'Password' : 'text';
+                    input.value = key === 'Password' ? '' : text; // Leave password field empty for security
+                    input.placeholder = key === 'Password' ? 'Inserisci nuova password' : '';
+                    input.dataset.key = key;
+
+                    paragraph.innerHTML = `${paragraph.textContent.split(': ')[0]}: `;
+                    paragraph.appendChild(input);
+                }
+            });
+
+            // Change the button text to "Salva" and add a save functionality
+            this.textContent = 'Salva dati';
+            this.classList.add('salva');
+
+            // Add save functionality to button
+            this.removeEventListener('click', arguments.callee);
+            this.addEventListener('click', function () {
+                const inputs = document.querySelectorAll('.editable input');
+
+                inputs.forEach(input => {
+                    const parent = input.parentNode;
+                    const key = input.dataset.key;
+                    const value = input.value;
+
+                    // Update the paragraph text and remove input field
+                    if (key === 'Password') {
+                        parent.innerHTML = `${key.charAt(0).toUpperCase() + key.slice(1)}: ******`; // Always mask the password
+                    } else {
+                        parent.innerHTML = `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`;
+                    }
+                });
+
+                // Change button text back to "Modifica"
+                this.textContent = 'Modifica dati';
+                this.classList.remove('salva');
+            });
+        });
+
+    </script>
 </body>
 
 </html>
