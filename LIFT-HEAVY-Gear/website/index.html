@@ -75,7 +75,16 @@
     </header>
     <!-- END HEADER -->
     <main>
-        <img src="../images/uploads/home_sheffield.png" alt="">
+        <div class="slider">
+            <button class="prev" onclick="prevImage()">❮</button>
+            <div class="image-container">
+                <img src="../images/uploads/home_sheffield.png" alt="Immagine 1" class="active">
+                <img src="../images/uploads/foto-bilanciere.jpg" alt="Immagine 2">
+                <img src="../images/uploads/foto-powerlifter.jpg" alt="Immagine 3">
+            </div>
+            <button class="next" onclick="nextImage()">❯</button>
+        </div>
+        <script src="../js/functions.js"></script>
         <section>
             <h1>I PRODOTTI PIÙ VENDUTI</h2>
                 <div class="prodotto">

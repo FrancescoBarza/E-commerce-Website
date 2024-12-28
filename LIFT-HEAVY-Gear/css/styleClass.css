@@ -276,6 +276,65 @@ footer>.copyright a {
     float: inline-end;
     margin: 0;
 }
+/* SLIDER */
+.slider {
+    position: relative;
+    width: 100%; /* Occupa il 100% della larghezza */
+    height: 500px; /* Altezza fissa ridotta */
+    margin: 0; /* Rimuovi margini */
+    overflow: hidden; /* Nasconde le immagini fuori dal contenitore */
+    border: 2px solid white; /* Bordi opzionali */
+    border-radius: 10px; /* Angoli arrotondati opzionali */
+}
+
+
+
+/* Contenitore delle immagini */
+.image-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Aggiungi questa linea */
+    height: 100%; /* Aggiungi questa linea */
+}
+
+
+/* Immagini */
+.image-container img {
+    min-width: 100%; /* Assicura che ogni immagine occupi il 100% della larghezza del contenitore */
+    height: 100%; /* Ogni immagine si adatta all'altezza del contenitore */
+    object-fit: cover; /* Taglia o adatta le immagini mantenendo le proporzioni */
+    display: block;
+}
+
+
+
+/* Pulsanti */
+button.prev, button.next {
+    position: absolute;
+    top: 50%; /* Centra i pulsanti verticalmente */
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 10;
+}
+
+button.prev {
+    left: 10px; /* Pulsante precedente */
+}
+
+button.next {
+    right: 10px; /* Pulsante successivo */
+}
+
+button.prev:hover, button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
 
 /*CSS DESKTOP*/
 @media screen and (min-width:768px) {
