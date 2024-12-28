@@ -30,10 +30,12 @@
     top: 115px;
     left: 0px;
     box-shadow: 0 4px 8px #000;
+    z-index: 20;
 }
 
 .header-menu nav ul li {
     margin-bottom: 10px;
+    
 }
 
 .header-menu nav ul li a {
@@ -45,6 +47,7 @@
     border-bottom: #fff;
     border-bottom-width: 1px;
     border-bottom-style: solid;
+    
 }
 
 .header-menu nav ul li a:hover {
@@ -284,6 +287,7 @@ footer>.copyright a {
     margin: 0; /* Rimuovi margini */
     overflow: hidden; /* Nasconde le immagini fuori dal contenitore */
     margin-bottom: 20px; 
+    z-index: 10;
 }
 
 
