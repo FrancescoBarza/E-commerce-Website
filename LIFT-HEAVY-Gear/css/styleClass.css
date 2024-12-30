@@ -284,10 +284,10 @@ footer>.copyright a {
 
 /* SLIDER */
 .slider {
-
+    position: relative;
     width: 100%;
     /* Occupa il 100% della larghezza */
-    height: 500px;
+    height: auto ;
     /* Altezza fissa ridotta */
     margin: 0;
     /* Rimuovi margini */
@@ -295,7 +295,6 @@ footer>.copyright a {
     /* Nasconde le immagini fuori dal contenitore */
     margin-bottom: 20px;
 }
-
 
 
 /* Contenitore delle immagini */
@@ -311,48 +310,45 @@ footer>.copyright a {
 
 /* Immagini */
 .image-container img {
-    min-width: 100%;
+    min-width: 100% ;
     /* Assicura che ogni immagine occupi il 100% della larghezza del contenitore */
-    height: 100%;
-    /* Ogni immagine si adatta all'altezza del contenitore */
-    object-fit: cover;
+    height: auto ;
     /* Taglia o adatta le immagini mantenendo le proporzioni */
-    display: block;
+    object-fit: fill;
+    display: block ;
 }
-
-
 
 /* Pulsanti */
 button.prev,
 button.next {
-    position: absolute;
-    top: 50%;
-    /* Centra i pulsanti verticalmente */
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    width: 10%;
+    position: absolute; /* Posiziona i pulsanti assolutamente rispetto al contenitore .slider */
+    bottom: 10px; /* Posiziona in basso */
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semitrasparente */
+    color: white; /* Testo bianco */
     border: none;
-    padding: 10px 20px;
+    padding: 10px 20px; /* Spaziatura del pulsante */
     cursor: pointer;
     font-size: 18px;
-    z-index: 10;
+    z-index: 10; /* Assicurati che i pulsanti siano sopra le immagini */
+    border-radius: 5px; /* Opzionale: addolcisci gli angoli */
 }
 
+/* Pulsante sinistro */
 button.prev {
-    left: 10px;
-    /* Pulsante precedente */
+    left: 10px; /* Posizionamento a sinistra */
 }
 
+/* Pulsante destro */
 button.next {
-    right: 10px;
-    /* Pulsante successivo */
+    right: 10px; /* Posizionamento a destra */
 }
 
+/* Effetto al passaggio del mouse */
 button.prev:hover,
 button.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8); /* Colore più scuro quando si passa sopra */
 }
-
 
 
 /*CSS DESKTOP*/
@@ -483,4 +479,20 @@ button.next:hover {
     footer>.pagamenti {
         border: none;
     }
+    .slider {
+        height: 500px ;
+    }
+    
+    
+    /* Immagini */
+    .image-container img {
+        min-width: 100% ;
+        /* Assicura che ogni immagine occupi il 100% della larghezza del contenitore */
+        height: auto ;
+        /* Ogni immagine si adatta all'altezza del contenitore */
+        object-fit:fill;
+        /* Taglia o adatta le immagini mantenendo le proporzioni */
+        display: block ;
+    }
+    
 }
