@@ -154,9 +154,9 @@ h3 {
 aside {
     background: #222;
     color: #fff;
+    text-align: center;
     padding: 50px 5%;
 }
-
 
 /* END ASIDE */
 
@@ -209,5 +209,9 @@ button:hover {
 @media screen and (min-width:768px) {
     body {
         background-color: #680606;
+    }
+
+    aside {
+        text-align: left;
     }
 }
