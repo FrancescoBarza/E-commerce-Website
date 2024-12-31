@@ -134,11 +134,12 @@
 }
 
 .table-div div:first-child {
-    width: 75%;
+    width: 100%;
 }
 
 .table-div>.container {
-    width: 23%;
+    margin-bottom: 15px;
+    width: 100%;
 }
 
 table {
@@ -314,7 +315,7 @@ footer>.copyright a {
 }
 
 /*CSS DESKTOP*/
-@media (max-width: 800px) {
+@media screen and (min-width:768px) {
     .hidden {
         display: inline-block;
     }
@@ -408,12 +409,13 @@ footer>.copyright a {
     }
 
     .table-div div:first-child {
-        width: 100%;
+        width: 75%;
+        
     }
 
     .table-div>.container {
-        margin-bottom: 15px;
-        width: 100%;
+        width: 23%;
+
     }
 
 
