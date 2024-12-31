@@ -287,7 +287,7 @@ footer>.copyright a {
     position: relative;
     width: 100%;
     /* Occupa il 100% della larghezza */
-    height: auto ;
+    height: auto;
     /* Altezza fissa ridotta */
     margin: 0;
     /* Rimuovi margini */
@@ -307,47 +307,56 @@ footer>.copyright a {
     /* Aggiungi questa linea */
 }
 
-
 /* Immagini */
 .image-container img {
-    min-width: 100% ;
+    min-width: 100%;
     /* Assicura che ogni immagine occupi il 100% della larghezza del contenitore */
-    height: auto ;
+    height: auto;
     /* Taglia o adatta le immagini mantenendo le proporzioni */
     object-fit: fill;
-    display: block ;
+    display: block;
 }
 
 /* Pulsanti */
 button.prev,
 button.next {
-    width: 10%;
-    position: absolute; /* Posiziona i pulsanti assolutamente rispetto al contenitore .slider */
-    bottom: 10px; /* Posiziona in basso */
-    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semitrasparente */
-    color: white; /* Testo bianco */
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    /* Posiziona i pulsanti assolutamente rispetto al contenitore .slider */
+    bottom: 45%;
+    /* Posiziona in basso */
+    background-color: rgba(0, 0, 0, 1);
+    /* Sfondo semitrasparente */
+    color: white;
+    /* Testo bianco */
     border: none;
-    padding: 10px 20px; /* Spaziatura del pulsante */
+    /* Spaziatura del pulsante */
     cursor: pointer;
-    font-size: 18px;
-    z-index: 10; /* Assicurati che i pulsanti siano sopra le immagini */
-    border-radius: 5px; /* Opzionale: addolcisci gli angoli */
+    font-size: 20px;
+    z-index: 10;
+    /* Assicurati che i pulsanti siano sopra le immagini */
+    border-radius: 100px;
+    /* Opzionale: addolcisci gli angoli */
 }
 
 /* Pulsante sinistro */
 button.prev {
-    left: 10px; /* Posizionamento a sinistra */
+    left: 10px;
+    /* Posizionamento a sinistra */
 }
 
 /* Pulsante destro */
 button.next {
-    right: 10px; /* Posizionamento a destra */
+    right: 10px;
+    /* Posizionamento a destra */
 }
 
 /* Effetto al passaggio del mouse */
 button.prev:hover,
 button.next:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Colore più scuro quando si passa sopra */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Colore più scuro quando si passa sopra */
 }
 
 
@@ -479,20 +488,21 @@ button.next:hover {
     footer>.pagamenti {
         border: none;
     }
+
     .slider {
-        height: 500px ;
+        height: 500px;
     }
-    
-    
+
+
     /* Immagini */
     .image-container img {
-        min-width: 100% ;
+        min-width: 100%;
         /* Assicura che ogni immagine occupi il 100% della larghezza del contenitore */
-        height: auto ;
+        height: auto;
         /* Ogni immagine si adatta all'altezza del contenitore */
-        object-fit:fill;
+        object-fit: fill;
         /* Taglia o adatta le immagini mantenendo le proporzioni */
-        display: block ;
+        display: block;
     }
-    
+
 }
