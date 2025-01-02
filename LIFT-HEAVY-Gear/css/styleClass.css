@@ -1,4 +1,13 @@
-/* Header */
+/* ================= RESET DI BASE ================= */
+* {
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ================= HEADER ================= */
 .header-menu {
     display: block;
     float: left;
@@ -35,7 +44,6 @@
 
 .header-menu nav ul li {
     margin-bottom: 10px;
-
 }
 
 .header-menu nav ul li a {
@@ -44,10 +52,7 @@
     text-decoration: none;
     display: block;
     padding: 5px;
-    border-bottom: #fff;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-
+    border-bottom: 1px solid #fff;
 }
 
 .header-menu nav ul li a:hover {
@@ -124,7 +129,59 @@
     cursor: text;
 }
 
-/* Aside, articoli */
+/* ================= SLIDER ================= */
+.slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.image-container img {
+    min-width: 100%;
+    height: auto;
+    object-fit: fill;
+    display: block;
+}
+
+button.prev,
+button.next {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 45%;
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+    border-radius: 100px;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* ================= ASIDE E ARTICOLI ================= */
 .articolo {
     background-color: #333;
     border-width: 2px;
@@ -134,19 +191,30 @@
     margin: 2% auto;
     display: inline-block;
     vertical-align: top;
+    text-align: left;
 }
 
 .articolo img {
     width: 100%;
+}
+
+.articolo button {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 100px;
+    float: inline-end;
 
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 footer>.social,
 footer>.pagamenti {
-    border-bottom: #222;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
+    border-bottom: 1px solid #222;
 }
 
 footer>.social>h2 {
@@ -166,7 +234,7 @@ footer>.copyright a {
     cursor: pointer;
 }
 
-/* areaCliente.html , areaVenditore.html*/
+/* ================= AREA CLIENTE E VENDITORE ================= */
 .card {
     align-content: center;
     justify-content: center;
@@ -182,19 +250,20 @@ footer>.copyright a {
     cursor: pointer;
 }
 
-
 .dati>button {
-    float: inline-end;
-    margin: 0;
+    display: block;
+    margin: 10px 0;
+    width: 150px;
+    ;
 }
 
-/* Prodotti */
+/* ================= PRODOTTI ================= */
 .prodotto {
     background-color: #333;
     border-width: 2px;
     width: 49%;
     max-width: 240px;
-    margin: 2% auto;
+    margin: 20px auto;
     text-align: center;
     display: inline-block;
     vertical-align: top;
@@ -203,7 +272,7 @@ footer>.copyright a {
 .prodotto img {
     width: 90%;
     height: 50%;
-    margin-top: 2%;
+    margin-top: 10px;
 }
 
 .prodotto a {
@@ -219,7 +288,7 @@ footer>.copyright a {
 .prodotto input {
     max-width: 40%;
     padding: 6px;
-    margin-bottom: 5%;
+    margin-bottom: 10px;
     border-radius: 8px;
 }
 
@@ -237,34 +306,53 @@ footer>.copyright a {
     text-align: center;
     cursor: pointer;
     font-size: 18px;
-    margin-bottom: 2%;
+    width: 100%;
+    margin-bottom: 0;
 }
 
 .prodotto button:hover {
     opacity: 0.7;
 }
 
+/* Modal */
 .modal {
     background-color: #333;
     width: 100%;
+    display: none;
 }
 
 .add-button {
     background-color: #000000;
     color: #fff;
     padding: 14px 20px;
-    margin: 10% 0 0;
+    margin-top: 20px;
     border: none;
     width: 100%;
     cursor: pointer;
 }
 
-/* Ordini*/
+/* ================= INFO PRODOTTO ================= */
+.info input {
+    width: 50px;
+    border-radius: 5px;
+}
+
+.info button {
+    align-content: end;
+}
+
+/* ================= ORDINI ================= */
 .ordine button a {
     color: #fff;
 }
 
-/* Notifiche*/
+.ordine button {
+    display: block;
+    margin: 10px 0;
+    width: 150px;
+}
+
+/* ================= NOTIFICHE ================= */
 .notifica {
     align-content: center;
     justify-content: center;
@@ -278,90 +366,15 @@ footer>.copyright a {
 }
 
 .notifica button {
-    float: inline-end;
-    margin: 0;
-}
-
-/* SLIDER */
-.slider {
-    position: relative;
-    width: 100%;
-    /* Occupa il 100% della larghezza */
-    height: auto;
-    /* Altezza fissa ridotta */
-    margin: 0;
-    /* Rimuovi margini */
-    overflow: hidden;
-    /* Nasconde le immagini fuori dal contenitore */
-    margin-bottom: 20px;
-}
-
-
-/* Contenitore delle immagini */
-.image-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-    /* Aggiungi questa linea */
-    height: 100%;
-    /* Aggiungi questa linea */
-}
-
-/* Immagini */
-.image-container img {
-    min-width: 100%;
-    /* Assicura che ogni immagine occupi il 100% della larghezza del contenitore */
-    height: auto;
-    /* Taglia o adatta le immagini mantenendo le proporzioni */
-    object-fit: fill;
     display: block;
+    margin: 5px 0;
+    width: 150px;
 }
 
-/* Pulsanti */
-button.prev,
-button.next {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    /* Posiziona i pulsanti assolutamente rispetto al contenitore .slider */
-    bottom: 45%;
-    /* Posiziona in basso */
-    background-color: rgba(0, 0, 0, 1);
-    /* Sfondo semitrasparente */
-    color: white;
-    /* Testo bianco */
-    border: none;
-    /* Spaziatura del pulsante */
-    cursor: pointer;
-    font-size: 20px;
-    z-index: 10;
-    /* Assicurati che i pulsanti siano sopra le immagini */
-    border-radius: 100px;
-    /* Opzionale: addolcisci gli angoli */
-}
+/*ARTICOLO*/
 
-/* Pulsante sinistro */
-button.prev {
-    left: 10px;
-    /* Posizionamento a sinistra */
-}
-
-/* Pulsante destro */
-button.next {
-    right: 10px;
-    /* Posizionamento a destra */
-}
-
-/* Effetto al passaggio del mouse */
-button.prev:hover,
-button.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    /* Colore più scuro quando si passa sopra */
-}
-
-
-/*CSS DESKTOP*/
-@media screen and (min-width:768px) {
+/* ================= MEDIA QUERY PER DESKTOP ================= */
+@media screen and (min-width: 768px) {
     body {
         background-color: #680606;
     }
@@ -400,9 +413,7 @@ button.next:hover {
         text-decoration: none;
         display: block;
         padding: 5px;
-        border-bottom: #fff;
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
+        border-bottom: 1px solid #fff;
     }
 
     .header-menu ul li a:hover {
@@ -422,87 +433,38 @@ button.next:hover {
         align-content: center;
         text-align: center;
         background-clip: padding-box;
-        border-color: #fff;
-        border-style: solid;
         border-radius: 5px;
-        border-width: 0px;
         width: 60%;
         height: 46px;
-        margin: 0px;
-
+        margin: 0;
     }
 
     .header-search>input {
         background-color: #474747;
         color: #fff;
         border: none;
-        outline-color: #fff;
-        outline-offset: -2px;
-        outline-width: 0px;
         font-size: 15px;
         width: 92%;
         height: 46px;
         padding: 11px 0 11px 2%;
-        cursor: text;
     }
 
     .header-icon {
-        float: right;
-        text-align: right;
-        align-content: center;
         width: 15%;
-        height: 46px;
-    }
-
-    .social,
-    .pagamenti,
-    .copyright {
-        display: inline-block;
-        width: 20%;
-    }
-
-    .copyright li {
-        display: block;
-        text-align: center;
     }
 
     .articolo {
-        background-color: #333;
-        border-width: 2px;
         min-width: 420px;
         width: 25%;
         height: 720px;
-        margin: 2% auto;
-        display: inline-block;
-        vertical-align: top;
-    }
-
-    .articolo img {
-        width: 100%;
-        max-height: 300px;
-
-    }
-
-
-    footer>.social,
-    footer>.pagamenti {
-        border: none;
     }
 
     .slider {
         height: 500px;
     }
 
-
-    /* Immagini */
     .image-container img {
         min-width: 100%;
-        /* Assicura che ogni immagine occupi il 100% della larghezza del contenitore */
         height: auto;
-        /* Ogni immagine si adatta all'altezza del contenitore */
-        object-fit: fill;
-        /* Taglia o adatta le immagini mantenendo le proporzioni */
-        display: block;
     }
-
 }

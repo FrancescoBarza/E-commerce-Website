@@ -15,10 +15,9 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/styleClass.css" />
 
-    <title>Registrazione</title>
+    <title>Titolo articolo</title>
     <link rel="icon" href="../images/icons/Logo_Icon.ico" />
 </head>
-
 
 <body>
     <header>
@@ -32,17 +31,15 @@
             </a>
             <nav>
                 <ul id="dropdown-menu" class="hidden">
-                    <li><a href="../website/compBars.html">BILANCIERI DA COMPETIZIONE</a></li>
+                    <li><a href="../website/catergorie.html">BILANCIERI DA COMPETIZIONE</a></li>
                     <li><a href="../website/specialBars.html">BILANCIERI SPECIALI</a></li>
                     <li><a href="../website/accessori.html">ACCESSORI</a></li>
                 </ul>
             </nav>
         </div>
-
         <div class="header-logo">
             <a href="./index.html"><img src="../images/logos/Logo_Main.png" alt="logo" /></a>
         </div>
-
         <div class="header-icon">
             <a href="./login.html">
                 <svg>
@@ -60,7 +57,6 @@
                 </svg>
             </a>
         </div>
-
         <div class="header-search">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg">
@@ -75,35 +71,63 @@
     </header>
     <!-- END HEADER -->
     <main>
+        <div class="slider">
+            <button class="prev" onclick="prevImage()">❮</button>
+            <div class="image-container">
+                <img src="../images/uploads/home_sheffield.png" alt="Immagine 1" class="active">
+                <img src="../images/uploads/home_sheffield2025.png" alt="Immagine 2">
+                <img src="../images/uploads/home_deadlift.png" alt="Immagine 3">
+            </div>
+            <button class="next" onclick="nextImage()">❯</button>
+        </div>
         <section>
-            <h1>REGISTRATI</h1>
-            <form action="./login.html" method="post">
-                <label for="nome">Nome</label>
-                <br>
-                <input type="text" id="nome" name="nome" required>
-                <br><br>
-                <label for="cognome">Cognome</label>
-                <br>
-                <input type="text" id="cognome" name="cognome" required>
-                <br><br>
-                <label for="email">Email</label>
-                <br>
-                <input type="email" id="email" name="email" required>
-                <br><br>
-                <label for="password">Password</label>
-                <br>
-                <input type="password" id="password" name="password" required>
-                <br>
-                <br>
-                <label for="venditore" class="checkbox-label">
-                    <span>Account venditore?</span>
-                    <input type="checkbox" id="venditore" value="venditore" name="venditore">
-                </label>
-                <button type="submit">Crea Account</button>
-                <br><br>
-
-            </form>
-            <img src="../images/login/login.png" alt="login-img">
+            <h1>TITOLO ARTICOLO</h1>
+            <img src="../images/articles/article2.png" alt="articolo1">
+            <p>Dicembre 3, 2024</p>
+            <p>La Sheffield Powerlifting Championship 2024, tenutasi il 10 febbraio 2024 presso la City Hall di
+                Sheffield, ha rappresentato un evento di spicco nel panorama del powerlifting internazionale.
+                Organizzata da SBD, la competizione ha visto la partecipazione di 24 atleti d'élite, 12 uomini e 12
+                donne, provenienti da diverse categorie di peso, impegnati in una sfida unica focalizzata
+                sull'infrangere i record mondiali della International Powerlifting Federation (IPF).
+            </p>
+            <h3>RISULTATI FEMMINILI:</h3>
+            <p>
+                Nella competizione femminile, le atlete della categoria 69 kg hanno dominato il podio, grazie a un
+                record mondiale totale relativamente più basso rispetto ad altre categorie, facilitando il superamento
+                dei precedenti primati.</p>
+            <ul>
+                <li>Agata Sitko (69 kg): Totale di 600 kg, pari al 109,3% del precedente record mondiale.</li>
+                <li>Prescillia Bavoil (69 kg): Totale di 585 kg, 106,6%.</li>
+                <li>Carola Garra (69 kg): Totale di 582,5 kg, 106,1%.</li>
+            </ul>
+            <p>Un momento saliente è stato l'incredibile prestazione di Sonita Muluh, che ha stabilito un nuovo record
+                mondiale di squat femminile sollevando 300,5 kg.</p>
+            <h3>RISULTATI MASCHILI:</h3>
+            <p>
+                Tra gli uomini, la categoria 93 kg ha offerto una competizione serrata.</p>
+            <ul>
+                <li> Gustav Hedlund (93 kg): Totale di 895 kg, 100,8% del precedente record mondiale.</li>
+                <li> Jonathan Cayco (93 kg): Totale di 890,5 kg, 100,6%.</li>
+                <li>Delaney Wallace (83 kg): Totale di 842,5 kg, 100,2%.</li>
+            </ul>
+            <p>Degna di nota è stata la performance di Jesus Olivares, che ha stabilito un nuovo record mondiale di
+                squat nella categoria supermassimi (+120 kg) con un sollevamento di 478 kg, superando il precedente
+                record di Ray Williams.</p>
+            <h3>RECORD INFRANTI:</h3>
+            <p>
+                La competizione ha registrato un totale impressionante di 51 record mondiali infranti, evidenziando
+                l'altissimo livello degli atleti partecipanti e l'importanza dell'evento nel calendario del powerlifting
+                internazionale.</p>
+            <h3>BILANCIERE UTILIZZATO:</h3>
+            <p>
+                Per quanto riguarda l'attrezzatura, in competizioni di questo calibro, si utilizzano bilancieri
+                omologati dall'IPF, progettati per sostenere carichi elevati e garantire standard di sicurezza e
+                performance adeguati. Questi bilancieri hanno specifiche precise, tra cui un diametro di 29 mm e una
+                lunghezza di 2,2 metri, con una capacità di carico che può superare i 600 kg.
+                In particolare,Il bilanciere utilizzato nella Sheffield Powerlifting Championship 2024, come in molte
+                altre competizioni di powerlifting di alto livello, è prodotto da Eleiko, uno dei marchi più rinomati al
+                mondo per l'attrezzatura da sollevamento pesi e powerlifting.</p><br />
+            <a href="../website/prodotto.html">LINK PER ACQUISTARLO</a>
         </section>
     </main>
     <footer>

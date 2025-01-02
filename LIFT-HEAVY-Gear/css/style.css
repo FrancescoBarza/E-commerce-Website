@@ -1,4 +1,4 @@
-/* GENERAL */
+/* Reset di base */
 * {
     list-style: none;
     text-decoration: none;
@@ -7,12 +7,9 @@
     padding: 0;
 }
 
-/* END GENERAL*/
-
-
-/* BODY */
+/* Corpo del documento */
 body {
-    font-family: 'Libre franklin';
+    font-family: 'Libre Franklin';
     font-size: 16px;
 }
 
@@ -23,10 +20,53 @@ body svg {
     height: 24px;
 }
 
-/* END BODY */
+/* Stile generale dei titoli */
+h1 {
+    text-align: center;
+    font-family: 'Arimo';
+    font-size: 30px;
+    margin-bottom: 50px;
+}
 
+h3 {
+    font-family: 'Arimo';
+    font-size: 20px;
+    margin-top: 10px;
+}
 
-/* LOGIN E RAGISTRAZIONE*/
+/* Header */
+header {
+    background-color: #333;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+    height: 115px;
+    padding: 8px 5%;
+}
+
+header svg {
+    color: #fff;
+    display: block;
+    align-items: center;
+}
+
+/* Main */
+main {
+    background: #222;
+    color: #fff;
+    padding: 50px 0;
+}
+
+main>img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+section {
+    padding: 0 5%;
+}
+
+/* Form per login e registrazione */
 form {
     display: block;
     text-align: left;
@@ -38,35 +78,27 @@ form a {
     color: #fff;
     text-decoration: underline;
     cursor: pointer;
-
 }
 
 form input {
     display: block;
     width: 100%;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 1px;
+    border: 1px solid #fff;
     border-radius: 10px;
     background-color: #222;
     color: #fff;
     padding: 15px;
     font-size: 16px;
     margin-bottom: 20px;
-    box-sizing: border-box;
     cursor: text;
 }
 
 form label {
     font-size: 16px;
-    /* Dimensione leggibile */
     display: block;
-    /* Posiziona la label su una riga propria */
     margin-bottom: 5px;
-    /* Margine sotto la label */
 }
 
-/* Stile specifico per la label con la checkbox */
 form .checkbox-label {
     display: flex;
     align-items: baseline;
@@ -84,10 +116,8 @@ form input[type="checkbox"] {
 
 form .checkbox-label span {
     line-height: 20px;
-    /* Altezza del testo uguale alla checkbox */
 }
 
-/* Stile checkbox */
 main section img {
     display: block;
     margin: 0 auto 30px;
@@ -96,61 +126,27 @@ main section img {
     height: auto;
 }
 
-/* FINE LOGIN E RAGISTRAZIONE*/
-
-
-/* HEADER */
-header {
-    background-color: #333;
-    border-bottom-width: 1px;
-    border-bottom-color: #fff;
-    border-bottom-style: solid;
-    width: 100%;
-    height: 115px;
-    padding: 8px 5%;
-}
-
-header svg {
+/* Bottone di login */
+button {
+    background-color: #000000;
     color: #fff;
-    display: block;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: 40px;
 }
 
-/* END HEADER */
-
-/* MAIN */
-main {
-    background: #222;
-    color: #fff;
-    padding: 50px 0;
+button:hover {
+    background-color: #000000;
 }
 
-section {
-    padding: 0 5%;
-}
-
-main>img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 5px;
-}
-
-h1 {
-    text-align: center;
-    font-family: 'Arimo';
-    font-size: 30px;
-    margin-bottom: 50px;
-}
-
-h3 {
-    font-family: 'Arimo';
-    font-size: 20px;
-    margin-top: 10px;
-}
-
-/* END MAIN */
-
-/* ASIDE */
+/* Aside */
 aside {
     background: #222;
     color: #fff;
@@ -158,9 +154,7 @@ aside {
     padding: 50px 5%;
 }
 
-/* END ASIDE */
-
-/* FOOTER */
+/* Footer */
 footer {
     background-color: #fff;
     color: #333;
@@ -173,40 +167,8 @@ footer>section {
     padding: 10px 0;
 }
 
-/* END FOOTER */
-
-
-
-
-/* LOGIN */
-
-button {
-    background-color: #000000;
-    color: #fff;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    /* Flexbox attivato */
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 40px;
-}
-
-button:hover {
-    background-color: #000000;
-
-}
-
-/* END LOGIN */
-
-
-/*CSS DESKTOP*/
-@media screen and (min-width:768px) {
+/* Media Queries per Desktop */
+@media screen and (min-width: 768px) {
     body {
         background-color: #680606;
     }

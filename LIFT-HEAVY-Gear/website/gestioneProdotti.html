@@ -76,7 +76,7 @@
     <!-- END HEADER -->
     <main>
         <section>
-            <h1></span> I MIEI PRODOTTI</h1>
+            <h1>I MIEI PRODOTTI</h1>
             <!-- Prodotti -->
             <div class="prodotto">
                 <a href="./prodotto.html"><img src="../images/uploads/eleiko-comp-bar.png" alt="Immagine prodotto" />
@@ -87,7 +87,7 @@
                     <p class="rifornisci"><span>Rifornisci</span></p>
                 </a>
                 <input type="number" id="quantita" name="quantita" min="1" value="1" />
-                <button type="submit" style="width: 100%; margin-bottom: 0;">Invio</span></button>
+                <button type="submit">Invio</button>
             </div>
             <div class="prodotto">
                 <a href="./prodotto.html"><img src="../images/uploads/eleiko-comp-bar.png" alt="Immagine prodotto" />
@@ -98,7 +98,7 @@
                     <p class="rifornisci"><span>Rifornisci</span></p>
                 </a>
                 <input type="number" id="quantita" name="quantita" min="1" value="1" />
-                <button type="submit" style="width: 100%; margin-bottom: 0;">Invio</span></button>
+                <button type="submit">Invio</button>
             </div>
             <div class="prodotto">
                 <a href="./prodotto.html"><img src="../images/uploads/eleiko-comp-bar.png" alt="Immagine prodotto" />
@@ -106,10 +106,10 @@
                     <p class="price">19.99€</p>
                     <p>Some text about..</p>
                     <p>Quantità: 100</p>
-                    <p class="rifornisci"><span>Rifornisci</span></p>
+                    <p class="rifornisci">Rifornisci</p>
                 </a>
                 <input type="number" id="quantita" name="quantita" min="1" value="1" />
-                <button type="submit" style="width: 100%; margin-bottom: 0;">Invio</span></button>
+                <button type="submit">Invio</button>
             </div>
             <button class="add-button" type="button"
                 onclick="document.getElementById('aggiunta').style.display='block'">Aggiungi un nuovo prodotto</button>
@@ -119,26 +119,26 @@
                 <form class="modal-content" action="#">
                     <div class="container">
                         <h1>AGGIUNGI PRODOTTO</h1>
-                        <p>Completa i seguenti campi per aggiungere un nuovo prodotto.</p></br>
+                        <p>Completa i seguenti campi per aggiungere un nuovo prodotto.</p><br />
                         <label for="categoria"><b>Categoria: </b></label>
                         <select name="categoria" id="categoria" required>
                             <option value="comp">Bilanciere da competizione</option>
                             <option value="special">Bilanciere speciale</option>
                             <option value="accessori">Accessorio</option>
                         </select>
-                        </br></br>
+                        <br /><br />
                         <label for="nome"><b>Nome</b></label>
                         <input type="text" placeholder="Inserisci Nome Prodotto" name="nome" required>
 
                         <label for="prezzo"><b>Prezzo</b></label>
-                        <input type="prezzo" placeholder="Inserisci Prezzo" name="prezzo" required>
+                        <input type="price" placeholder="Inserisci Prezzo" name="prezzo" required>
 
                         <label for="immagine"><b>Immagine prodotto:</b></label>
                         <input type="file" name="immagine" id="immagine" required />
 
                         <label for="descrizione"><b>Descrizione:</b></label>
                         <textarea class="form-control" name="descrizione" id="descrizione" required></textarea>
-                        </br></br>
+                        <br /><br />
 
                         <label for="quantita">Quantità; disponibile in magazzino: </label>
                         <input type="number" id="quantita" name="quantita" min="1" value="1" required />
@@ -147,18 +147,6 @@
                     </div>
                 </form>
             </div>
-            <script>
-
-                // Get the modal
-                var modal = document.getElementById('aggiunta');
-
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-            </script>
         </section>
     </main>
     <footer>
