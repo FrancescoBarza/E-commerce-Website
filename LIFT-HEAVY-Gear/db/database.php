@@ -119,11 +119,13 @@ class DatabaseHelper{
         
         return $stmt->insert_id;
     }
-    
-    public function inserisciProdotto($nome, $immagine, $prezzo, $descrizione, $quantita, $categoria) {
-        $query = "INSERT INTO prodotto (nome, immagine, descrizione, prezzo, quantita, ID_categoria) VALUES (?, ?, ?, ?, ?, ?)";
+
+    // crea query modificaDatiUtente
+
+    public function inserisciProdotto($nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria) {
+        $query = "INSERT INTO prodotto (nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sssdis', $nome, $immagine, $descrizione, $prezzo, $quantita, $categoria);
+        $stmt->bind_param('ssfiffsi', $nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria);
         $stmt->execute();
         
         return $stmt->insert_id;
