@@ -185,7 +185,6 @@ button.next:hover {
 .articolo {
     background-color: #333;
     border-width: 2px;
-    width: 49%;
     max-width: 720px;
     height: 40%;
     margin: 2% auto;
@@ -208,6 +207,8 @@ button.next:hover {
     font-size: 18px;
     border-radius: 100px;
     float: inline-end;
+    margin-bottom: 10px;
+
 
 }
 
@@ -454,9 +455,8 @@ footer>.copyright a {
     }
 
     .articolo {
-        min-width: 420px;
-        width: 25%;
-        height: 720px;
+        min-width: 330px;
+        width: 20%;
     }
 
     .slider {
