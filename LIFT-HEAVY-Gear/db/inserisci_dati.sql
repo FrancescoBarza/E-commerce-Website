@@ -23,21 +23,21 @@ INSERT INTO prodotto (ID_prodotto, nome, descrizione, prezzo, quantita, peso, lu
 INSERT INTO utente (ID_utente, nome, cognome, email, Password, venditore) VALUES
 (1, 'Mario', 'Rossi', 'mario.rossi@example.com', 'password1', 'Y'),
 (2, 'Luca', 'Bianchi', 'luca.bianchi@example.com', 'password2', 'N'),
-(3, 'Sofia', 'Verdi', 'sofia.verdi@example.com', 'password3', 'N');
+(3, 'Sofia', 'Verdi', 'sofia.verdi@example.com', 'password3', 'N'),
 (4, 'Paolo', 'Viola', 'paolo.viola@example.com', 'password4', 'Y'),
 (5, 'Davide', 'Neri', 'davide.neri@example.com', 'password5', 'N'),
-(6, 'Francesco', 'Liverani', 'francesco.liverani@example.com', 'password6', 'N');
-(7, 'Piero', 'Gentile', 'piero.gentile@example.com', 'password7', 'Y'),
+(6, 'Francesco', 'Liverani', 'francesco.liverani@example.com', 'password6', 'N'),
+(7, 'Piero', 'Gentile', 'piero.gentile@example.com', 'password7', 'Y');
 
 
 -- Popolamento Tabella "ordine"
 INSERT INTO ordine (ID_ordine, data_ordine, prezzo_totale, stato_ordine, ID_utente) VALUES
 (1, '2024-12-01', 729.98, 'Spedito', 2),
-(2, '2024-12-05', 369.98, 'Consegnato', 5);
+(2, '2024-12-05', 369.98, 'Consegnato', 5),
 (3, '2024-12-12', 929.98, 'Carrello', 1),
-(4, '2024-12-23', 369.98, 'Pronto per il ritiro', 7);
+(4, '2024-12-23', 369.98, 'Pronto per il ritiro', 7),
 (5, '2024-12-04', 459.98, 'Consegnato', 3),
-(6, '2024-12-05', 369.00, 'Carrello', 6);
+(6, '2024-12-05', 369.00, 'Carrello', 6),
 (7, '2024-12-07', 920.98, 'In Elaborazione', 1),
 (8, '2024-12-16', 1029.98, 'Spedito', 4),
 (9, '2024-12-15', 269.98, 'Pronto per il ritiro', 2);
@@ -67,4 +67,4 @@ INSERT INTO notifica (ID_notifica, testo, data_creazione, stato_notifica, ID_ute
 (5, 'Il tuo ordine è pronto per il ritiro', '2024-12-25', 'Non letta', 4),
 (6, 'Il tuo ordine è stato consegnato', '2024-12-03', 'Letta', 5),
 (7, 'Il tuo ordine è in elaborazione', '2024-12-09', 'Letta', 1),
-(8, 'Il tuo ordine è stato spedito', '2024-12-21', 'Non letta', 2),
+(8, 'Il tuo ordine è stato spedito', '2024-12-21', 'Non letta', 2);
