@@ -60,6 +60,14 @@ CREATE TABLE utente (
      CONSTRAINT ID_utente_ID PRIMARY KEY (ID_utente)
 );
 
+CREATE TABLE articolo (
+     ID_articolo INT NOT NULL AUTO_INCREMENT,
+     titolo_articolo VARCHAR(255) NOT NULL,
+     testo_articolo TEXT NOT NULL,
+     data_articolo DATE NOT NULL,
+     immagine_articolo VARCHAR(255) NOT NULL,
+     CONSTRAINT ID_articolo_ID PRIMARY KEY (ID_articolo)
+);
 -- Constraints Section
 -- ___________________ 
 
@@ -115,3 +123,6 @@ CREATE INDEX REF_prodo_categ_IND
 
 CREATE UNIQUE INDEX ID_utente_IND
      ON utente (ID_utente);
+
+CREATE UNIQUE INDEX ID_articolo_IND
+     ON articolo (ID_articolo);
