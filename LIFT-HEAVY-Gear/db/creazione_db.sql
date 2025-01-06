@@ -1,8 +1,8 @@
 -- Database Section
 -- ________________ 
 
-CREATE DATABASE liftheavy;
-USE liftheavy;
+CREATE DATABASE liftheavygear;
+USE liftheavygear;
 
 -- Tables Section
 -- _____________ 
@@ -25,7 +25,7 @@ CREATE TABLE notifica (
 CREATE TABLE ordine (
      ID_ordine INT NOT NULL AUTO_INCREMENT,
      data_ordine DATE NOT NULL,
-     prezzo_totale FLOAT(100) NOT NULL,
+     prezzo_totale FLOAT NOT NULL,
      stato_ordine VARCHAR(255) NOT NULL,
      ID_utente INT NOT NULL,
      CONSTRAINT ID_ordine_ID PRIMARY KEY (ID_ordine)
@@ -40,11 +40,11 @@ CREATE TABLE ordini_prodotti (
 CREATE TABLE prodotto (
      ID_prodotto INT NOT NULL AUTO_INCREMENT,
      nome VARCHAR(100) NOT NULL,
-     descrizione VARCHAR(255) NOT NULL,
-     prezzo FLOAT(100) NOT NULL,
+     descrizione MEDIUMTEXT NOT NULL,
+     prezzo FLOAT NOT NULL,
      quantita INT(5) NOT NULL,
-     peso FLOAT(255) NOT NULL,
-     lunghezza FLOAT(255) NOT NULL,
+     peso FLOAT NOT NULL,
+     lunghezza FLOAT NOT NULL,
      immagine VARCHAR(255) NOT NULL,
      ID_categoria INT NOT NULL,
      CONSTRAINT ID_prodotto_ID PRIMARY KEY (ID_prodotto)
@@ -55,7 +55,7 @@ CREATE TABLE utente (
      nome VARCHAR(100) NOT NULL,
      cognome VARCHAR(100) NOT NULL,
      email VARCHAR(100) NOT NULL,
-     Password VARCHAR(100) NOT NULL,
+     password VARCHAR(100) NOT NULL,
      venditore CHAR,
      CONSTRAINT ID_utente_ID PRIMARY KEY (ID_utente)
 );
@@ -63,7 +63,7 @@ CREATE TABLE utente (
 CREATE TABLE articolo (
      ID_articolo INT NOT NULL AUTO_INCREMENT,
      titolo_articolo VARCHAR(255) NOT NULL,
-     testo_articolo TEXT NOT NULL,
+     testo_articolo MEDIUMTEXT NOT NULL,
      data_articolo DATE NOT NULL,
      immagine_articolo VARCHAR(255) NOT NULL,
      CONSTRAINT ID_articolo_ID PRIMARY KEY (ID_articolo)
