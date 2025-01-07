@@ -5,12 +5,20 @@ class DatabaseHelper{
     public function __construct($servername, $username, $password, $dbname, $port){
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
-        die("Connection failed: " /*. $db->connect_error*/);
+        die("Connection failed: " /* . $db->connect_error */);
         }        
     }
+
+    public function getCategories(){
+        $stmt = $this->db->prepare("SELECT ID_categoria, nome_categoria FROM categoria");
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+    }
     public function getProduct($n=-1) {
-        // Query corretta con il nome della tabella e colonne
-        $query = "SELECT ID_prodotto, nome, immagine, descrizione, prezzo, quantita FROM prodotto";
+        $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria FROM prodotto";
         if ($n > 0) {
             $query .= " LIMIT ?";
         }
@@ -25,8 +33,7 @@ class DatabaseHelper{
     }
 
     public function getProductById($id) {
-        // Query corretta con il nome della tabella e colonne
-        $query = "SELECT ID_prodotto, nome, immagine, descrizione, prezzo, quantita FROM prodotto WHERE ID_prodotto = ?";
+        $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria FROM prodotto WHERE ID_prodotto = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id);
         $stmt->execute();
@@ -34,7 +41,24 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getProductByCategory($idcategoria){
+        $query = "SELECT ID_prodotto, nome, immagine, descrizione, prezzo, quantita FROM prodotto WHERE ID_categoria = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idcategoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getRandomProduct($n=12){
+        $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria FROM prodotto ORDER BY RAND() LIMIT ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $n);
+        $stmt->execute();
+        $result = $stmt->get_result();
     
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function getProductByIdOnCart($id) {
         // Query corretta con il nome della tabella e colonne
         $query = "SELECT ID_prodotto, nome, immagine, prezzo FROM prodotto WHERE ID_prodotto = ?";
@@ -46,7 +70,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
-    public function getOrdini($id) { 
+    public function getOrder($id) { 
         $statoCarrello = "Carrello";
         $query = "SELECT ordine.ID_ordine, data_ordine, stato_ordine, prezzo_totale, prodotto.immagine, prodotto.nome 
                   FROM ordine 
@@ -62,7 +86,7 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getOrdineById($id) {
+    public function getOrderById($id) {
         $query = "SELECT ordine.ID_ordine, data_ordine, stato_ordine, prezzo_totale, prodotto.immagine, prodotto.nome 
                   FROM ordine 
                   JOIN ordini_prodotti ON ordine.ID_ordine = ordini_prodotti.ID_ordine 
@@ -76,7 +100,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
-    public function getProdottiFromOrdine($id) {
+    public function getProductFromOrder($id) {
         $query = "SELECT prodotto.nome 
                   FROM prodotto 
                   JOIN ordini_prodotti ON ordini_prodotti.ID_prodotto = prodotto.ID_prodotto 
@@ -88,8 +112,8 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getDati($id) {
-        $query = "SELECT nome, cognome, email 
+    public function getUserData($id) {
+        $query = "SELECT nome, cognome, email, Password, venditore
                   FROM utente 
                   WHERE ID_utente = ?";
         $stmt = $this->db->prepare($query);
@@ -100,7 +124,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     public function checkLogin($email, $password) {
-        $query = "SELECT ID_utente, nome, email, Password 
+        $query = "SELECT ID_utente, nome, email, Password, venditore
                   FROM utente 
                   WHERE email = ? AND Password = ?";
         $stmt = $this->db->prepare($query);
@@ -111,18 +135,30 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
-    public function inserisciUtente($nome, $cognome, $email, $password) {
-        $query = "INSERT INTO utente (nome, cognome, email, Password) VALUES (?, ?, ?, ?)";
+    public function addUser($nome, $cognome, $email, $password, $venditore) {
+        $query = "INSERT INTO utente (nome, cognome, email, Password, venditore) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $nome, $cognome, $email, $password);
+        $stmt->bind_param('sssss', $nome, $cognome, $email, $password, $venditore);
         $stmt->execute();
         
         return $stmt->insert_id;
     }
+    
+    public function editUserData($id_utente, $nome, $cognome, $email, $password) {
+        $query = "UPDATE utente 
+                  SET nome = ?, cognome = ?, email = ?, password = ? 
+                  WHERE ID_utente = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssi', $nome, $cognome, $email, $password, $id_utente);
+        $stmt->execute();
+        if ($stmt->affected_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    // crea query modificaDatiUtente
-
-    public function inserisciProdotto($nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria) {
+    public function addProduct($nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria) {
         $query = "INSERT INTO prodotto (nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssfiffsi', $nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria);
@@ -131,39 +167,29 @@ class DatabaseHelper{
         return $stmt->insert_id;
     }
     
-    public function rifornisciProdotto($idprodotto, $quantita) {
+    public function supplyProduct($idprodotto, $quantita) {
         $query = "UPDATE prodotto SET quantita = quantita + ? WHERE ID_prodotto = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ii', $quantita, $idprodotto);
+        $stmt->bind_param('ii', $idprodotto, $quantita);
         $stmt->execute();
     }
     
-    public function updateStato($id, $stato) {
+    public function updateOrderStatus($id, $stato) {
         $query = "UPDATE ordine SET stato_ordine = ? WHERE ID_ordine = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('si', $stato, $id);
+        $stmt->bind_param('is', $id, $stato);
         $stmt->execute();
         
         return $stmt->affected_rows; // Restituisce il numero di righe aggiornate
     }
-    //da vedere meglio
-    public function getProdottiByIdCategoria($idcategoria) {
-        $query = "SELECT ID_prodotto, nome, immagine, prezzo, quantita 
-                  FROM prodotto WHERE ID_categoria = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i', $idcategoria);
-        $stmt->execute();
-        $result = $stmt->get_result();
-    
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    public function createNewCart($utente) {
+
+    public function createNewCart($idutente) {
         $statoCarrello = "Carrello";
         $totaleCarrello = 0;
         $dataCorrente = date("Y-m-d");
         $query = "INSERT INTO ordine (data_ordine, stato_ordine, prezzo_totale, ID_utente) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssdi', $dataCorrente, $statoCarrello, $totaleCarrello, $utente);
+        $stmt->bind_param('ssfi', $dataCorrente, $statoCarrello, $totaleCarrello, $idutente);
     
         if (!$stmt->execute()) {
             throw new Exception("Errore nella query INSERT: " . $stmt->error);
@@ -209,7 +235,7 @@ class DatabaseHelper{
     public function updateTotalCart($idOrdine, $totale) {
         $query = "UPDATE ordine SET prezzo_totale = prezzo_totale + ? WHERE ID_ordine = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('di', $totale, $idOrdine);
+        $stmt->bind_param('fi', $totale, $idOrdine);
     
         if (!$stmt->execute()) {
             throw new Exception("Errore nella query UPDATE: " . $stmt->error);
@@ -265,7 +291,7 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getNotifiche($utente) {
+    public function getNotification($utente) {
         $query = "SELECT ID_notifica, testo, stato_notifica 
                   FROM notifica WHERE ID_utente = ? 
                   ORDER BY ID_notifica";
@@ -277,16 +303,16 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
-    public function insertNotifica($testo, $utente) {
+    public function addNotification($testo, $utente) {
         $stato = 0; // Stato predefinito
         $query = "INSERT INTO notifica (testo, ID_utente, stato_notifica) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sii', $testo, $utente, $stato);
+        $stmt->bind_param('sis', $testo, $utente, $stato);
         $stmt->execute();
         
         return $stmt->insert_id; // Restituisce l'ID della notifica appena inserita
     }
-    public function deleteNotifica($idnotifica) {
+    public function deleteNotification($idnotifica) {
         $query = "DELETE FROM notifica WHERE ID_notifica = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $idnotifica);
@@ -296,8 +322,7 @@ class DatabaseHelper{
         }
     }
     
-    
-    public function updateStatoNotifiche($utente) {
+    public function updateNotificationStatus($utente) {
         $letto = 1; // Indica che la notifica è stata letta
         $query = "UPDATE notifica SET stato_notifica = ? WHERE ID_utente = ?";
         $stmt = $this->db->prepare($query);
@@ -317,8 +342,15 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_assoc(); // Restituisce un singolo record
     }
-
     
+    public function getArticles(){
+        $query = "SELECT ID_articolo, titolo_articolo, testo_articolo, data_articolo, immagine_articolo FROM articolo ORDER BY data_articolo DESC ";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     
 }
 
