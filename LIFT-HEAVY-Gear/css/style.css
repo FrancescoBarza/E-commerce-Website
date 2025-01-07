@@ -9,6 +9,7 @@
 
 /* Corpo del documento */
 body {
+    background-color: #222;
     font-family: 'Libre Franklin';
     font-size: 16px;
 }
@@ -149,6 +150,8 @@ button:hover {
 /* Aside */
 aside {
     background: #222;
+    border-top: #fff;
+    border-top: solid;
     color: #fff;
     text-align: center;
     padding: 50px 5%;
@@ -170,11 +173,7 @@ footer>section {
 /* Media Queries per Desktop */
 @media screen and (min-width: 768px) {
     body {
-        background-color: #680606;
+        background-color: #222;
     }
-
-    aside {
-
-        text-align: left;
-    }
+    
 }

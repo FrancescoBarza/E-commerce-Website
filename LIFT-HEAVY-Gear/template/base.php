@@ -32,7 +32,7 @@
             <nav>
                 <ul id="dropdown-menu" class="hidden">
                     <?php foreach($templateParams["categorie"] as $categoria ): ?>
-                    <li><a href="../catergorie.php"><?php echo $categoria["nome_categoria"] ?></a></li>
+                    <li><a href="./catergoria.php"><?php echo $categoria["nome_categoria"]; ?></a></li>
                    <?php endforeach; ?>
                 </ul>
             </nav>
@@ -81,13 +81,13 @@
             <button class="next" onclick="nextImage()">❯</button>
         </div>
         <section>
-            <h1>I PRODOTTI PIÙ VENDUTI</h1>
+            <h1>I NOSTRI PRODOTTI</h1>
             <?php foreach($templateParams["prodottirandom"] as $prodottorandom ): ?>
             <div class="prodotto">
                 <a href="prodotto.php">
-                    <img src="<?php echo UPLOAD_DIR_UPLOADS.$prodottorandom["immagine"] ?>" alt="Immagine prodotto" />
-                    <h3><?php echo $prodottorandom["nome"] ?></h3>
-                    <p class="price"><?php echo $prodottorandom["prezzo"]?> €</p>
+                    <img src="<?php echo UPLOAD_DIR_UPLOADS.$prodottorandom["immagine"]; ?>" alt="Immagine prodotto" />
+                    <h3><?php echo $prodottorandom["nome"]; ?></h3>
+                    <p class="price"><?php echo $prodottorandom["prezzo"]; ?> €</p>
                 </a>
                 <p>
                     <button type="button"><span class="fas fa-cart-plus"></span></button>
@@ -100,10 +100,10 @@
         <h1>NEWS E ARTICOLI</h1>
         <?php foreach($templateParams["articolirecenti"] as $articolorecente ): ?>
         <div class="articolo">
-            <img src="<?php echo UPLOAD_DIR_ARTICLES.$articolorecente["immagine_articolo"] ?>" alt="articolo1" />
+            <img src="<?php echo UPLOAD_DIR_ARTICLES.$articolorecente["immagine_articolo"]; ?>" alt="articolo1" />
             <section>
-                <h3><?php echo $articolorecente["titolo_articolo"] ?></h3>
-                <p><?php echo $articolorecente["data_articolo"] ?></p>
+                <h3><?php echo $articolorecente["titolo_articolo"]; ?></h3>
+                <p><?php echo $articolorecente["data_articolo"]; ?></p>
                 <button><span class="fas fa-arrow-right"></span></button>
             </section>
         </div>
