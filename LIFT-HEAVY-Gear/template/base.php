@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/styleClass.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/styleClass.css" />
 
     <title> <?php echo $templateParams["titolo"];?> </title>
-    <link rel="icon" href="../images/icons/Logo_Icon.ico" />
+    <link rel="icon" href="images/icons/Logo_Icon.ico" />
 </head>
 
 <body>
@@ -38,10 +38,10 @@
             </nav>
         </div>
         <div class="header-logo">
-            <a href="../index.php"><img src="../images/logos/Logo_Main.png" alt="logo" /></a>
+            <a href="index.php"><img src="images/logos/Logo_Main.png" alt="logo" /></a>
         </div>
         <div class="header-icon">
-            <a href="../login.php">
+            <a href="login.php">
                 <svg>
                     <path fill="currentColor"
                         d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.429a3.571 3.571 0 1 0 0 7.142 3.571 3.571 0 0 0 0-7.142zm0 10c2.558 0 5.114.471 7.664 1.411A3.571 3.571 0 0 1 22 18.19v3.096c0 .394-.32.714-.714.714H2.714A.714.714 0 0 1 2 21.286V18.19c0-1.495.933-2.833 2.336-3.35 2.55-.94 5.106-1.411 7.664-1.411zm0 1.428c-2.387 0-4.775.44-7.17 1.324a2.143 2.143 0 0 0-1.401 2.01v2.38H20.57v-2.38c0-.898-.56-1.7-1.401-2.01-2.395-.885-4.783-1.324-7.17-1.324z">
@@ -49,7 +49,7 @@
                     </path>
                 </svg>
             </a>
-            <a href="./carrello.html">
+            <a href="carrello.html">
                 <svg>
                     <path fill="currentColor"
                         d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
@@ -74,9 +74,9 @@
         <div class="slider">
             <button class="prev" onclick="prevImage()">❮</button>
             <div class="image-container">
-                <img src="../images/uploads/home_sheffield.png" alt="Immagine 1" class="active">
-                <img src="../images/uploads/home_sheffield2025.png" alt="Immagine 2">
-                <img src="../images/uploads/home_deadlift.png" alt="Immagine 3">
+                <img src="images/uploads/home_sheffield.png" alt="Immagine 1" class="active">
+                <img src="images/uploads/home_sheffield2025.png" alt="Immagine 2">
+                <img src="images/uploads/home_deadlift.png" alt="Immagine 3">
             </div>
             <button class="next" onclick="nextImage()">❯</button>
         </div>
@@ -84,10 +84,10 @@
             <h1>I PRODOTTI PIÙ VENDUTI</h1>
             <?php foreach($templateParams["prodottirandom"] as $prodottorandom ): ?>
             <div class="prodotto">
-                <a href="../prodotto.php">
-                    <img src="<?php echo $prodottorandom["immagine"] ?>" alt="Immagine prodotto" />
+                <a href="prodotto.php">
+                    <img src="<?php echo UPLOAD_DIR_UPLOADS.$prodottorandom["immagine"] ?>" alt="Immagine prodotto" />
                     <h3><?php echo $prodottorandom["nome"] ?></h3>
-                    <p class="price"><?php echo $prodottorandom["prezzo"] ?></p>
+                    <p class="price"><?php echo $prodottorandom["prezzo"]?> €</p>
                 </a>
                 <p>
                     <button type="button"><span class="fas fa-cart-plus"></span></button>
@@ -100,7 +100,7 @@
         <h1>NEWS E ARTICOLI</h1>
         <?php foreach($templateParams["articolirecenti"] as $articolorecente ): ?>
         <div class="articolo">
-            <img src="<?php echo $articolorecente["immagine_articolo"] ?>" alt="articolo1" />
+            <img src="<?php echo UPLOAD_DIR_ARTICLES.$articolorecente["immagine_articolo"] ?>" alt="articolo1" />
             <section>
                 <h3><?php echo $articolorecente["titolo_articolo"] ?></h3>
                 <p><?php echo $articolorecente["data_articolo"] ?></p>
@@ -135,7 +135,7 @@
         </section>
     </footer>
     <!-- SCRIPT JAVASCRIPT-->
-    <script src="../js/functions.js"></script>
+    <script src="js/functions.js"></script>
 </body>
 
 </html>
