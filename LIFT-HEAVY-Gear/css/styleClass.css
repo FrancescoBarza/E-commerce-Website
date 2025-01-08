@@ -49,6 +49,7 @@
 .header-menu nav ul li a {
     color: #fff;
     font-family: 'Arimo';
+    text-transform: uppercase;
     text-decoration: none;
     display: block;
     padding: 5px;
@@ -187,7 +188,6 @@ button.next:hover {
     margin: 2% auto;
     display: inline-block;
     vertical-align: top;
-    align-items: stretch;
     text-align: left;
 }
 .articolo img {
@@ -291,18 +291,6 @@ footer>.copyright a {
     font-size: 22px;
 }
 
-.prodotto input {
-    max-width: 40%;
-    padding: 6px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-}
-
-.prodotto form {
-    display: inline-block;
-    width: 45%;
-}
-
 .prodotto button {
     border: none;
     outline: 0;
@@ -376,8 +364,6 @@ footer>.copyright a {
     margin: 5px 0;
     width: 150px;
 }
-
-/*ARTICOLO*/
 
 /* ================= MEDIA QUERY PER DESKTOP ================= */
 @media screen and (min-width: 768px) {
@@ -470,9 +456,6 @@ footer>.copyright a {
 
     .articolo {
         min-width: 330px;
-        min-height: 400px;
-        width: 33%;
-        
+        width: 33%;   
     }
-   
 }

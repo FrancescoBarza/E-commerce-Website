@@ -70,8 +70,7 @@
         </div>
     </header>
     <!-- END HEADER -->
-    <main>
-        <div class="slider">
+    <div class="slider">
             <button class="prev" onclick="prevImage()">❮</button>
             <div class="image-container">
                 <img src="images/uploads/home_sheffield.png" alt="Immagine 1" class="active">
@@ -80,6 +79,7 @@
             </div>
             <button class="next" onclick="nextImage()">❯</button>
         </div>
+    <main>
         <section>
             <h1>I NOSTRI PRODOTTI</h1>
             <?php foreach($templateParams["prodottirandom"] as $prodottorandom ): ?>
