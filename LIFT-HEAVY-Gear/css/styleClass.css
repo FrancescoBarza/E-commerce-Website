@@ -184,17 +184,15 @@ button.next:hover {
 /* ================= ASIDE E ARTICOLI ================= */
 .articolo {
     background-color: #333;
-    border-width: 2px;
-    max-width: 720px;
-    height: 40%;
     margin: 2% auto;
     display: inline-block;
     vertical-align: top;
+    align-items: stretch;
     text-align: left;
 }
-
 .articolo img {
     width: 100%;
+    height: auto;
 }
 
 .articolo button {
@@ -208,8 +206,6 @@ button.next:hover {
     border-radius: 100px;
     float: inline-end;
     margin-bottom: 10px;
-
-
 }
 
 /* ================= FOOTER ================= */
@@ -262,8 +258,7 @@ footer>.copyright a {
 .prodotto {
     background-color: #333;
     border-width: 2px;
-    width: 49%;
-    max-width: 240px;
+    max-width: 227px;
     margin: 20px auto;
     text-align: center;
     display: inline-block;
@@ -275,14 +270,24 @@ footer>.copyright a {
     height: 50%;
     margin-top: 10px;
 }
+.prodotto h3{
+    padding: 0 5%;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
 
 .prodotto a {
     text-decoration: none;
     color: #fff;
 }
 
-.price {
+.prodotto a p{
     color: #fff;
+    text-align: left;
+    margin-top: 10px;
+    padding: 0 5%;
     font-size: 22px;
 }
 
@@ -454,17 +459,20 @@ footer>.copyright a {
         width: 15%;
     }
 
-    .articolo {
-        min-width: 330px;
-        width: 20%;
-    }
-
     .slider {
         height: 500px;
     }
 
-    .image-container img {
+ .image-container img {
         min-width: 100%;
         height: auto;
     }
+
+    .articolo {
+        min-width: 330px;
+        min-height: 400px;
+        width: 33%;
+        
+    }
+   
 }

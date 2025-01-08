@@ -87,7 +87,7 @@
                 <a href="prodotto.php">
                     <img src="<?php echo UPLOAD_DIR_UPLOADS.$prodottorandom["immagine"]; ?>" alt="Immagine prodotto" />
                     <h3><?php echo $prodottorandom["nome"]; ?></h3>
-                    <p class="price"><?php echo $prodottorandom["prezzo"]; ?> €</p>
+                    <p><?php echo $prodottorandom["prezzo"]; ?> €</p>
                 </a>
                 <p>
                     <button type="button"><span class="fas fa-cart-plus"></span></button>
