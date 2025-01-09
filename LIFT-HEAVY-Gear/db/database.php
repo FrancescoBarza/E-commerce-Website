@@ -17,6 +17,15 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
 
     }
+
+    public function getCategoriesById($id){
+        $stmt = $this->db->prepare("SELECT ID_categoria, nome_categoria FROM categoria WHERE ID_categoria = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+
+    }
     public function getProduct($n=-1) {
         $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria FROM prodotto";
         if ($n > 0) {
@@ -349,6 +358,15 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
 
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getArticlesbyId($id){
+        $query = "SELECT ID_articolo, titolo_articolo, testo_articolo, data_articolo, immagine_articolo FROM articolo WHERE ID_articolo = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     

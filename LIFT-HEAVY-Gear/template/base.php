@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/styleClass.css" />
 
-    <title> <?php echo $templateParams["titolo"];?> </title>
+    <title><?php echo $templateParams["titolo"];?> </title>
     <link rel="icon" href="images/icons/Logo_Icon.ico" />
 </head>
 
@@ -32,7 +32,7 @@
             <nav>
                 <ul id="dropdown-menu" class="hidden">
                     <?php foreach($templateParams["categorie"] as $categoria ): ?>
-                    <li><a href="./catergoria.php"><?php echo $categoria["nome_categoria"]; ?></a></li>
+                    <li><a href="categoria.php?id=<?php echo $categoria["ID_categoria"];?>"> <?php echo $categoria["nome_categoria"]; ?> </a></li>
                    <?php endforeach; ?>
                 </ul>
             </nav>
@@ -70,41 +70,20 @@
         </div>
     </header>
     <!-- END HEADER -->
-    <div class="slider">
-            <button class="prev" onclick="prevImage()">❮</button>
-            <div class="image-container">
-                <img src="images/uploads/home_sheffield.png" alt="Immagine 1" class="active">
-                <img src="images/uploads/home_sheffield2025.png" alt="Immagine 2">
-                <img src="images/uploads/home_deadlift.png" alt="Immagine 3">
-            </div>
-            <button class="next" onclick="nextImage()">❯</button>
-        </div>
     <main>
-        <section>
-            <h1>I NOSTRI PRODOTTI</h1>
-            <?php foreach($templateParams["prodottirandom"] as $prodottorandom ): ?>
-            <div class="prodotto">
-                <a href="prodotto.php">
-                    <img src="<?php echo UPLOAD_DIR_UPLOADS.$prodottorandom["immagine"]; ?>" alt="Immagine prodotto" />
-                    <h3><?php echo $prodottorandom["nome"]; ?></h3>
-                    <p><?php echo $prodottorandom["prezzo"]; ?> €</p>
-                </a>
-                <p>
-                    <button type="button"><span class="fas fa-cart-plus"></span></button>
-                </p>
-            </div>
-            <?php endforeach; ?>
-        </section>
+        <?php
+        require($templateParams["nome-main"]);
+        ?>
     </main>
     <aside>
-        <h1>NEWS E ARTICOLI</h1>
-        <?php foreach($templateParams["articolirecenti"] as $articolorecente ): ?>
+    <h1>NEWS E ARTICOLI</h1>
+        <?php foreach($templateParams["articoli"] as $articolo ): ?>
         <div class="articolo">
-            <img src="<?php echo UPLOAD_DIR_ARTICLES.$articolorecente["immagine_articolo"]; ?>" alt="articolo1" />
+            <img src="<?php echo UPLOAD_DIR_ARTICLES.$articolo["immagine_articolo"]; ?>" alt="<?php echo $articolo["titolo_articolo"]; ?>" />
             <section>
-                <h3><?php echo $articolorecente["titolo_articolo"]; ?></h3>
-                <p><?php echo $articolorecente["data_articolo"]; ?></p>
-                <button><span class="fas fa-arrow-right"></span></button>
+                <h3><?php echo $articolo["titolo_articolo"]; ?></h3>
+                <p><?php echo $articolo["data_articolo"]; ?></p>
+                <button onclick="window.location.href='singolo-articolo.php?id=<?php echo $articolo['ID_articolo'];?>' "><span class="fas fa-arrow-right"></span></button>
             </section>
         </div>
         <?php endforeach; ?>
