@@ -10,16 +10,10 @@ class DatabaseHelper{
     }
 
     public function getCategories() {
-        $query = "SELECT ID_categoria, nome_categoria FROM categoria ORDER BY nome_categoria ASC";
+        $query = "SELECT ID_categoria, nome_categoria FROM categoria ORDER BY ID_categoria ASC";
         $stmt = $this->db->prepare($query);
-        if (!$stmt) {
-            throw new Exception("Errore nella preparazione della query: " . $this->db->error);
-        }
         $stmt->execute();
         $result = $stmt->get_result();
-        if (!$result) {
-            throw new Exception("Errore nell'esecuzione della query: " . $stmt->error);
-        }
         $categories = $result->fetch_all(MYSQLI_ASSOC);
         if (empty($categories)) {
             return [];  // Restituisce un array vuoto per gestire l'assenza di categorie
@@ -131,7 +125,7 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function getUserData($id) {
+    public function getUserDataById($id) {
         $query = "SELECT nome, cognome, email, Password, venditore
                   FROM utente 
                   WHERE ID_utente = ?";
