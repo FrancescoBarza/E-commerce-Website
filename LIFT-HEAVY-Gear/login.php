@@ -16,9 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($login_result) {
             $_SESSION["loggedin"] = true;
-            $_SESSION["user_id"] = $login_result["id_utente"];
+            $_SESSION["ID_utente"] = $login_result["ID_utente"];
             $_SESSION["email"] = $login_result["email"];
-            header("Location: areaCliente.php");
+            $userRole = isset($login_result['venditore']) ? $login_result['venditore'] : 'N'; // Default to 'N' if not set
+            if ($userRole === 'Y') {
+                header("Location: areaVenditore.php");
+            } else {
+                header("Location: areaCliente.php");
+            }
             exit;
         } else {
             // Autenticazione fallita

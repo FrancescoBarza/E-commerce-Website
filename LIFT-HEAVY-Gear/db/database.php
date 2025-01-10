@@ -134,18 +134,18 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
     
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_assoc();
     }
     public function checkLogin($email, $password) {
         $query = "SELECT ID_utente, nome, email, Password, venditore
                   FROM utente 
                   WHERE email = ? AND Password = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss', $email, $password);
+        $stmt->bind_param('ss', $email, $password); // Parametri email e password
         $stmt->execute();
         $result = $stmt->get_result();
     
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_assoc(); // Ritorna il primo risultato come array associativo
     }
     
     public function addUser($nome, $cognome, $email, $password, $venditore) {

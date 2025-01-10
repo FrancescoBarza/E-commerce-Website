@@ -35,4 +35,5 @@
         <button type="submit">Crea Account</button>
         <br><br>
     </form>
-    <img src="<?php echo UPLOAD_DIR_LOGINS; ?>login.png" alt="registration-img"> </section>
+    <img src="<?php echo UPLOAD_DIR_LOGINS; ?>login.png" alt="registration-img"> 
+</section>

@@ -24,7 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $templateParams["errore"] = "Email già registrata.";
         } else {
             if ($dbh->addUser($nome, $cognome, $email, $password, $is_vendor)) {
-                header("Location: login.php"); 
+                $redirectPath = ($is_vendor == 'Y') ? "areaVenditore.php" : "areaCliente.php";
+                header("Location: " . $redirectPath); 
                 exit;
             } else {
                 $templateParams["errore"] = "Errore durante la registrazione. Riprova più tardi.";
