@@ -114,8 +114,22 @@
     float: left;
     padding: 8px 0 8px 1%;
 }
+.header-search form{
+    background-color: #474747;
+    color: #fff;
+    float: inline-start;
+    border: none;
+    outline-color: #fff;
+    outline-offset: -2px;
+    outline-width: 0px;
+    font-size: 15px;
+    width: 85%;
+    height: 40px;
+    padding: 11px 0 11px 2%;
+    cursor: text;
+}
 
-.header-search>input {
+.header-search form input {
     background-color: #474747;
     color: #fff;
     float: inline-start;
