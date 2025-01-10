@@ -141,11 +141,11 @@ class DatabaseHelper{
                   FROM utente 
                   WHERE email = ? AND Password = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss', $email, $password); // Parametri email e password
+        $stmt->bind_param('ss', $email, $password); 
         $stmt->execute();
         $result = $stmt->get_result();
     
-        return $result->fetch_assoc(); // Ritorna il primo risultato come array associativo
+        return $result->fetch_assoc();
     }
     
     public function addUser($nome, $cognome, $email, $password, $venditore) {

@@ -6,9 +6,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 }
 $userData = $dbh->getUserDataById($_SESSION["ID_utente"]);
 if (!$userData) {
-    // Handle the case where user data is not found (e.g., user deleted)
-    // You might log the user out or display an error message.
-    // For this example, we'll redirect to the login page:
     header("Location: login.php");
     exit;
 }
