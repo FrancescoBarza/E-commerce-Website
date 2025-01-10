@@ -77,7 +77,8 @@
     </main>
     <aside>
     <h1>NEWS E ARTICOLI</h1>
-        <?php foreach($templateParams["articoli"] as $articolo ): ?>
+    <?php if (isset($templateParams["articoli"]) && !empty($templateParams["articoli"])): ?>
+    <?php foreach($templateParams["articoli"] as $articolo): ?>
         <div class="articolo">
             <img src="<?php echo UPLOAD_DIR_ARTICLES.$articolo["immagine_articolo"]; ?>" alt="<?php echo $articolo["titolo_articolo"]; ?>" />
             <section>
@@ -86,7 +87,10 @@
                 <button onclick="window.location.href='articolo.php?id=<?php echo $articolo['ID_articolo'];?>' "><span class="fas fa-arrow-right"></span></button>
             </section>
         </div>
-        <?php endforeach; ?>
+    <?php endforeach; ?>
+<?php else: ?>
+    <p>Nessun articolo disponibile.</p>
+<?php endif; ?>
     </aside>
     <footer>
         <section class="social">

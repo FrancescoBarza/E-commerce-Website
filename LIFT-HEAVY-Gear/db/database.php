@@ -9,14 +9,24 @@ class DatabaseHelper{
         }        
     }
 
-    public function getCategories(){
-        $stmt = $this->db->prepare("SELECT ID_categoria, nome_categoria FROM categoria");
+    public function getCategories() {
+        $query = "SELECT ID_categoria, nome_categoria FROM categoria ORDER BY nome_categoria ASC";
+        $stmt = $this->db->prepare($query);
+        if (!$stmt) {
+            throw new Exception("Errore nella preparazione della query: " . $this->db->error);
+        }
         $stmt->execute();
         $result = $stmt->get_result();
-    
-        return $result->fetch_all(MYSQLI_ASSOC);
-
+        if (!$result) {
+            throw new Exception("Errore nell'esecuzione della query: " . $stmt->error);
+        }
+        $categories = $result->fetch_all(MYSQLI_ASSOC);
+        if (empty($categories)) {
+            return [];  // Restituisce un array vuoto per gestire l'assenza di categorie
+        }
+        return $categories;
     }
+    
 
     public function getCategoriesById($id){
         $stmt = $this->db->prepare("SELECT ID_categoria, nome_categoria FROM categoria WHERE ID_categoria = ?");
