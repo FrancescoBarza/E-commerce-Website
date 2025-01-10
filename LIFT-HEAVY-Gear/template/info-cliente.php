@@ -40,5 +40,12 @@
                     <a href="./notifiche.html">Notifiche</a>
                 </div>
             </div>
-            <button type="button" class="logout" onclick="window.location.href='areaCliente.php?logout=true'">Logout</button>
-        </section>
+            <button type="button" class="logout" onclick="confirmLogout()">Logout</button>
+                <script>
+                    function confirmLogout() {
+                    if (confirm('Sei sicuro di voler uscire?')) {
+                    window.location.href = 'areaCliente.php?logout=true';
+                    }
+                    }
+                </script>
+ </section>
