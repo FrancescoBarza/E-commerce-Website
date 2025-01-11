@@ -9,7 +9,7 @@
 		 M32.617,25.336h28.61c1.709,0,3.102-1.391,3.102-3.1v-3.438h7.554l0.021,68.164l-49.939,0.021V18.801h7.554v3.436
 		C29.517,23.945,30.907,25.336,32.617,25.336z" />
                     </svg>
-                    <a href="./datiUtente.html">I miei dati</a>
+                    <a href="./datiUtente.php">I miei dati</a>
                 </div>
                 <div class="card">
                     <svg viewBox="0 0 485.32 485.32">

@@ -371,6 +371,19 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function updateUserData($userId, $nome, $cognome, $email, $password = null) {
+        if ($password) {
+            $query = "UPDATE utente SET nome = ?, cognome = ?, email = ?, Password = ? WHERE ID_utente = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssssi', $nome, $cognome, $email, $password, $userId);
+        } else {
+            $query = "UPDATE utente SET nome = ?, cognome = ?, email = ? WHERE ID_utente = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sssi', $nome, $cognome, $email, $userId);
+        }
+        return $stmt->execute();
+    }
+    
     
 }
 
