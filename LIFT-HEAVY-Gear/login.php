@@ -31,6 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
+$templateParams["show-aside"] = false;
 require("template/base.php");
 ?>

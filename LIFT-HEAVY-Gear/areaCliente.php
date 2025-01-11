@@ -20,6 +20,6 @@ if (isset($_GET["logout"])) {
     header("Location: login.php?logout=success");
     exit;
 }
-
+$templateParams["show-aside"] = false;
 require("template/base.php");
 ?>

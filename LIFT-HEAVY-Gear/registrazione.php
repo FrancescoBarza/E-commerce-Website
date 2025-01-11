@@ -6,7 +6,6 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["nome-main"] = "form-registrazione.php"; 
 $templateParams["errore"] = ""; 
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_STRING);
     $cognome = filter_input(INPUT_POST, "cognome", FILTER_SANITIZE_STRING);
@@ -19,13 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $templateParams["errore"] = "Email non valida.";
     } else {
-        
         if ($dbh->checkMail($email)) {
             $templateParams["errore"] = "Email già registrata.";
         } else {
             if ($dbh->addUser($nome, $cognome, $email, $password, $is_vendor)) {
-                $redirectPath = ($is_vendor == 'Y') ? "areaVenditore.php" : "areaCliente.php";
-                header("Location: " . $redirectPath); 
+                header("Location: login.php"); // Reindirizza sempre a login.php
                 exit;
             } else {
                 $templateParams["errore"] = "Errore durante la registrazione. Riprova più tardi.";
@@ -33,6 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
+$templateParams["show-aside"] = false;
 require("template/base.php");
 ?>
