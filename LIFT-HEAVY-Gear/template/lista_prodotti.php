@@ -8,7 +8,7 @@
             <button class="next" onclick="nextImage()">❯</button>
         </div>
 <section>
-            <h1>I NOSTRI PRODOTTI</h1>
+            <h1><?php echo $templateParams["titolo-main"];?></h1>
             <?php foreach($templateParams["lista-prodotti"] as $prodotto ): ?>
             <div class="prodotto">
                 <a href="prodotto.php?id=<?php echo $prodotto["ID_prodotto"];?>">

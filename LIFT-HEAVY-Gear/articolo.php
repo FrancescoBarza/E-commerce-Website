@@ -8,6 +8,7 @@ $templateParams["categorie"]= $dbh->getCategories();
 $templateParams["nome-main"] = "scheda_articolo.php";
 $id_articolo = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $templateParams["articolo"] = $dbh->getArticlesById($id_articolo);
-$templateParams["articoli"] = $dbh->getArticles();
+$templateParams["show-aside"] = false;
+
 require("template/base.php");
 ?>

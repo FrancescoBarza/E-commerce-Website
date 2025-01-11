@@ -75,6 +75,7 @@
         require($templateParams["nome-main"]);
         ?>
     </main>
+    <?php if (isset($templateParams["show-aside"]) && $templateParams["show-aside"]): ?>
     <aside>
     <h1>NEWS E ARTICOLI</h1>
     <?php if (isset($templateParams["articoli"]) && !empty($templateParams["articoli"])): ?>
@@ -92,6 +93,7 @@
     <p>Nessun articolo disponibile.</p>
 <?php endif; ?>
     </aside>
+    <?php endif; ?>
     <footer>
         <section class="social">
             <h2>SEGUICI SU:</h2>

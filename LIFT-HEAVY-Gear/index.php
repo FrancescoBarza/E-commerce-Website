@@ -2,9 +2,10 @@
 require_once("bootstrap.php");
 
 $templateParams["titolo"] = "LIFT HEAVY Gear";
+$templateParams["titolo-main"] = "I NOSTRI PRODOTTI";
 $templateParams["categorie"]= $dbh->getCategories();
 $templateParams["nome-main"] = "lista_prodotti.php";
-
+$templateParams["show-aside"] = true;
 $templateParams["lista-prodotti"] = $dbh->getRandomProduct(6);
 $templateParams["articoli"] = $dbh->getArticles();
 
