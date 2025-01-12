@@ -86,7 +86,7 @@
                     <p>Quantità: 100</p>
                     <p class="rifornisci"><span>Rifornisci</span></p>
                 </a>
-                <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                <input type="number" name="quantita" min="1" value="1" />
                 <button type="submit">Invio</button>
             </div>
             <div class="prodotto">
@@ -97,7 +97,7 @@
                     <p>Quantità: 100</p>
                     <p class="rifornisci"><span>Rifornisci</span></p>
                 </a>
-                <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                <input type="number" name="quantita" min="1" value="1" />
                 <button type="submit">Invio</button>
             </div>
             <div class="prodotto">
@@ -108,7 +108,7 @@
                     <p>Quantità: 100</p>
                     <p class="rifornisci">Rifornisci</p>
                 </a>
-                <input type="number" id="quantita" name="quantita" min="1" value="1" />
+                <input type="number" name="quantita" min="1" value="1" />
                 <button type="submit">Invio</button>
             </div>
             <button class="add-button" type="button"
@@ -121,7 +121,7 @@
                         <h1>AGGIUNGI PRODOTTO</h1>
                         <p>Completa i seguenti campi per aggiungere un nuovo prodotto.</p><br />
                         <label for="categoria"><b>Categoria: </b></label>
-                        <select name="categoria" id="categoria" required>
+                        <select name="categoria" required>
                             <option value="comp">Bilanciere da competizione</option>
                             <option value="special">Bilanciere speciale</option>
                             <option value="accessori">Accessorio</option>
@@ -131,7 +131,7 @@
                         <input type="text" placeholder="Inserisci Nome Prodotto" name="nome" required>
 
                         <label for="prezzo"><b>Prezzo</b></label>
-                        <input type="price" placeholder="Inserisci Prezzo" name="prezzo" required>
+                        <input type="number" placeholder="Inserisci Prezzo" name="prezzo" required>
 
                         <label for="immagine"><b>Immagine prodotto:</b></label>
                         <input type="file" name="immagine" id="immagine" required />

@@ -6,79 +6,122 @@ INSERT INTO categoria (ID_categoria, nome_categoria) VALUES
 
 -- Popolamento Tabella "prodotto"
 INSERT INTO prodotto (ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria) VALUES
-(1, 'Eleiko Brush', 'Mantieni il tuo bilanciere pulito da gesso e sporcizia con una spazzola magnetica per bilancieri. Grazie alla funzione magnetica, la spazzola per bilancieri può essere facilmente attaccata al tuo squat rack o a tutto ciò che è magnetico, tenendolo comodamente a portata di mano. Spazzola la zigrinatura del tuo bilanciere con la spazzola in nylon dopo ogni utilizzo.', 7.00, '200', 0.5, 0.3, 'brush.png', 3),
-(2, 'Strength Shop Cambered Bar', 'Il bilanciere Cambered offre un\'esperienza nuova, che prende di mira i muscoli del core e migliora la stabilità, facilitando in definitiva un\'esperienza di sollevamento più confortevole ed efficiente.
-Specifiche:
-Lunghezza totale: 2010mm,
-Lunghezza manicotto caricabile: 335 mm,
-Peso: 25kg,
-Cuscinetto ad aghi,
-Zigrinatura: Grossa,
-Diametro bilanciere: 35 mm. ', 379.99, '50', 25, 2, 'cambered.png', 2),
-(3, 'Lacertosus Magnetic Metal Collars', 'Progettati per assicurare solidamente i bumpers e i dischi al bilanciere garantendo un\'altissima tenuta anche durante i tuoi allenamenti più pesanti.
-Realizzati in alluminio aeronautico con anima in materiale polimerico di elevata qualità, il nuovo Magnetic Metal Collar è dotato di tutte le caratteristiche che lo rendono il collare migliore sul mercato.
-Il sistema di serraggio a leva con sgancio rapido consente la facile installazione su tutti i bilancieri olimpici da 50 mm di diametro, la gomma di alta qualità a contatto con il manicotto permette di bloccare con la massima precisione i dischi proteggendo al contempo la finitura del bilanciere.
-L’innovativo sistema magnetico incorporato nel telaio, consente di riporre i lock jaw direttamente sui pali del tuoi rack o rig per averli sempre a portata di mano.', 59.99, '300', 0.2, 0.05, 'collars.png', 3),
-(4, 'Kabuki Strength Deadlift Bar', 'Un design all\'avanguardia sulla geometria per massimizzare la quantità di flessione nella barra prima che si stacchi da terra, bilanciando al contempo la frusta o l\'oscillazione della barra. La barra Kabuki PR Deadlift dovrebbe migliorare immediatamente la potenza di trazione di chiunque, ma c\'è un periodo di apprendimento per massimizzare i risultati.
-Specifiche:
-Tipo di barra: Barra per stacco da terra,
-Prodotto: Oregon, USA,
-Resistenza alla trazione: 190k psi,
-Peso: 20kg,
-Diametro: 27mm,
-Lunghezza barra: 241,94 cm,
-Lunghezza manica caricabile: 39,37 cm,
-Finitura: Black Ice (ossido nero),
-Zigrinatura proprietaria: zigrinatura extra aggressiva,
-Specifiche USPA-IPL: sì,
-Hardware: boccole in bronzo impregnate d\'olio.', 739.99, '40', 20, 2.42, 'deadliftbar.png', 2),
-(5, 'Eleiko IPF Powerlifting Competition Bar', 'Certificato per le competizioni (IPF) e progettato per atleti professionisti e competitivi di powerlifting. Eleiko IPF Powerlifting Competition Bar è specificamente adatto per i tre sollevamenti da competizione di powerlifting: squat, panca piana e stacco da terra. Il bilanciere è dotato di robuste boccole in bronzo e di una speciale aggiunta di grafite che consente al bilanciere di autolubrificarsi, migliorando le prestazioni e la longevità e controllando la rotazione. Si consiglia di spazzolare regolarmente il bilanciere dopo ogni utilizzo (soprattutto quando si utilizza la magnesite) per mantenere il bilanciere al meglio il più a lungo possibile.', 1295.00, '100', 20, 2.2, 'eleiko_comp_bar.png', 1),
-(6, 'Eleiko Curl Bar', 'Sebbene sosteniamo l\'allenamento funzionale, sappiamo che anche l\'isolamento muscolare e l\'allenamento mirato hanno un ruolo importante in un programma di allenamento e portiamo il nostro leggendario impegno per qualità, prestazioni e durata all\'Eleiko Curl Bar. Impugnatura comoda e posizionamento delle mani insieme a componenti di qualità che forniscono una rotazione ottimale garantiscono un\'esperienza utente sicura e confortevole. La forma angolata della barra supporta una varietà di posizioni delle mani per l\'allenamento di tricipiti e bicipiti. La guaina leggermente scanalata impedisce ai pesi di scivolare.', 509.00, '40', 12, 1.2, 'eleiko_ez.png', 2),
-(7, 'Strength Shop IPF Calibrated Competition Collars', 'I collari da competizione di Strength Shop sono attrezzature da competizione all\'avanguardia. Questi collari sono realizzati in acciaio massiccio con finitura cromata, pesano 2,5 kg ciascuno. 
-Approvato IPF e realizzato con un design funzionale e professionale che offre ampio spazio sulla barra, offrendo al contempo un sistema di fissaggio assolutamente affidabile. Con un braccio di leva sottile e un anello di vite interno zigrinato, assicurano una facile maneggevolezza e una pressione sicura e stretta verso le piastre. Ideale per le competizioni di powerlifting e per scopi di allenamento seri. 
-L\'interno del collare è progettato con un anello di metallo, che protegge il bilanciere . Ciò impedisce di danneggiare la superficie delle maniche del bilanciere durante il fissaggio.', 169.99, '200', 2.5, 0.094, 'ipf_collars.png', 3),
-(8, 'Strength Shop Deadlift Jack', 'Il Deadlift Jack è uno strumento robusto con una larghezza totale di 1000 mm e un\'altezza di sollevamento di 250 mm, che gli consente di gestire facilmente oltre 500 kg su un bilanciere rigido e oltre 400 kg su un bilanciere per stacco. È progettato per funzionare con bilancieri fino a 50 mm di diametro, quindi supporta anche i bilancieri axle!
-Il design solido del piede mantiene le cose stabili quando la barra è caricata e la parte anteriore arrotondata è estremamente comoda quando si accende e si spegne. Inoltre, si smonta in quattro pezzi più piccoli, rendendolo super pratico da trasportare alla tua prossima competizione.', 169.99, '60', 5, 1.0, 'jack.png', 3),
-(9, 'Strength Shop Safety Squat Bar', 'Con Safety Squat Bar, il peso è posizionato nel centro di gravità. Quando si usa per la prima volta, si potrebbe avere la sensazione che il peso sia un po\'nella parte anteriore, ma in realtà è da qualche parte tra uno squat posteriore e uno squat frontale, in una posizione neutra. E ideale anche per l\'allenamento in caso di infortuni o in fase di recupero. I sollevatori più forti incorporano questo bilanciere speciale nei loro programmi di allenamento. Grazie al suo posizionamento, riuscirai a fare squat con la schiena più eretta e una maggiore pressione sulla catena anteriore. Consente di spostare un peso leggermente maggiore rispetto al convenzionale.
-Specifiche:
-Peso: 20,9 kg,
-Lunghezza: 226cm,
-Diametro manicotto: 50mm,
-Lunghezza manica caricabile: 39 cm,
-Angolo di campanatura (angolo tra le maniglie e i perni di caricamento della piastra): 45 gradi,
-Colore: nero e cromo,
-Materiale del cuscinetto: pelle sintetica,
-Carico massimo consigliato: 350 kg.', 259.99, '25', 20.9, 2.26, 'safety.png', 2),
-(10, 'Strength Shop EZ Curl Bar', 'Il nostro Riot EZ Curl Bar offre abbastanza spazio per caricare molto peso con maniche lunghe 26 cm e una presa solida grazie a un albero del bilanciere leggermente più spesso di 28 mm. Con un peso totale di 12 kg, il bilanciere Riot EZ Curl è adatto per l\'allenamento pesante delle braccia, sia che tu faccia curl per bicipiti o skull crusher. Le classiche maniglie angolate consentono di cambiare posizione di presa e hanno il vantaggio che queste posizioni sono più facili per le articolazioni. Una zigrinatura media fornisce una buona presa. I manicotti hanno un diametro di 50 mm come le barre olimpiche standard.
-Specifiche:
-Peso: 12kg,
-Lunghezza totale: 135 cm,
-Diametro dell\'albero: 28 mm,
-Diametro manicotto: 50mm,
-Lunghezza manica caricabile: 26 cm,
-Colore: asta nera manicotti cromati.', 119.99, '100', 12, 1.35, 'strengthshop_ez.png', 2),
-(11, 'Strength Shop Calibrated Bastard Power Bar', 'Acciaio inossidabile, boccole in bronzo e zigrinatura grossolana, tutti gli elementi di questa barra sono stati progettati per creare una sensazione equilibrata e raffinata.
-Questo bilanciere è approvata dall\'IPF e calibrata a +/-50 gr di 20 kg.
-Ottimizzato per il powerlifting. L\'acciaio inossidabile è uno dei materiali più durevoli utilizzati nella produzione di bilancieri e fornisce un\'eccellente protezione anticorrosione e prestazioni durature con una minore manutenzione richiesta.
-Specifiche:
-Approvato dall\'IPF,
-Calibrato a  +/-50 grammi del peso dato,
-Materiale dell\'albero: acciaio inossidabile solido,
-Materiale del manicotto: acciaio nichelato,
-Lunghezza del gambo tra le maniche - 131,5 cm,
-Zigrinatura centrale - 15 cm,
-Lunghezza del manicotto della piastra 40,5 cm con diametro 2",
-Adatto per dischi olimpici,
-Peso totale: 20kg,
-Lunghezza totale: 2,2 m,
-Diametro dell\'albero: 29 mm,
-Distanza tra gli anelli: 810 mm,
-Zigrinatura centrale: Sì,
-Tipo di zigrinatura: Grossolana,
-Tipo di manicotto: Boccole in bronzo,
-205K PSI trazione. ', 479.99, '150', 20, 2.2, 'strengthshop_ipf_bastard.png', 1),
-(12, 'Rogue Trap Bar', 'Completamente rivisto l\'originale Rogue Trap Bar con un design a doppia impugnatura più versatile, manicotti olimpici per tubi SCH 80 e una riduzione del peso del 25%.
-La Trap Bar è prodotta negli Stati Uniti e presenta un telaio esagonale resistente saldato da tubi di acciaio quadrati.  Durante un allenamento, un atleta può facilmente passare da un set di maniglie all\'altro semplicemente capovolgendo la barra. Ciò rende la TB-2 vantaggiosa per rafforzare il blocco, sovraccaricare le scrollate di spalle e/o limitare lo stress delle spalle. Consente inoltre ai principianti o agli atleti in riabilitazione di concentrarsi sulla loro gamma di movimento o di sviluppare gradualmente un programma di stacco da terra senza esercitare troppa pressione sulla parte bassa della schiena.', 457.50, '30', 27, 2.25, 'trapbar.png', 2);
+(1, 'Eleiko Brush', 'Mantieni il tuo bilanciere pulito da gesso e sporcizia con una spazzola magnetica per bilancieri.\r\n
+Grazie alla funzione magnetica, la spazzola per bilancieri può essere facilmente attaccata al tuo squat rack o a tutto ciò che è magnetico, tenendolo comodamente a portata di mano.\r\n
+Spazzola la zigrinatura del tuo bilanciere con la spazzola in nylon dopo ogni utilizzo.
+', 7.00, '200', 0.5, 0.3, 'brush.png', 3),
+(2, 'Strength Shop Cambered Bar', 'Il bilanciere Cambered offre un\'esperienza nuova, che prende di mira i muscoli del core e migliora la stabilità, facilitando in definitiva un\'esperienza di sollevamento più confortevole ed efficiente.\r\n
+Specifiche:\n
+- Lunghezza totale: 2010mm,\n
+- Lunghezza manicotto caricabile: 335 mm,\n
+- Peso: 25kg,\n
+- Cuscinetto ad aghi,\n
+- Zigrinatura: Grossa,\n
+- Diametro bilanciere: 35 mm.', 379.99, '50', 25, 2, 'cambered.png', 2),
+(3, 'Lacertosus Magnetic Metal Collars', 'Progettati per assicurare solidamente i bumpers e i dischi al bilanciere, garantendo un\'altissima tenuta anche durante i tuoi allenamenti più pesanti.\r\n
+Realizzati in alluminio aeronautico con anima in materiale polimerico di elevata qualità, il nuovo Magnetic Metal Collar è dotato di tutte le caratteristiche che lo rendono il collare migliore sul mercato.\r\n
+Il sistema di serraggio a leva con sgancio rapido consente la facile installazione su tutti i bilancieri olimpici da 50 mm di diametro,\r\n
+la gomma di alta qualità a contatto con il manicotto permette di bloccare con la massima precisione i dischi proteggendo al contempo la finitura del bilanciere.\r\n
+L’innovativo sistema magnetico incorporato nel telaio consente di riporre i lock jaw direttamente sui pali del tuo rack per averli sempre a portata di mano.', 59.99, '300', 0.2, 0.05, 'collars.png', 3),
+(4, 'Kabuki Strength Deadlift Bar', 'Un design all\'avanguardia sulla geometria per massimizzare la quantità di flessione nella barra prima che si stacchi da terra, bilanciando al contempo la frusta o l\'oscillazione della barra.\r\n
+La barra Kabuki PR Deadlift dovrebbe migliorare immediatamente la potenza di trazione di chiunque, ma c\'è un periodo di apprendimento per massimizzare i risultati.\r\n
+Specifiche:\n
+- Tipo di barra: Barra per stacco da terra,\n
+- Prodotto: Oregon, USA,\n
+- Resistenza alla trazione: 190k psi,\n
+- Peso: 20kg,\n
+- Diametro: 27mm,\n
+- Lunghezza barra: 241,94 cm,\n
+- Lunghezza manica caricabile: 39,37 cm,\n
+- Finitura: Black Ice (ossido nero),\n
+- Zigrinatura proprietaria: zigrinatura extra aggressiva,\n
+- Specifiche USPA-IPL: sì,\n
+- Hardware: boccole in bronzo impregnate d\'olio.', 739.99, '40', 20, 2.42, 'deadliftbar.png', 2),
+(5, 'Eleiko IPF Powerlifting Competition Bar', 'Certificato per le competizioni (IPF) e progettato per atleti professionisti e competitivi di powerlifting.\r\n
+Eleiko IPF Powerlifting Competition Bar è specificamente adatto per i tre sollevamenti da competizione di powerlifting:\r\n
+squat, panca piana e stacco da terra.\r\n
+Il bilanciere è dotato di robuste boccole in bronzo e di una speciale aggiunta di grafite\r\n
+che consente al bilanciere di autolubrificarsi, migliorando le prestazioni e la longevità e controllando la rotazione.\r\n
+Si consiglia di spazzolare regolarmente il bilanciere dopo ogni utilizzo (soprattutto quando si utilizza la magnesite)\r\n
+per mantenere il bilanciere al meglio il più a lungo possibile.
+', 1295.00, '100', 20, 2.2, 'eleiko_comp_bar.png', 1),
+(6, 'Eleiko Curl Bar', 'Sebbene sosteniamo l\'allenamento funzionale, sappiamo che anche l\'isolamento muscolare e l\'allenamento mirato hanno un ruolo importante in un programma di allenamento, e portiamo il nostro leggendario impegno per qualità, prestazioni e durata all\'Eleiko Curl Bar.\r\n
+Impugnatura comoda e posizionamento delle mani, insieme a componenti di qualità che forniscono una rotazione ottimale, garantiscono un\'esperienza utente sicura e confortevole.\r\n
+La forma angolata della barra supporta una varietà di posizioni delle mani per l\'allenamento di tricipiti e bicipiti.\n
+La guaina leggermente scanalata impedisce ai pesi di scivolare.
+', 509.00, '40', 12, 1.2, 'eleiko_ez.png', 2),
+(7, 'Strength Shop IPF Calibrated Competition Collars', 'I collari da competizione di Strength Shop sono attrezzature da competizione all\'avanguardia.\r\n
+Questi collari sono realizzati in acciaio massiccio con finitura cromata, pesano 2,5 kg ciascuno.\r\n
+Approvato IPF e realizzato con un design funzionale e professionale che offre ampio spazio sulla barra, offrendo al contempo un sistema di fissaggio assolutamente affidabile.\r\n
+Con un braccio di leva sottile e un anello di vite interno zigrinato, assicurano una facile maneggevolezza e una pressione sicura e stretta verso le piastre.\r\n
+Ideale per le competizioni di powerlifting e per scopi di allenamento seri.\r\n
+L\'interno del collare è progettato con un anello di metallo, che protegge il bilanciere.\r\n
+Ciò impedisce di danneggiare la superficie delle maniche del bilanciere durante il fissaggio.
+', 169.99, '200', 2.5, 0.094, 'ipf_collars.png', 3),
+(8, 'Strength Shop Deadlift Jack', 'Il Deadlift Jack è uno strumento robusto con una larghezza totale di 1000 mm e un\'altezza di sollevamento di 250 mm,\r\n
+che gli consente di gestire facilmente oltre 500 kg su un bilanciere rigido e oltre 400 kg su un bilanciere per stacco.\r\n
+È progettato per funzionare con bilancieri fino a 50 mm di diametro, quindi supporta anche i bilancieri axle!\r\n
+Il design solido del piede mantiene le cose stabili quando la barra è caricata e la parte anteriore arrotondata è estremamente comoda quando si accende e si spegne.\r\n
+Inoltre, si smonta in quattro pezzi più piccoli, rendendolo super pratico da trasportare alla tua prossima competizione.
+', 169.99, '60', 5, 1.0, 'jack.png', 3),
+(9, 'Strength Shop Safety Squat Bar', 'Con Safety Squat Bar, il peso è posizionato nel centro di gravità.\r\n
+Quando si usa per la prima volta, si potrebbe avere la sensazione che il peso sia un po\'nella parte anteriore, ma in realtà è da qualche parte tra uno squat posteriore e uno squat frontale, in una posizione neutra.\r\n
+È ideale anche per l\'allenamento in caso di infortuni o in fase di recupero.\r\n
+I sollevatori più forti incorporano questo bilanciere speciale nei loro programmi di allenamento.\r\n
+Grazie al suo posizionamento, riuscirai a fare squat con la schiena più eretta e una maggiore pressione sulla catena anteriore.\r\n
+Consente di spostare un peso leggermente maggiore rispetto al convenzionale.\n
+Specifiche:\n
+- Peso: 20,9 kg,\n
+- Lunghezza: 226cm,\n
+- Diametro manicotto: 50mm,\n
+- Lunghezza manica caricabile: 39 cm,\n
+- Angolo di campanatura (angolo tra le maniglie e i perni di caricamento della piastra): 45 gradi,\n
+- Colore: nero e cromo,\n
+- Materiale del cuscinetto: pelle sintetica,\n
+- Carico massimo consigliato: 350 kg.
+', 259.99, '25', 20.9, 2.26, 'safety.png', 2),
+(10, 'Strength Shop EZ Curl Bar', 'Il nostro Riot EZ Curl Bar offre abbastanza spazio per caricare molto peso con maniche lunghe 26 cm\r\n
+e una presa solida grazie a un albero del bilanciere leggermente più spesso di 28 mm.\r\n
+Con un peso totale di 12 kg, il bilanciere Riot EZ Curl è adatto per l\'allenamento pesante delle braccia, sia che tu faccia curl per bicipiti o skull crusher.\r\n
+Le classiche maniglie angolate consentono di cambiare posizione di presa e hanno il vantaggio che queste posizioni sono più facili per le articolazioni.\r\n
+Una zigrinatura media fornisce una buona presa.\n
+I manicotti hanno un diametro di 50 mm come le barre olimpiche standard.\n
+Specifiche:\n
+- Peso: 12kg,\n
+- Lunghezza totale: 135 cm,\n
+- Diametro dell\'albero: 28 mm,\n
+- Diametro manicotto: 50mm,\n
+- Lunghezza manica caricabile: 26 cm,\n
+- Colore: asta nera manicotti cromati.
+', 119.99, '100', 12, 1.35, 'strengthshop_ez.png', 2),
+(11, 'Strength Shop Calibrated Bastard Power Bar', 'Acciaio inossidabile, boccole in bronzo e zigrinatura grossolana, tutti gli elementi di questa barra sono stati progettati per creare una sensazione equilibrata e raffinata.\r\n
+Questo bilanciere è approvato dall\'IPF e calibrata a +/-50 gr di 20 kg.\r\n
+Ottimizzato per il powerlifting.\r\n
+L\'acciaio inossidabile è uno dei materiali più durevoli utilizzati nella produzione di bilancieri e fornisce un\'eccellente protezione anticorrosione e prestazioni durature con una minore manutenzione richiesta.\n
+Specifiche:\n
+- Approvato dall\'IPF,\n
+- Calibrato a +/-50 grammi del peso dato,\n
+- Materiale dell\'albero: acciaio inossidabile solido,\n
+- Materiale del manicotto: acciaio nichelato,\n
+- Lunghezza del gambo tra le maniche: 131,5 cm,\n
+- Zigrinatura centrale: 15 cm,\n
+- Lunghezza del manicotto della piastra: 40,5 cm con diametro 2",\n
+- Adatto per dischi olimpici,\n
+- Peso totale: 20kg,\n
+- Lunghezza totale: 2,2 m,\n
+- Diametro dell\'albero: 29 mm,\n
+- Distanza tra gli anelli: 810 mm,\n
+- Zigrinatura centrale: Sì,\n
+- Tipo di zigrinatura: Grossolana,\n
+- Tipo di manicotto: Boccole in bronzo,\n
+- 205K PSI trazione.
+ ', 479.99, '150', 20, 2.2, 'strengthshop_ipf_bastard.png', 1),
+(12, 'Rogue Trap Bar', 'Completamente rivisto l\'originale Rogue Trap Bar con un design a doppia impugnatura più versatile, manicotti olimpici per tubi SCH 80 e una riduzione del peso del 25%.\r\n
+La Trap Bar è prodotta negli Stati Uniti e presenta un telaio esagonale resistente saldato da tubi di acciaio quadrati.\r\n
+Durante un allenamento, un atleta può facilmente passare da un set di maniglie all\'altro semplicemente capovolgendo la barra.\r\n
+Ciò rende la TB-2 vantaggiosa per rafforzare il blocco, sovraccaricare le scrollate di spalle e/o limitare lo stress delle spalle.\r\n
+Consente inoltre ai principianti o agli atleti in riabilitazione di concentrarsi sulla loro gamma di movimento o di sviluppare gradualmente un programma di stacco da terra senza esercitare troppa pressione sulla parte bassa della schiena.
+', 457.50, '30', 27, 2.25, 'trapbar.png', 2);
 
 -- Popolamento Tabella "utente"
 INSERT INTO utente (ID_utente, nome, cognome, email, password, venditore) VALUES

@@ -114,9 +114,9 @@
 
         <section class="copyright">
             <p>©2024 LIFT HEAVY Gear.</p>
-            <a href="about.html">About Us</a>
-            <a href="privacy.html">Privacy</a>
-            <a href="termini.html">Termini e Condizioni</a>
+            <a href="about.php">About Us</a>
+            <a href="privacy.php">Privacy</a>
+            <a href="termini.php">Termini e Condizioni</a>
         </section>
     </footer>
     <!-- SCRIPT JAVASCRIPT-->
