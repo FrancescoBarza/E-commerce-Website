@@ -134,6 +134,20 @@ class DatabaseHelper{
     
         return $result->fetch_assoc();
     }
+
+    public function updateUserData($userId, $nome, $cognome, $email, $password = null) {
+        if ($password) {
+            $query = "UPDATE utente SET nome = ?, cognome = ?, email = ?, Password = ? WHERE ID_utente = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('ssssi', $nome, $cognome, $email, $password, $userId);
+        } else {
+            $query = "UPDATE utente SET nome = ?, cognome = ?, email = ? WHERE ID_utente = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sssi', $nome, $cognome, $email, $userId);
+        }
+        return $stmt->execute();
+    }
+
     public function checkLogin($email, $password) {
         $query = "SELECT ID_utente, nome, email, Password, venditore
                   FROM utente 
@@ -146,6 +160,19 @@ class DatabaseHelper{
         return $result->fetch_assoc();
     }
     
+    public function checkMail($email) {
+        $query = "SELECT ID_utente FROM utente WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $email);
+    
+        if (!$stmt->execute()) {
+            throw new Exception("Errore nella query SELECT: " . $stmt->error);
+        }
+    
+        $result = $stmt->get_result();
+        return $result->fetch_assoc(); // Restituisce un singolo record
+    }
+    
     public function addUser($nome, $cognome, $email, $password, $venditore) {
         $query = "INSERT INTO utente (nome, cognome, email, Password, venditore) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
@@ -154,21 +181,8 @@ class DatabaseHelper{
         
         return $stmt->insert_id;
     }
-    
-    public function editUserData($id_utente, $nome, $cognome, $email, $password) {
-        $query = "UPDATE utente 
-                  SET nome = ?, cognome = ?, email = ?, password = ? 
-                  WHERE ID_utente = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssssi', $nome, $cognome, $email, $password, $id_utente);
-        $stmt->execute();
-        if ($stmt->affected_rows > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
+    //QUERY VENDITORE 
     public function addProduct($nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria) {
         $query = "INSERT INTO prodotto (nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
@@ -302,6 +316,7 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    
     public function getNotification($utente) {
         $query = "SELECT ID_notifica, testo, stato_notifica 
                   FROM notifica WHERE ID_utente = ? 
@@ -341,19 +356,6 @@ class DatabaseHelper{
         $stmt->execute();
     }
     
-    public function checkMail($email) {
-        $query = "SELECT ID_utente FROM utente WHERE email = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $email);
-    
-        if (!$stmt->execute()) {
-            throw new Exception("Errore nella query SELECT: " . $stmt->error);
-        }
-    
-        $result = $stmt->get_result();
-        return $result->fetch_assoc(); // Restituisce un singolo record
-    }
-    
     public function getArticles(){
         $query = "SELECT ID_articolo, titolo_articolo, testo_articolo, data_articolo, immagine_articolo FROM articolo ORDER BY data_articolo DESC ";
         $stmt = $this->db->prepare($query);
@@ -371,18 +373,7 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    public function updateUserData($userId, $nome, $cognome, $email, $password = null) {
-        if ($password) {
-            $query = "UPDATE utente SET nome = ?, cognome = ?, email = ?, Password = ? WHERE ID_utente = ?";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param('ssssi', $nome, $cognome, $email, $password, $userId);
-        } else {
-            $query = "UPDATE utente SET nome = ?, cognome = ?, email = ? WHERE ID_utente = ?";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param('sssi', $nome, $cognome, $email, $userId);
-        }
-        return $stmt->execute();
-    }
+
     
     
 }

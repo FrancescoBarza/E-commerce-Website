@@ -115,7 +115,7 @@
     padding: 8px 0 8px 1%;
 }
 
-.header-search > input {
+.header-search>input {
     background-color: #474747;
     color: #fff;
     float: inline-start;
@@ -190,6 +190,7 @@ button.next:hover {
     vertical-align: top;
     text-align: left;
 }
+
 .articolo img {
     width: 100%;
     height: auto;
@@ -198,8 +199,8 @@ button.next:hover {
 .articolo button {
     width: 50px;
     height: 50px;
-    background-color: rgba(0, 0, 0, 1);
-    color: white;
+    background-color: #526FFF;
+    color: black;
     border: none;
     cursor: pointer;
     font-size: 18px;
@@ -270,12 +271,13 @@ footer>.copyright a {
     height: 50%;
     margin-top: 10px;
 }
-.prodotto h3{
+
+.prodotto h3 {
     padding: 0 5%;
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 .prodotto a {
@@ -283,7 +285,7 @@ footer>.copyright a {
     color: #fff;
 }
 
-.prodotto a p{
+.prodotto a p {
     color: #fff;
     text-align: left;
     margin-top: 10px;
@@ -364,6 +366,7 @@ footer>.copyright a {
     margin: 5px 0;
     width: 150px;
 }
+
 /* ================= MEDIA QUERY PER DESKTOP ================= */
 @media screen and (min-width: 768px) {
     body {
@@ -448,13 +451,13 @@ footer>.copyright a {
         height: 500px;
     }
 
- .image-container img {
+    .image-container img {
         min-width: 100%;
         height: auto;
     }
 
     .articolo {
         min-width: 330px;
-        width: 33%;   
+        width: 33%;
     }
 }
