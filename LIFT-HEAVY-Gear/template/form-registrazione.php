@@ -1,13 +1,5 @@
 <section>
     <h1>REGISTRATI</h1>
-
-    <?php if (!empty($templateParams["errore"])): ?>
-        <p class="error">
-            <i class="fas fa-exclamation-triangle"></i> <?php echo $templateParams["errore"]; ?>
-        </p>
-    <?php endif; ?>
-
-
     <form action="registrazione.php" method="post">
         <label for="nome">Nome</label>
         <br>
@@ -31,7 +23,11 @@
             <span>Account venditore?</span>
             <input type="checkbox" id="venditore" value="venditore" name="venditore">
         </label>
-
+        <?php if (!empty($templateParams["errore"])): ?>
+            <p class="error">
+                <i class="fas fa-exclamation-triangle"></i> <?php echo $templateParams["errore"]; ?>
+            </p>
+        <?php endif; ?>
         <button type="submit">Crea Account</button>
         <br><br>
     </form>
