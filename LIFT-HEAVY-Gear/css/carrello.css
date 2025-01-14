@@ -241,8 +241,8 @@ label {
 }
 
 .btn {
-    background-color: black;
-    color: white;
+    background-color: #526FFF;
+    color: black;
     padding: 12px;
     margin: 10px 0;
     border: none;
@@ -253,7 +253,8 @@ label {
 }
 
 .btn:hover {
-    background-color: black;
+    background-color:   #5370ff;
+    opacity: 0.8;
 }
 
 a {

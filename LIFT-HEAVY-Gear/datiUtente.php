@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $templateParams["titolo"] = "I Miei Dati";
 $templateParams["categorie"] = $dbh->getCategories();
-$templateParams["nome-main"] = "info-dati-cliente.php";
+$templateParams["nome-main"] = "modifica-dati-utente.php";
 $templateParams["userData"] = $dbh->getUserDataById($_SESSION["ID_utente"]);
 
 require("template/base.php");

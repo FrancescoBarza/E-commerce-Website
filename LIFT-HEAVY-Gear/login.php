@@ -18,8 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["loggedin"] = true;
             $_SESSION["ID_utente"] = $login_result["ID_utente"];
             $_SESSION["email"] = $login_result["email"];
-            $userRole = isset($login_result['venditore']) ? $login_result['venditore'] : 'N'; // Default to 'N' if not set
-            if ($userRole === 'Y') {
+            $_SESSION["venditore"] = isset($login_result['venditore']) ? $login_result['venditore'] : 'N'; // Default to 'N' if not set
+            if ($_SESSION["venditore"] === 'Y') {
                 header("Location: areaVenditore.php");
             } else {
                 header("Location: areaCliente.php");

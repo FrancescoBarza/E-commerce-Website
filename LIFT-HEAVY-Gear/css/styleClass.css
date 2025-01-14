@@ -160,8 +160,8 @@ button.next {
     height: 50px;
     position: absolute;
     bottom: 45%;
-    background-color: rgba(0, 0, 0, 1);
-    color: white;
+    background-color: #526FFF;
+    color: black;
     border: none;
     cursor: pointer;
     font-size: 20px;
@@ -179,7 +179,8 @@ button.next {
 
 button.prev:hover,
 button.next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color:   #5370ff;
+    opacity: 0.8;
 }
 
 /* ================= ASIDE E ARTICOLI ================= */
@@ -297,13 +298,12 @@ footer>.copyright a {
     border: none;
     outline: 0;
     padding: 12px;
-    color: white;
-    background-color: #000000;
     text-align: center;
     cursor: pointer;
     font-size: 18px;
     width: 100%;
     margin-bottom: 0;
+    border-radius: 0;
 }
 
 .prodotto button:hover {
@@ -318,8 +318,8 @@ footer>.copyright a {
 }
 
 .add-button {
-    background-color: #000000;
-    color: #fff;
+    background-color: #526FFF;
+    color: black;
     padding: 14px 20px;
     margin-top: 20px;
     border: none;
