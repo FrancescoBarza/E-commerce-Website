@@ -9,7 +9,6 @@ if (!isset($_SESSION["ID_utente"])) {
 $templateParams["titolo"] = "Carrello";
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["nome-main"] = "form-carrello.php";
-$templateParams["prodotti-carrello"] = $dbh->getProductOnCart($_SESSION["ID_utente"]);
 if(isset($_SESSION["ID_utente"])){
     $templateParams["notifica"] = $dbh->getNotification($_SESSION["ID_utente"]);
 }

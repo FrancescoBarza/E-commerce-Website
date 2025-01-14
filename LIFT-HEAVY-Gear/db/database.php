@@ -214,27 +214,21 @@ class DatabaseHelper{
         $dataCorrente = date("Y-m-d");
         $query = "INSERT INTO ordine (data_ordine, stato_ordine, prezzo_totale, ID_utente) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssfi', $dataCorrente, $statoCarrello, $totaleCarrello, $idutente);
+        $stmt->bind_param('ssdi', $dataCorrente, $statoCarrello, $totaleCarrello, $idutente);
     
-        if (!$stmt->execute()) {
-            throw new Exception("Errore nella query INSERT: " . $stmt->error);
-        }
+        $stmt->execute();
     
         return $stmt->insert_id; // Restituisce l'ID del nuovo carrello
     }
-    public function checkProductOnCart($idOrdine, $idprodotto) {
+    public function checkProductOnCart($idOrdine, $idprodotto){
         $query = "SELECT quantita_prodotto FROM ordini_prodotti WHERE ID_ordine = ? AND ID_prodotto = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ii', $idOrdine, $idprodotto);
-    
-        if (!$stmt->execute()) {
-            throw new Exception("Errore nella query SELECT: " . $stmt->error);
-        }
-    
+        $stmt->bind_param('ii',$idOrdine, $idprodotto);
+        $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc(); // Restituisce un singolo record
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
-    
     public function createNewProductOnCart($idOrdine, $idprodotto, $quantita) {
         $query = "INSERT INTO ordini_prodotti (ID_ordine, ID_prodotto, quantita_prodotto) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
@@ -260,13 +254,13 @@ class DatabaseHelper{
     public function updateTotalCart($idOrdine, $totale) {
         $query = "UPDATE ordine SET prezzo_totale = prezzo_totale + ? WHERE ID_ordine = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('fi', $totale, $idOrdine);
-    
+        $stmt->bind_param('di', $totale, $idOrdine); // Use 'di' for double (float) and integer
+
         if (!$stmt->execute()) {
             throw new Exception("Errore nella query UPDATE: " . $stmt->error);
         }
-    
-        return $stmt->affected_rows; // Restituisce il numero di righe aggiornate
+
+        return $stmt->affected_rows;
     }
     
     public function getPriceProduct($idprodotto) {

@@ -2,29 +2,30 @@
 $titolareError = $capError = $cartaError = $cvvError = $annoError = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  if (!preg_match("/^[a-zA-Z-' ]*$/",$_POST["titolare"])) {
+  if (isset($_POST["titolare"]) && !preg_match("/^[a-zA-Z-' ]*$/", $_POST["titolare"])) {
     $titolareError = "Formato nome non corretto";
   }
-  if (!filter_var($_POST["cap"], FILTER_VALIDATE_INT) || strlen($_POST["cap"])!=5) {
+  if (isset($_POST["cap"]) && (!filter_var($_POST["cap"], FILTER_VALIDATE_INT) || strlen($_POST["cap"]) != 5)) {
     $capError = "Il CAP deve essere composto da cinque numeri";
   }
-  if (!preg_match("/^[0-9]*$/",$_POST["numero"]) || strlen($_POST["numero"])!=16) {
+  if (isset($_POST["numero"]) && (!preg_match("/^[0-9]*$/", $_POST["numero"]) || strlen($_POST["numero"]) != 16)) {
     $cartaError = "Il numero della carta deve essere composto da sedici numeri";
   }
-  if (!filter_var($_POST["cvv"], FILTER_VALIDATE_INT) || strlen($_POST["cvv"])!=3) {
+  if (isset($_POST["cvv"]) && (!filter_var($_POST["cvv"], FILTER_VALIDATE_INT) || strlen($_POST["cvv"]) != 3)) {
     $cvvError = "Il CVV deve essere composto da tre numeri";
   }
-  if (!filter_var($_POST["scadenzaa"], FILTER_VALIDATE_INT) || strlen($_POST["scadenzaa"])!=4 || $_POST["scadenzaa"]<date("Y")) {
+  if (isset($_POST["scadenzaa"]) && (!filter_var($_POST["scadenzaa"], FILTER_VALIDATE_INT) || strlen($_POST["scadenzaa"]) != 4 || $_POST["scadenzaa"] < date("Y"))) {
     $annoError = "Formato anno errato";
   }
-  if($titolareError=="" && $capError =="" && $capError =="" && $cartaError =="" && $cvvError =="" && $annoError==""){
-    $_SESSION["procediAlPagamento"]=1;
+  
+  if ($titolareError == "" && $capError == "" && $cartaError == "" && $cvvError == "" && $annoError == "") {
+    $_SESSION["procediAlPagamento"] = 1;
   }
 }
 ?>
 <h1><span class="fas fa-shopping-cart"></span> <?php echo $templateParams["titolo"]; ?></h1>
     <!-- Modalita vuoto-->
-    <?php if(count($currentCart) == 0 || number_format($currentCart[0]["TotalePrezzo"],2) == 0) { ?>
+    <?php if(count($currentCart) == 0 || number_format($currentCart[0]["prezzo_totale"],2) == 0) { ?>
         <section class="empty-cart">
             <span class="fas fa-cart-arrow-down"></span> 
             <div>
@@ -56,14 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       </td>
                       <td headers="quantita">
                         <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
-                          <input type="hidden" name="ID_prodotto" value="<?php echo $prodotto["ID_prodotto"];?>" />
+                          <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"];?>" />
                           <input type="hidden" name="action" value="10" />
                           <input type="hidden" name="quantita" value="1" />
                           <button type="submit"><span class="fas fa-plus"></span></button>
                         </form>
                         <p> <?php echo $prodotto["quantita_prodotto"];?></p>
                         <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
-                          <input type="hidden" name="ID_prodotto" value="<?php echo $prodotto["ID_prodotto"];?>" />
+                          <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"];?>" />
                           <input type="hidden" name="action" value="10" />
                           <input type="hidden" name="quantita" value="-1" />
                           <button type="submit"><span class="fas fa-minus"></span></button>
@@ -71,12 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       </td>
                       <td headers="button">
                         <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
-                          <input type="hidden" name="ID_prodotto" value="<?php echo $prodotto["ID_prodotto"];?>" />
-                          <input type="hidden" name="action" value="6" />
-                          <button type="submit"><span class="fas fa-heart"></span></button>
-                        </form>
-                        <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
-                          <input type="hidden" name="ID_prodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
+                          <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
                           <input type="hidden" name="action" value="9" />
                           <button type="submit"><span class="fas fa-trash"></span></button>   
                         </form>
@@ -89,10 +85,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="container">
               <h4>Riepilogo ordine <span class="prezzo" style="color:black"><span class="fa fa-shopping-cart"></span> <?php echo count($templateParams["prodottoCarrello"]); ?></span></h4>
               <?php foreach($templateParams["prodottoCarrello"] as $prodotto): ?>
-              <p><a href="#"><?php echo $prodotto["nome"];?></a> <span class="prezzo"><?php echo number_format($prodotto["PrezzoProdotto"]* $prodotto["QuantitaPr"],2);?> €</span></p>
+              <p><a href="#"><?php echo $prodotto["nome"];?></a> <span class="prezzo"><?php echo number_format($prodotto["prezzo"]* $prodotto["quanrita_prodotto"],2);?> €</span></p>
               <?php endforeach;?>
               <hr>
-              <h4>Totale <span class="prezzo" style="color:black"><?php echo number_format($currentCart[0]["TotalePrezzo"],2); ?> €</span></h4>
+              <h4>Totale <span class="prezzo" style="color:black"><?php echo number_format($currentCart[0]["prezzo_totale"],2); ?> €</span></h4>
             </div>
         </div>
         
