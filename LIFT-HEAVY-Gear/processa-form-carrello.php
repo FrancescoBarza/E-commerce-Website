@@ -188,10 +188,42 @@ if ($_POST["action"] == 12) {
         'citta' => ($_POST["citta"]),
         'cap' => ($_POST["cap"]),
     ];
-    
+
     // Salva i dati dell'ordine nella sessione
     $_SESSION["ordine"] = $ordineData;
-    
+
+    // Svuota il carrello
+    $utente = $_SESSION["ID_utente"];
+    $idOrdineToClear = htmlspecialchars($_POST["ID_ordine"]);
+
+    // Ottieni tutti i prodotti nel carrello
+    $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineToClear);
+
+    if (!empty($prodottiNelCarrello)) {
+        foreach ($prodottiNelCarrello as $prodotto) {
+            // Rimuovi ogni prodotto dal carrello
+            if (!$dbh->removeFromCart($idOrdineToClear, $prodotto["ID_prodotto"])) {
+                error_log("Errore durante la rimozione del prodotto " . $prodotto["ID_prodotto"] . " dall'ordine " . $idOrdineToClear);
+                // Potresti voler gestire questo errore in modo più appropriato
+            }
+        }
+    } else {
+        error_log("Nessun prodotto trovato nel carrello con ID ordine: " . $idOrdineToClear);
+    }
+
+    // Resetta il totale del carrello a 0
+    if (!$dbh->resetTotalCart($idOrdineToClear)) {
+        error_log("Errore durante il reset del totale del carrello per l'ordine " . $idOrdineToClear);
+        // Potresti voler gestire questo errore in modo più appropriato
+    }
+
+    // Cambia lo stato dell'ordine in "In elaborazione"
+    $stato = "In Elaborazione";
+    if (!$dbh->updateOrderStatus($idOrdineToClear, $stato)) {
+        error_log("Errore durante l'aggiornamento dello stato dell'ordine " . $idOrdineToClear . " a 'In Elaborazione'");
+        // Potresti voler gestire questo errore in modo più appropriato
+    }
+
     header("Location: conferma-acquisto.php");
     exit();
 }

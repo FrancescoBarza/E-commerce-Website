@@ -204,14 +204,13 @@ class DatabaseHelper{
         $stmt->bind_param('ii', $idprodotto, $quantita);
         $stmt->execute();
     }
-    
     public function updateOrderStatus($id, $stato) {
         $query = "UPDATE ordine SET stato_ordine = ? WHERE ID_ordine = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('is', $id, $stato);
+        $stmt->bind_param('si', $stato, $id); 
         $stmt->execute();
-        
-        return $stmt->affected_rows; // Restituisce il numero di righe aggiornate
+    
+        return $stmt->affected_rows;
     }
 
     public function createNewCart($idutente) {
