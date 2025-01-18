@@ -1,6 +1,7 @@
 <section>
 <?php if (isset($templateParams["ordine"]) && is_array($templateParams["ordine"])): ?>
-    <h1>Conferma dell'ordine</h1>
+    <h1>ORDINE CONFERMATO!</h1>
+    <p>Il tuo ordine è stato confermato con successo, grazie per averci scelto.</p>
     <h2>Numero d'ordine: #<?php echo isset($templateParams["ordine"]["ID_ordine"]) ? htmlspecialchars($templateParams["ordine"]["ID_ordine"]) : "Non disponibile"; ?></h2>
     <h3>Riepilogo dell'ordine:</h3>
     <?php if (isset($templateParams["prodotti_ordine"]) && !empty($templateParams["prodotti_ordine"])): ?>
