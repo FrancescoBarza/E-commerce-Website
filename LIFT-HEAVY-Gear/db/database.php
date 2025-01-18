@@ -108,14 +108,20 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
     
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_assoc();
     }
     
     public function getProductFromOrder($id) {
-        $query = "SELECT prodotto.nome 
-                  FROM prodotto 
-                  JOIN ordini_prodotti ON ordini_prodotti.ID_prodotto = prodotto.ID_prodotto 
-                  WHERE ordini_prodotti.ID_ordine = ?";
+        $query = "SELECT
+                    p.ID_prodotto,
+                    p.nome AS nome_prodotto,
+                    p.descrizione,
+                    p.prezzo,
+                    p.immagine,
+                    op.quantita_prodotto AS quantita
+                FROM prodotto p
+                JOIN ordini_prodotti op ON p.ID_prodotto = op.ID_prodotto
+                WHERE op.ID_ordine = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id);
         $stmt->execute();
@@ -251,16 +257,44 @@ class DatabaseHelper{
     
         return $stmt->affected_rows; // Restituisce il numero di righe aggiornate
     }
-    public function updateTotalCart($idOrdine, $totale) {
-        $query = "UPDATE ordine SET prezzo_totale = prezzo_totale + ? WHERE ID_ordine = ?";
+public function updateTotalCart($idOrdine, $totale) {
+    error_log("updateTotalCart chiamato con ID Ordine: " . $idOrdine . ", Totale: " . $totale);
+    $query = "UPDATE ordine SET prezzo_totale = prezzo_totale + ? WHERE ID_ordine = ?";
+    $stmt = $this->db->prepare($query);
+    $stmt->bind_param('di', $totale, $idOrdine); // Use 'di' for double (float) and integer
+
+    if (!$stmt->execute()) {
+        throw new Exception("Errore nella query UPDATE: " . $stmt->error);
+    }
+
+    return $stmt->affected_rows;
+}
+public function countProductsInCart($idOrdine) {
+    $query = "SELECT SUM(quantita_prodotto) AS totale_prodotti
+              FROM ordini_prodotti
+              WHERE ID_ordine = ?";
+    $stmt = $this->db->prepare($query);
+    $stmt->bind_param('i', $idOrdine);
+
+    if (!$stmt->execute()) {
+        error_log("Errore nella query COUNT: " . $stmt->error);
+        return 0;
+    }
+
+    $result = $stmt->get_result();
+    if ($row = $result->fetch_assoc()) {
+        // If there are products in the cart, return the total, otherwise return 0
+        return $row['totale_prodotti'] ?: 0;
+    } else {
+        // If the cart is empty or the order doesn't exist, return 0
+        return 0;
+    }
+}
+    public function resetTotalCart($idOrdine) {
+        $query = "UPDATE ordine SET prezzo_totale = 0 WHERE ID_ordine = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('di', $totale, $idOrdine); // Use 'di' for double (float) and integer
-
-        if (!$stmt->execute()) {
-            throw new Exception("Errore nella query UPDATE: " . $stmt->error);
-        }
-
-        return $stmt->affected_rows;
+        $stmt->bind_param('i', $idOrdine);
+        return $stmt->execute();
     }
     
     public function getPriceProduct($idprodotto) {

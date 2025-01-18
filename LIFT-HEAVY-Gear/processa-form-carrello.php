@@ -67,48 +67,36 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
     }
 }
 /*Rimuovi dal carrello*/
-if ($_POST["action"] == 9) {
-    // Rimuovi dal carrello
-    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || !isset($_SESSION["ID_utente"])) {
-        header("Location: login.php");
-        exit;
-    }
+if($_POST["action"]==9){
+    $idprodotto = htmlspecialchars($_POST["idprodotto"]);
+    $utente = $_SESSION["ID_utente"]; // Assumo che la chiave corretta sia ID_utente
 
-    if (isset($_POST["idprodotto"])) {
-        $utente = $_SESSION["ID_utente"];
-        $idprodotto = htmlspecialchars($_POST["idprodotto"]);
+    $idOrdine = $dbh->checkEmptyCart($utente);
 
-        $idOrdine = $dbh->checkEmptyCart($utente);
+    if(!empty($idOrdine)){ // Usare empty per verificare se l'array è vuoto
+        $idOrdineValue = $idOrdine[0]["ID_ordine"]; // Assumo che la chiave corretta sia ID_ordine
+        $quantitaProdotto = $dbh->checkProductOnCart($idOrdineValue, $idprodotto);
+        $prezzoProdotto= $dbh->getPriceProduct($idprodotto);
 
-        if (!empty($idOrdine)) {
-            $idOrdineValue = $idOrdine[0]["ID_ordine"];
-            $quantitaProdotto = $dbh->checkProductOnCart($idOrdineValue, $idprodotto);
-    
-            if (!empty($quantitaProdotto)) {
-                $prezzoProdotto = $dbh->getPriceProduct($idprodotto);
-    
-                if ($prezzoProdotto) {
-                    $totaleDaSottrarre = -($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
-                    $rimozioneRiuscita = $dbh->removeFromCart($idOrdineValue, $idprodotto);
-                    if ($rimozioneRiuscita) {
-                        $dbh->updateTotalCart($idOrdineValue, $totaleDaSottrarre);
-    
-                        // Verifica se il carrello è vuoto dopo la rimozione
-                        $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
-                        if (empty($prodottiNelCarrello)) {
-                            // Imposta il prezzo totale a 0
-                            $dbh->updateTotalCart($idOrdineValue, -$currentCart[0]["prezzo_totale"]); // Sottraggo il totale corrente per azzerarlo
-                        }
-                    } else {
-                        error_log("Errore durante la rimozione del prodotto...");
-                    }
-                } else {
-                    error_log("Errore: Impossibile recuperare il prezzo...");
+        if ($quantitaProdotto && $prezzoProdotto) { // Verifica che i dati siano stati recuperati correttamente
+            $totaleDaSottrarre = -($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
+            $rimozioneRiuscita = $dbh->removeFromCart($idOrdineValue, $idprodotto);
+            $dbh->updateTotalCart($idOrdineValue, $totaleDaSottrarre);
+
+                // Verifica se il carrello è vuoto dopo la rimozione
+                $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
+                if (empty($prodottiNelCarrello)) {
+                    // **Directly set the total to 0 using resetTotalCart**
+                    $dbh->resetTotalCart($idOrdineValue);
                 }
+             else {
+                error_log("Errore durante la rimozione del prodotto...");
             }
+        } else {
+            error_log("Errore: Impossibile recuperare la quantità o il prezzo del prodotto.");
         }
-        header("location: carrello.php");
     }
+    header("location: carrello.php");
 }
 
 /*Aggiorna carrello*/
@@ -133,27 +121,28 @@ if ($_POST["action"] == 10) {
             if (!empty($quantitaProdotto)) {
                 $nuovaQuantitaProdotto = $quantitaProdotto[0]["quantita_prodotto"] + $quantita;
                 $prezzoProdotto = $dbh->getPriceProduct($idprodotto);
-    
+
                 if ($prezzoProdotto) {
                     if ($nuovaQuantitaProdotto <= 0) {
                         $rimozioneRiuscita = $dbh->removeFromCart($idOrdineValue, $idprodotto);
-                        if ($rimozioneRiuscita) {
-                            $totaleDaSottrarre = -($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
-                            $dbh->updateTotalCart($idOrdineValue, $totaleDaSottrarre);
-    
+                        $totaleDaSottrarre = -($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
+                        $dbh->updateTotalCart($idOrdineValue, $totaleDaSottrarre);
+
                             // Verifica se il carrello è vuoto dopo la rimozione
                             $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
                             if (empty($prodottiNelCarrello)) {
-                                // Imposta il prezzo totale a 0
-                                $dbh->updateTotalCart($idOrdineValue, -$currentCart[0]["prezzo_totale"]); // Sottraggo il totale corrente per azzerarlo
+                                // **Directly set the total to 0 using resetTotalCart**
+                                $dbh->resetTotalCart($idOrdineValue);
                             }
-                        } else {
+                        else {
                             error_log("Errore durante la rimozione del prodotto...");
                         }
                     } else {
+                        // Calcola la differenza di quantità e aggiorna il totale
+                        $differenzaQuantita = $nuovaQuantitaProdotto - $quantitaProdotto[0]["quantita_prodotto"];
+                        $totaleDaAggiungere = $prezzoProdotto["prezzo"] * $differenzaQuantita;
                         $aggiornamentoRiuscito = $dbh->setQuantityProduct($idOrdineValue, $idprodotto, $nuovaQuantitaProdotto);
                         if ($aggiornamentoRiuscito) {
-                            $totaleDaAggiungere = $prezzoProdotto["prezzo"] * $quantita;
                             $dbh->updateTotalCart($idOrdineValue, $totaleDaAggiungere);
                         } else {
                             error_log("Errore durante l'aggiornamento della quantità...");
@@ -185,3 +174,27 @@ if ($_POST["action"] == 11) {
 
     header("location: carrello.php");
 }
+if ($_POST["action"] == 12) {
+    // Controlla se l'utente è loggato
+    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+        header("Location: login.php");
+        exit;
+    }
+
+    // Recupera i dati dal form
+    $ordineData = [
+        'ID_ordine' => $_POST["ID_ordine"],
+        'indirizzo' => ($_POST["address"]),
+        'citta' => ($_POST["citta"]),
+        'cap' => ($_POST["cap"]),
+    ];
+    
+    // Salva i dati dell'ordine nella sessione
+    $_SESSION["ordine"] = $ordineData;
+    
+    header("Location: conferma-acquisto.php");
+    exit();
+}
+
+
+?>
