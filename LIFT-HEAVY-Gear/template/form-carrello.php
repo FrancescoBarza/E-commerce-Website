@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="container">
               <h4>Riepilogo ordine <span class="prezzo" style="color:black"><span class="fa fa-shopping-cart"></span> <?php echo count($templateParams["prodottoCarrello"]); ?></span></h4>
               <?php foreach($templateParams["prodottoCarrello"] as $prodotto): ?>
-              <p><a href="#"><?php echo $prodotto["nome"];?></a> <span class="prezzo"><?php echo number_format($prodotto["prezzo"]* $prodotto["quanrita_prodotto"],2);?> €</span></p>
+              <p><a href="#"><?php echo $prodotto["nome"];?></a> <span class="prezzo"><?php echo number_format($prodotto["prezzo"]* $prodotto["quantita_prodotto"],2);?> €</span></p>
               <?php endforeach;?>
               <hr>
               <h4>Totale <span class="prezzo" style="color:black"><?php echo number_format($currentCart[0]["prezzo_totale"],2); ?> €</span></h4>

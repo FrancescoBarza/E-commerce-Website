@@ -14,6 +14,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/styleClass.css" />
+    <link rel="stylesheet" href="css/carrello.css" />
 
     <title><?php echo $templateParams["titolo"];?> </title>
     <link rel="icon" href="images/icons/Logo_Icon.ico" />
