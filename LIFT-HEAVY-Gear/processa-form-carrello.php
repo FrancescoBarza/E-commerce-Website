@@ -199,24 +199,6 @@ if ($_POST["action"] == 12) {
     // Ottieni tutti i prodotti nel carrello
     $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineToClear);
 
-    if (!empty($prodottiNelCarrello)) {
-        foreach ($prodottiNelCarrello as $prodotto) {
-            // Rimuovi ogni prodotto dal carrello
-            if (!$dbh->removeFromCart($idOrdineToClear, $prodotto["ID_prodotto"])) {
-                error_log("Errore durante la rimozione del prodotto " . $prodotto["ID_prodotto"] . " dall'ordine " . $idOrdineToClear);
-                // Potresti voler gestire questo errore in modo più appropriato
-            }
-        }
-    } else {
-        error_log("Nessun prodotto trovato nel carrello con ID ordine: " . $idOrdineToClear);
-    }
-
-    // Resetta il totale del carrello a 0
-    if (!$dbh->resetTotalCart($idOrdineToClear)) {
-        error_log("Errore durante il reset del totale del carrello per l'ordine " . $idOrdineToClear);
-        // Potresti voler gestire questo errore in modo più appropriato
-    }
-
     // Cambia lo stato dell'ordine in "In elaborazione"
     $stato = "In Elaborazione";
     if (!$dbh->updateOrderStatus($idOrdineToClear, $stato)) {
