@@ -83,30 +83,31 @@ if ($_POST["action"] == 9) {
         if (!empty($idOrdine)) {
             $idOrdineValue = $idOrdine[0]["ID_ordine"];
             $quantitaProdotto = $dbh->checkProductOnCart($idOrdineValue, $idprodotto);
-
+    
             if (!empty($quantitaProdotto)) {
                 $prezzoProdotto = $dbh->getPriceProduct($idprodotto);
-
+    
                 if ($prezzoProdotto) {
-                    $totaleDaSottrarre = - ($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
+                    $totaleDaSottrarre = -($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
                     $rimozioneRiuscita = $dbh->removeFromCart($idOrdineValue, $idprodotto);
                     if ($rimozioneRiuscita) {
                         $dbh->updateTotalCart($idOrdineValue, $totaleDaSottrarre);
+    
+                        // Verifica se il carrello è vuoto dopo la rimozione
+                        $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
+                        if (empty($prodottiNelCarrello)) {
+                            // Imposta il prezzo totale a 0
+                            $dbh->updateTotalCart($idOrdineValue, -$currentCart[0]["prezzo_totale"]); // Sottraggo il totale corrente per azzerarlo
+                        }
                     } else {
-                        error_log("Errore durante la rimozione del prodotto dal carrello (ID Ordine: " . $idOrdineValue . ", ID Prodotto: " . $idprodotto . ")");
-                        
+                        error_log("Errore durante la rimozione del prodotto...");
                     }
                 } else {
-                    error_log("Errore: Impossibile recuperare il prezzo del prodotto con ID: " . $idprodotto);
-                    
+                    error_log("Errore: Impossibile recuperare il prezzo...");
                 }
             }
         }
         header("location: carrello.php");
-    } else {
-        error_log("Errore: ID prodotto mancante per la rimozione dal carrello.");
-        header("location: carrello.php"); // Reindirizza comunque per evitare pagine bloccate
-        exit;
     }
 }
 
@@ -128,46 +129,42 @@ if ($_POST["action"] == 10) {
         // Controllo ordine
         if (!empty($idOrdine)) {
             $idOrdineValue = $idOrdine[0]["ID_ordine"];
-            //Aggiungi prodotto
             $quantitaProdotto = $dbh->checkProductOnCart($idOrdineValue, $idprodotto);
             if (!empty($quantitaProdotto)) {
                 $nuovaQuantitaProdotto = $quantitaProdotto[0]["quantita_prodotto"] + $quantita;
                 $prezzoProdotto = $dbh->getPriceProduct($idprodotto);
-
+    
                 if ($prezzoProdotto) {
-                    //Controllo che la quantita non sia scesa a 0
                     if ($nuovaQuantitaProdotto <= 0) {
                         $rimozioneRiuscita = $dbh->removeFromCart($idOrdineValue, $idprodotto);
                         if ($rimozioneRiuscita) {
-                            // Totale da sottrarre calcolato con la quantità precedente
-                            $totaleDaSottrarre = - ($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
+                            $totaleDaSottrarre = -($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
                             $dbh->updateTotalCart($idOrdineValue, $totaleDaSottrarre);
+    
+                            // Verifica se il carrello è vuoto dopo la rimozione
+                            $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
+                            if (empty($prodottiNelCarrello)) {
+                                // Imposta il prezzo totale a 0
+                                $dbh->updateTotalCart($idOrdineValue, -$currentCart[0]["prezzo_totale"]); // Sottraggo il totale corrente per azzerarlo
+                            }
                         } else {
-                            error_log("Errore durante la rimozione del prodotto dal carrello (quantità <= 0, ID Ordine: " . $idOrdineValue . ", ID Prodotto: " . $idprodotto . ")");
-                            // Potresti voler fornire un feedback all'utente qui
+                            error_log("Errore durante la rimozione del prodotto...");
                         }
                     } else {
                         $aggiornamentoRiuscito = $dbh->setQuantityProduct($idOrdineValue, $idprodotto, $nuovaQuantitaProdotto);
                         if ($aggiornamentoRiuscito) {
-                            //Aggiorna totale ordine
                             $totaleDaAggiungere = $prezzoProdotto["prezzo"] * $quantita;
                             $dbh->updateTotalCart($idOrdineValue, $totaleDaAggiungere);
                         } else {
-                            error_log("Errore durante l'aggiornamento della quantità del prodotto nel carrello (ID Ordine: " . $idOrdineValue . ", ID Prodotto: " . $idprodotto . ", Nuova Quantità: " . $nuovaQuantitaProdotto . ")");
-                            // Potresti voler fornire un feedback all'utente qui
+                            error_log("Errore durante l'aggiornamento della quantità...");
                         }
                     }
                 } else {
-                    error_log("Errore: Impossibile recuperare il prezzo del prodotto con ID: " . $idprodotto);
-                    // Potresti voler fornire un feedback all'utente qui
+                    error_log("Errore: Impossibile recuperare il prezzo...");
                 }
             }
             header("location: carrello.php");
         }
-    } else {
-        error_log("Errore: ID prodotto o quantità mancanti per l'aggiornamento del carrello.");
-        header("location: carrello.php"); // Reindirizza comunque per evitare pagine bloccate
-        exit;
     }
 }
 
