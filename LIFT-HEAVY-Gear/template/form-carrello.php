@@ -24,6 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 ?>
+<div class="cart-main">
+<main>
+<section>
 <h1><span class="fas fa-shopping-cart"></span> <?php echo $templateParams["titolo"]; ?></h1>
 <!-- Modalita vuoto-->
 <?php if (count($currentCart) == 0 || number_format($currentCart[0]["prezzo_totale"], 2) == 0) { ?>
@@ -96,7 +99,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <h4>Totale <span class="prezzo" style="color:white"><?php echo number_format($currentCart[0]["prezzo_totale"], 2); ?> €</span></h4>
     </div>
   </div>
-
+  <?php
+if (isset($_SESSION["errore_carrello"])) {
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+    echo '<i class="fas fa-exclamation-triangle"></i> '; 
+    echo $_SESSION["errore_carrello"];
+    echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
+    echo '<span aria-hidden="true">×</span>';
+    echo '</button>';
+    echo '</div>';
+    unset($_SESSION["errore_carrello"]);
+}
+?>
   <!-- Inserisci i dati -->
   <div class="row">
     <div class="col-75">
@@ -153,4 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
       </div>
     </div>
+    </section>
+    </main>
+  </div>
   <?php } ?>

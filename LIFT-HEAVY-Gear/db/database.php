@@ -295,6 +295,26 @@ public function countProductsInCart($idOrdine) {
         $stmt->bind_param('i', $idOrdine);
         return $stmt->execute();
     }
+    public function decreaseProductQuantity($prodottoId, $quantita) {
+        $query = "UPDATE prodotto SET quantita = quantita - ? WHERE ID_prodotto = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ii', $quantita, $prodottoId);  // 'ii' specifica due parametri interi
+    
+        if (!$stmt->execute()) {
+            throw new Exception("Errore nell'aggiornamento della quantità del prodotto: " . $stmt->error);
+        }
+        return $stmt->affected_rows > 0;  // Restituisce true se le righe sono state aggiornate
+    }
+    public function getProductQuantity($prodottoId) {
+        $query = "SELECT quantita FROM prodotto WHERE ID_prodotto = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $prodottoId);
+        $stmt->execute();
+        $stmt->bind_result($quantita);
+        $stmt->fetch();
+        $stmt->close();
+        return $quantita;
+    }
     
     public function getPriceProduct($idprodotto) {
         $query = "SELECT prezzo FROM prodotto WHERE ID_prodotto = ?";

@@ -69,12 +69,12 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
 /*Rimuovi dal carrello*/
 if($_POST["action"]==9){
     $idprodotto = htmlspecialchars($_POST["idprodotto"]);
-    $utente = $_SESSION["ID_utente"]; // Assumo che la chiave corretta sia ID_utente
+    $utente = $_SESSION["ID_utente"]; 
 
     $idOrdine = $dbh->checkEmptyCart($utente);
 
-    if(!empty($idOrdine)){ // Usare empty per verificare se l'array è vuoto
-        $idOrdineValue = $idOrdine[0]["ID_ordine"]; // Assumo che la chiave corretta sia ID_ordine
+    if(!empty($idOrdine)){
+        $idOrdineValue = $idOrdine[0]["ID_ordine"]; 
         $quantitaProdotto = $dbh->checkProductOnCart($idOrdineValue, $idprodotto);
         $prezzoProdotto= $dbh->getPriceProduct($idprodotto);
 
@@ -86,7 +86,7 @@ if($_POST["action"]==9){
                 // Verifica se il carrello è vuoto dopo la rimozione
                 $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
                 if (empty($prodottiNelCarrello)) {
-                    // **Directly set the total to 0 using resetTotalCart**
+                    
                     $dbh->resetTotalCart($idOrdineValue);
                 }
              else {
@@ -170,12 +170,11 @@ if ($_POST["action"] == 11) {
     $testo = "Ordine " . $idOrdine . " " . $stato;
     $dbh->addNotification($testo, $utente);
     $dbh->updateNotificationStatus($idOrdine, $stato);
-    //gestisciOrdine($idOrdine, $utente, 1);
 
     header("location: carrello.php");
 }
 if ($_POST["action"] == 12) {
-    // Controlla se l'utente è loggato
+
     if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         header("Location: login.php");
         exit;
@@ -189,25 +188,60 @@ if ($_POST["action"] == 12) {
         'cap' => ($_POST["cap"]),
     ];
 
-    // Salva i dati dell'ordine nella sessione
     $_SESSION["ordine"] = $ordineData;
 
-    // Svuota il carrello
     $utente = $_SESSION["ID_utente"];
     $idOrdineToClear = htmlspecialchars($_POST["ID_ordine"]);
 
-    // Ottieni tutti i prodotti nel carrello
-    $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineToClear);
+    // Ottieni tutti i prodotti nell'ordine (con la quantità acquistata)
+    $prodottiNelCarrello = $dbh->getProductFromOrder($idOrdineToClear);
 
-    // Cambia lo stato dell'ordine in "In elaborazione"
-    $stato = "In Elaborazione";
-    if (!$dbh->updateOrderStatus($idOrdineToClear, $stato)) {
-        error_log("Errore durante l'aggiornamento dello stato dell'ordine " . $idOrdineToClear . " a 'In Elaborazione'");
-        // Potresti voler gestire questo errore in modo più appropriato
+    $erroreAggiornamentoQuantita = false;
+
+    if ($prodottiNelCarrello) {
+        foreach ($prodottiNelCarrello as $prodotto) {
+            $idProdotto = $prodotto['ID_prodotto'];
+            $quantitaAcquistata = $prodotto['quantita']; 
+
+            //  Ottieni la quantità attuale dal database**
+            $currentQuantity = $dbh->getProductQuantity($idProdotto);
+
+            //  Controlla se la quantità acquistata è disponibile**
+            if ($quantitaAcquistata > $currentQuantity) {
+                error_log("Errore: Quantità insufficiente per il prodotto con ID " . $idProdotto . ". Richiesti: " . $quantitaAcquistata . ", Disponibili: " . $currentQuantity);
+                $_SESSION["errore_carrello"] = "La quantità richiesta per alcuni prodotti non è disponibile. Riprova modificando il tuo carrello.";
+                $erroreAggiornamentoQuantita = true;
+                break;
+            }
+
+            // Diminuisci la quantità del prodotto nel database SOLO SE c'è abbastanza stock
+            if (!$dbh->decreaseProductQuantity($idProdotto, $quantitaAcquistata)) {
+                error_log("Errore durante la diminuzione della quantità del prodotto con ID " . $idProdotto);
+                $_SESSION["errore_carrello"] = "Si è verificato un errore durante l'aggiornamento della quantità di alcuni prodotti. Riprova o contatta l'assistenza.";
+                $erroreAggiornamentoQuantita = true;
+                break;
+            }
+        }
     }
 
-    header("Location: conferma-acquisto.php");
-    exit();
+    if ($erroreAggiornamentoQuantita) {
+        header("Location: carrello.php");
+        exit();
+    }
+
+    // Cambia lo stato dell'ordine in "In elaborazione" SOLO se non ci sono stati errori di quantità
+    if (!$erroreAggiornamentoQuantita) {
+        $stato = "In Elaborazione";
+        if (!$dbh->updateOrderStatus($idOrdineToClear, $stato)) {
+            error_log("Errore durante l'aggiornamento dello stato dell'ordine " . $idOrdineToClear . " a 'In Elaborazione'");
+            $_SESSION["errore_carrello"] = "Si è verificato un errore durante l'elaborazione dell'ordine. Riprova o contatta l'assistenza.";
+            header("Location: carrello.php");
+            exit();
+        }
+
+        header("Location: conferma-acquisto.php");
+        exit();
+    }
 }
 
 

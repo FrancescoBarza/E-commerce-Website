@@ -141,6 +141,31 @@
     margin-bottom: 15px;
     width: 100%;
 }
+.container p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap; /* Impedisce la rottura di riga */
+    overflow: hidden; /* Nasconde il testo in eccesso */
+    text-overflow: ellipsis; /* Aggiunge i tre punti di sospensione */
+}
+
+.container p a {
+    flex: 1;
+    text-align: left;
+    margin-right: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    color: white;
+}
+
+.container p .prezzo {
+    flex: none;
+    text-align: right;
+    white-space: nowrap;
+}
 
 table {
     width: 100%;
