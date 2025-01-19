@@ -19,7 +19,7 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
                 $idOrdine = [['ID_ordine' => $newOrderId]];
             } else {
                 error_log("Errore durante la creazione di un nuovo carrello per l'utente: " . $utente);
-                // Potresti reindirizzare l'utente o mostrare un messaggio di errore
+                
                 exit("Si è verificato un errore durante l'aggiunta al carrello.");
             }
         }
@@ -35,7 +35,7 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
                     $dbh->setQuantityProduct($idOrdine[0]["ID_ordine"], $idprodotto, $quantitaProdotto[0]["quantita_prodotto"]);
                 } else {
                     error_log("Errore: Impossibile recuperare le informazioni sul prodotto nel carrello.");
-                    // Gestisci l'errore
+                    
                 }
             }
 
@@ -46,10 +46,10 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
                 $dbh->updateTotalCart($idOrdine[0]["ID_ordine"], $totale);
             } else {
                 error_log("Errore: Impossibile recuperare il prezzo del prodotto con ID: " . $idprodotto);
-                // Gestisci l'errore
+                
             }
 
-            //Da andare nella home o prodotto o preferiti
+            
             if ($_POST["action"] == 7) {
                 header("location: index.php");
             } else if ($_POST["action"] == 8) {
@@ -57,39 +57,38 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
             }
         } else {
             error_log("Errore: Impossibile recuperare o creare l'ID dell'ordine per l'utente: " . $utente);
-            // Gestisci l'errore
+            
             exit("Si è verificato un errore durante l'aggiunta al carrello.");
         }
     } else {
         error_log("Errore: idprodotto o quantita mancanti nella richiesta POST.");
-        // Gestisci l'errore
+       
         exit("Parametri mancanti per l'aggiunta al carrello.");
     }
 }
 /*Rimuovi dal carrello*/
-if($_POST["action"]==9){
+if ($_POST["action"] == 9) {
     $idprodotto = htmlspecialchars($_POST["idprodotto"]);
-    $utente = $_SESSION["ID_utente"]; 
+    $utente = $_SESSION["ID_utente"];
 
     $idOrdine = $dbh->checkEmptyCart($utente);
 
-    if(!empty($idOrdine)){
-        $idOrdineValue = $idOrdine[0]["ID_ordine"]; 
+    if (!empty($idOrdine)) {
+        $idOrdineValue = $idOrdine[0]["ID_ordine"];
         $quantitaProdotto = $dbh->checkProductOnCart($idOrdineValue, $idprodotto);
-        $prezzoProdotto= $dbh->getPriceProduct($idprodotto);
+        $prezzoProdotto = $dbh->getPriceProduct($idprodotto);
 
         if ($quantitaProdotto && $prezzoProdotto) { // Verifica che i dati siano stati recuperati correttamente
-            $totaleDaSottrarre = -($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
+            $totaleDaSottrarre = - ($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
             $rimozioneRiuscita = $dbh->removeFromCart($idOrdineValue, $idprodotto);
             $dbh->updateTotalCart($idOrdineValue, $totaleDaSottrarre);
 
-                // Verifica se il carrello è vuoto dopo la rimozione
-                $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
-                if (empty($prodottiNelCarrello)) {
-                    
-                    $dbh->resetTotalCart($idOrdineValue);
-                }
-             else {
+            // Verifica se il carrello è vuoto dopo la rimozione
+            $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
+            if (empty($prodottiNelCarrello)) {
+
+                $dbh->resetTotalCart($idOrdineValue);
+            } else {
                 error_log("Errore durante la rimozione del prodotto...");
             }
         } else {
@@ -101,7 +100,7 @@ if($_POST["action"]==9){
 
 /*Aggiorna carrello*/
 if ($_POST["action"] == 10) {
-    // Aggiorna carrello
+   
     if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || !isset($_SESSION["ID_utente"])) {
         header("Location: login.php");
         exit;
@@ -110,7 +109,7 @@ if ($_POST["action"] == 10) {
     if (isset($_POST["idprodotto"]) && isset($_POST["quantita"])) {
         $utente = $_SESSION["ID_utente"];
         $idprodotto = htmlspecialchars($_POST["idprodotto"]); // Corretto: recupera l'ID del prodotto
-        $quantita = intval($_POST["quantita"]); // Assicurati che sia un intero
+        $quantita = intval($_POST["quantita"]); // Corretto: recupera la quantità desiderata
 
         $idOrdine = $dbh->checkEmptyCart($utente);
 
@@ -125,16 +124,15 @@ if ($_POST["action"] == 10) {
                 if ($prezzoProdotto) {
                     if ($nuovaQuantitaProdotto <= 0) {
                         $rimozioneRiuscita = $dbh->removeFromCart($idOrdineValue, $idprodotto);
-                        $totaleDaSottrarre = -($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
+                        $totaleDaSottrarre = - ($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
                         $dbh->updateTotalCart($idOrdineValue, $totaleDaSottrarre);
 
-                            // Verifica se il carrello è vuoto dopo la rimozione
-                            $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
-                            if (empty($prodottiNelCarrello)) {
-                                // **Directly set the total to 0 using resetTotalCart**
-                                $dbh->resetTotalCart($idOrdineValue);
-                            }
-                        else {
+                        // Verifica se il carrello è vuoto dopo la rimozione
+                        $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
+                        if (empty($prodottiNelCarrello)) {
+                            
+                            $dbh->resetTotalCart($idOrdineValue);
+                        } else {
                             error_log("Errore durante la rimozione del prodotto...");
                         }
                     } else {
@@ -190,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
         'cap' => ($_POST["cap"]),
     ];
 
-    // Esegui le validazioni qui
+    // Esegui le validazioni 
     if (!isset($_POST["titolare"]) || !preg_match("/^[a-zA-Z-' ]*$/", $_POST["titolare"])) {
         $titolareError = "Formato nome non corretto";
     }
@@ -234,10 +232,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
             $idProdotto = $prodotto['ID_prodotto'];
             $quantitaAcquistata = $prodotto['quantita'];
 
-            //  Ottieni la quantità attuale dal database**
+            //  Ottieni la quantità attuale dal database
             $currentQuantity = $dbh->getProductQuantity($idProdotto);
 
-            //  Controlla se la quantità acquistata è disponibile**
+            //  Controlla se la quantità acquistata è disponibile
             if ($quantitaAcquistata > $currentQuantity) {
                 error_log("Errore: Quantità insufficiente per il prodotto con ID " . $idProdotto . ". Richiesti: " . $quantitaAcquistata . ", Disponibili: " . $currentQuantity);
                 $_SESSION["errore_carrello"] = "La quantità richiesta per alcuni prodotti non è disponibile. Riprova modificando il tuo carrello.";
@@ -274,6 +272,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
         exit();
     }
 }
-
-
-?>
