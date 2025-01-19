@@ -161,9 +161,7 @@ aside {
 
 /* Footer */
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    
     background-color: #fff;
     color: #333;
     text-align: center;
