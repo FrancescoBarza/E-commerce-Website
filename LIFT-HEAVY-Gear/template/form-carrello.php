@@ -1,173 +1,208 @@
 <?php
-$titolareError = $capError = $cartaError = $cvvError = $annoError = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+$titolareError = isset($_SESSION["titolareError"]) ? $_SESSION["titolareError"] : "";
+$capError = isset($_SESSION["capError"]) ? $_SESSION["capError"] : "";
+$cartaError = isset($_SESSION["cartaError"]) ? $_SESSION["cartaError"] : "";
+$cvvError = isset($_SESSION["cvvError"]) ? $_SESSION["cvvError"] : "";
+$annoError = isset($_SESSION["annoError"]) ? $_SESSION["annoError"] : "";
 
-  if (isset($_POST["titolare"]) && !preg_match("/^[a-zA-Z-' ]*$/", $_POST["titolare"])) {
-    $titolareError = "Formato nome non corretto";
-  }
-  if (isset($_POST["cap"]) && (!filter_var($_POST["cap"], FILTER_VALIDATE_INT) || strlen($_POST["cap"]) != 5)) {
-    $capError = "Il CAP deve essere composto da cinque numeri";
-  }
-  if (isset($_POST["numero"]) && (!preg_match("/^[0-9]*$/", $_POST["numero"]) || strlen($_POST["numero"]) != 16)) {
-    $cartaError = "Il numero della carta deve essere composto da sedici numeri";
-  }
-  if (isset($_POST["cvv"]) && (!filter_var($_POST["cvv"], FILTER_VALIDATE_INT) || strlen($_POST["cvv"]) != 3)) {
-    $cvvError = "Il CVV deve essere composto da tre numeri";
-  }
-  if (isset($_POST["scadenzaa"]) && (!filter_var($_POST["scadenzaa"], FILTER_VALIDATE_INT) || strlen($_POST["scadenzaa"]) != 4 || $_POST["scadenzaa"] < date("Y"))) {
-    $annoError = "Formato anno errato";
-  }
+// Recupera i dati dell'ordine dalla sessione se presenti
+$indirizzoValue = isset($_SESSION["ordine_data"]["indirizzo"]) ? $_SESSION["ordine_data"]["indirizzo"] : "";
+$cittaValue = isset($_SESSION["ordine_data"]["citta"]) ? $_SESSION["ordine_data"]["citta"] : "";
+$capValue = isset($_SESSION["ordine_data"]["cap"]) ? $_SESSION["ordine_data"]["cap"] : "";
 
-  if ($titolareError == "" && $capError == "" && $cartaError == "" && $cvvError == "" && $annoError == "") {
-    header("Location: conferma_acquisto.php");
-    exit();
-  }
-}
+// Cancella gli errori dalla sessione dopo averli recuperati
+unset($_SESSION["titolareError"]);
+unset($_SESSION["capError"]);
+unset($_SESSION["cartaError"]);
+unset($_SESSION["cvvError"]);
+unset($_SESSION["annoError"]);
+unset($_SESSION["ordine_data"]);
+
 ?>
 <div class="cart-main">
-<main>
-<section>
-<h1><span class="fas fa-shopping-cart"></span> <?php echo $templateParams["titolo"]; ?></h1>
-<!-- Modalita vuoto-->
-<?php if (count($currentCart) == 0 || number_format($currentCart[0]["prezzo_totale"], 2) == 0) { ?>
-  <section class="empty-cart">
-    <span class="fas fa-cart-arrow-down"></span>
-    <div>
-      <h4>Il tuo carrello è vuoto</h4>
-      <p>Aggiungi degli elementi e procedi al pagamento</p>
-    </div>
-  </section>
-<?php } else { ?>
-  <!-- Modalita con elementi-->
-  <div class="table-div">
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th id="img"></th>
-            <th id="articolo">Articolo</th>
-            <th id="prezzo">Prezzo</th>
-            <th id="quantita">Quantità</th>
-            <th id="button"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach ($templateParams["prodottoCarrello"] as $prodotto): ?>
-            <tr>
-              <td headers="img">
-                <a><img src="<?php echo UPLOAD_DIR_UPLOADS . $prodotto["immagine"]; ?>" alt="Immagine <?php echo $prodotto["nome"]; ?>" /></a>
-              </td>
-              <td headers="articolo">
-                <a href="prodotto.php?id=<?php echo $prodotto["ID_prodotto"]; ?>"><?php echo $prodotto["nome"]; ?></a>
-              </td>
-              <td headers="prezzo">
-                <p><?php echo number_format($prodotto["prezzo"], 2); ?> €</p>
-              </td>
-              <td headers="quantita">
-                <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
-                  <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
-                  <input type="hidden" name="action" value="10" />
-                  <input type="hidden" name="quantita" value="1" />
-                  <button type="submit"><span class="fas fa-plus"></span></button>
-                </form>
-                <p> <?php echo $prodotto["quantita_prodotto"]; ?></p>
-                <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
-                  <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
-                  <input type="hidden" name="action" value="10" />
-                  <input type="hidden" name="quantita" value="-1" />
-                  <button type="submit"><span class="fas fa-minus"></span></button>
-                </form>
-              </td>
-              <td headers="button">
-                <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
-                  <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
-                  <input type="hidden" name="action" value="9" />
-                  <button type="submit"><span class="fas fa-trash"></span></button>
-                </form>
-              </td>
-            </tr>
-          <?php endforeach; ?>
-        </tbody>
-      </table>
-    </div>
-    <div class="container">
-      <h4>Riepilogo ordine <span class="prezzo" style="color:white"><span class="fa fa-shopping-cart"></span> <?php echo count($templateParams["prodottoCarrello"]); ?></span></h4>
-      <?php foreach ($templateParams["prodottoCarrello"] as $prodotto): ?>
-        <p><a href="#"><?php echo $prodotto["nome"]; ?></a> <span class="prezzo"><?php echo number_format($prodotto["prezzo"] * $prodotto["quantita_prodotto"], 2); ?> €</span></p>
-      <?php endforeach; ?>
-      <hr>
-      <h4>Totale <span class="prezzo" style="color:white"><?php echo number_format($currentCart[0]["prezzo_totale"], 2); ?> €</span></h4>
-    </div>
-  </div>
-  <?php
-if (isset($_SESSION["errore_carrello"])) {
-    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
-    echo '<i class="fas fa-exclamation-triangle"></i> '; 
-    echo $_SESSION["errore_carrello"];
-    echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close">';
-    echo '<span aria-hidden="true">×</span>';
-    echo '</button>';
-    echo '</div>';
-    unset($_SESSION["errore_carrello"]);
-}
-?>
-  <!-- Inserisci i dati -->
-  <div class="row">
-    <div class="col-75">
-      <div class="container">
-        <form method="post" action="processa-form-carrello.php">
-          <input type="hidden" name="action" value="12" />
-          <input type="hidden" name="ID_ordine" value="<?php echo $currentCart[0]["ID_ordine"]; ?>" />
-          <div class="row">
-            <div class="col-50">
-              <h3>Indirizzo di fatturazione: </h3>
-              <label for="indirizzo"><span class="fa fa-address-card-o"></span> Indirizzo</label>
-              <input type="text" id="indirizzo" name="address" placeholder="Via dell'Università, 50" required>
-              <label for="citta"><span class="fa fa-institution"></span> Città</label>
-              <input type="text" id="citta" name="citta" placeholder="Cesena" required>
-              <div class="row">
-                <div class="col-50">
-                  <label for="cap">Cap</label>
-                  <input type="text" id="cap" name="cap" placeholder="47125" required>
-                  <span class="error"> <?php echo $capError; ?></span>
+  <main>
+    <section>
+      <h1><span class="fas fa-shopping-cart"></span> <?php echo $templateParams["titolo"]; ?></h1>
+      <!-- Modalita vuoto-->
+      <?php if (count($currentCart) == 0 || number_format($currentCart[0]["prezzo_totale"], 2) == 0) { ?>
+        <section class="empty-cart">
+          <span class="fas fa-cart-arrow-down"></span>
+          <div>
+            <h4>Il tuo carrello è vuoto</h4>
+            <p>Aggiungi degli elementi e procedi al pagamento</p>
+          </div>
+        </section>
+      <?php } else { ?>
+        <!-- Modalita con elementi-->
+        <div class="table-div">
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th id="img"></th>
+                  <th id="articolo">Articolo</th>
+                  <th id="prezzo">Prezzo</th>
+                  <th id="quantita">Quantità</th>
+                  <th id="button"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($templateParams["prodottoCarrello"] as $prodotto): ?>
+                  <tr>
+                    <td headers="img">
+                      <a><img src="<?php echo UPLOAD_DIR_UPLOADS . $prodotto["immagine"]; ?>" alt="Immagine <?php echo $prodotto["nome"]; ?>" /></a>
+                    </td>
+                    <td headers="articolo">
+                      <a href="prodotto.php?id=<?php echo $prodotto["ID_prodotto"]; ?>"><?php echo $prodotto["nome"]; ?></a>
+                    </td>
+                    <td headers="prezzo">
+                      <p><?php echo number_format($prodotto["prezzo"], 2); ?> €</p>
+                    </td>
+                    <td headers="quantita">
+                      <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
+                        <input type="hidden" name="action" value="10" />
+                        <input type="hidden" name="quantita" value="1" />
+                        <button type="submit"><span class="fas fa-plus"></span></button>
+                      </form>
+                      <p> <?php echo $prodotto["quantita_prodotto"]; ?></p>
+                      <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
+                        <input type="hidden" name="action" value="10" />
+                        <input type="hidden" name="quantita" value="-1" />
+                        <button type="submit"><span class="fas fa-minus"></span></button>
+                      </form>
+                    </td>
+                    <td headers="button">
+                      <form action="processa-form-carrello.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
+                        <input type="hidden" name="action" value="9" />
+                        <button type="submit"><span class="fas fa-trash"></span></button>
+                      </form>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+          <div class="container">
+            <h4>Riepilogo ordine <span class="prezzo" style="color:white"><span class="fa fa-shopping-cart"></span> <?php echo count($templateParams["prodottoCarrello"]); ?></span></h4>
+            <?php foreach ($templateParams["prodottoCarrello"] as $prodotto): ?>
+              <p><a href="#"><?php echo $prodotto["nome"]; ?></a> <span class="prezzo"><?php echo number_format($prodotto["prezzo"] * $prodotto["quantita_prodotto"], 2); ?> €</span></p>
+            <?php endforeach; ?>
+            <hr>
+            <h4>Totale <span class="prezzo" style="color:white"><?php echo number_format($currentCart[0]["prezzo_totale"], 2); ?> €</span></h4>
+          </div>
+        </div>
+        <?php
+        if (isset($_SESSION["errore_carrello"])) {
+          echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+          echo '<i class="fas fa-exclamation-triangle"></i> ';
+          echo $_SESSION["errore_carrello"];
+          echo '</div>';
+          echo '<br>';
+          unset($_SESSION["errore_carrello"]);
+        }
+        ?>
+        <!-- Inserisci i dati -->
+        <div class="row">
+          <div class="col-75">
+            <div class="container">
+              <form method="POST" action="processa-form-carrello.php" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="12" />
+                <input type="hidden" name="ID_ordine" value="<?php echo $currentCart[0]["ID_ordine"]; ?>" />
+                <div class="row">
+                  <div class="col-50">
+                    <h3>Indirizzo di fatturazione: </h3>
+                    <label for="indirizzo"><span class="fa fa-address-card-o"></span> Indirizzo</label>
+                    <input type="text" id="indirizzo" name="address" placeholder="Via dell'Università, 50" value="<?php echo $indirizzoValue; ?>" required>
+                    <label for="citta"><span class="fa fa-institution"></span> Città</label>
+                    <input type="text" id="citta" name="citta" placeholder="Cesena" value="<?php echo $cittaValue; ?>" required>
+                    <div class="row">
+                      <div class="col-50">
+                        <label for="cap">Cap</label>
+                        <input type="text" id="cap" name="cap" placeholder="47125" value="<?php echo $capValue; ?>" required>
+                        <span class="error">
+                          <?php
+                          if ($capError != "") {
+                            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                            echo '<i class="fas fa-exclamation-triangle"></i> ';
+                            echo $capError;
+                            echo '</div>';
+                          }
+                          ?>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-50">
+                    <h3>Metodo di Pagamento</h3>
+                    <label>Carte valide</label>
+                    <div class="icon-container">
+                      <span class="fab fa-cc-visa" style="color:navy;"></span>
+                      <span class="fab fa-cc-amex" style="color:blue;"></span>
+                      <span class="fab fa-cc-mastercard" style="color:red;"></span>
+                    </div>
+                    <label for="titolare">Titolare carta</label>
+                    <input type="text" id="titolare" name="titolare" placeholder="Mario Rossi" required>
+                    <span class="error">
+                      <?php
+                      if (($titolareError != "")) {
+                        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                        echo '<i class="fas fa-exclamation-triangle"></i> ';
+                        echo $titolareError;
+                        echo '</div>';
+                      }
+                      ?>
+                    </span>
+                    <label for="numero">Numero carta</label>
+                    <input type="text" id="numero" name="numero" placeholder="1111-2222-3333-4444" required>
+                    <span class="error"> <?php
+                                          if ($cartaError != "") {
+                                            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                                            echo '<i class="fas fa-exclamation-triangle"></i> ';
+                                            echo $cartaError;
+                                            echo '</div>';
+                                          }
+                                          ?>
+                    </span>
+                    <label for="scadenzam">Mese di scadenza</label>
+                    <input type="text" id="scadenzam" name="scadenzam" placeholder="Settembre" required>
+                    <div class="row">
+                      <div class="col-50">
+                        <label for="scadenzaa">Anno di scadenza</label>
+                        <input type="text" id="scadenzaa" name="scadenzaa" placeholder="2026" required>
+                        <span class="error"> <?php
+                                              if (($annoError != "")) {
+                                                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                                                echo '<i class="fas fa-exclamation-triangle"></i> ';
+                                                echo $annoError;
+                                                echo '</div>';
+                                              }
+                                              ?>
+                        </span>
+                      </div>
+                      <div class="col-50">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                        <span class="error"> <?php
+                                              if (($cvvError != "")) {
+                                                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                                                echo '<i class="fas fa-exclamation-triangle"></i> ';
+                                                echo $cvvError;
+                                                echo '</div>';
+                                              }
+                                              ?>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-50">
-              <h3>Metodo di Pagamento</h3>
-              <label>Carte valide</label>
-              <div class="icon-container">
-                <span class="fab fa-cc-visa" style="color:navy;"></span>
-                <span class="fab fa-cc-amex" style="color:blue;"></span>
-                <span class="fab fa-cc-mastercard" style="color:red;"></span>
-              </div>
-              <label for="titolare">Titolare carta</label>
-              <input type="text" id="titolare" name="titolare" placeholder="Mario Rossi" required>
-              <span class="error"> <?php echo $titolareError; ?></span>
-              <label for="numero">Numero carta</label>
-              <input type="text" id="numero" name="numero" placeholder="1111-2222-3333-4444" required>
-              <span class="error"> <?php echo $cartaError; ?></span>
-              <label for="scadenzam">Mese di scadenza</label>
-              <input type="text" id="scadenzam" name="scadenzam" placeholder="Settembre" required>
-              <div class="row">
-                <div class="col-50">
-                  <label for="scadenzaa">Anno di scadenza</label>
-                  <input type="text" id="scadenzaa" name="scadenzaa" placeholder="2026" required>
-                  <span class="error"> <?php echo $annoError; ?></span>
-                </div>
-                <div class="col-50">
-                  <label for="cvv">CVV</label>
-                  <input type="text" id="cvv" name="cvv" placeholder="123" required>
-                  <span class="error"> <?php echo $cvvError; ?></span>
-                </div>
-              </div>
+                <button type="submit" class="btn btn-success">Procedi all'acquisto</button>
+              </form>
             </div>
           </div>
-          <button type="submit" class="btn btn-success">Procedi all'acquisto</button>
-        </form>
-      </div>
-    </div>
     </section>
-    </main>
-  </div>
-  <?php } ?>
+  </main>
+</div>
+<?php } ?>

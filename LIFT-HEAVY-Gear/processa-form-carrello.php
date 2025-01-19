@@ -173,7 +173,9 @@ if ($_POST["action"] == 11) {
 
     header("location: carrello.php");
 }
-if ($_POST["action"] == 12) {
+$titolareError = $capError = $cartaError = $cvvError = $annoError = ""; // Inizializza le variabili di errore
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
 
     if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         header("Location: login.php");
@@ -188,6 +190,35 @@ if ($_POST["action"] == 12) {
         'cap' => ($_POST["cap"]),
     ];
 
+    // Esegui le validazioni qui
+    if (!isset($_POST["titolare"]) || !preg_match("/^[a-zA-Z-' ]*$/", $_POST["titolare"])) {
+        $titolareError = "Formato nome non corretto";
+    }
+    if (!isset($_POST["cap"]) || (!filter_var($_POST["cap"], FILTER_VALIDATE_INT) || strlen($_POST["cap"]) != 5)) {
+        $capError = "Il CAP deve essere composto da cinque numeri";
+    }
+    if (!isset($_POST["numero"]) || (!preg_match("/^[0-9]*$/", $_POST["numero"]) || strlen($_POST["numero"]) != 16)) {
+        $cartaError = "Il numero della carta deve essere composto da sedici numeri";
+    }
+    if (!isset($_POST["cvv"]) || (!filter_var($_POST["cvv"], FILTER_VALIDATE_INT) || strlen($_POST["cvv"]) != 3)) {
+        $cvvError = "Il CVV deve essere composto da tre numeri";
+    }
+    if (!isset($_POST["scadenzaa"]) || (!filter_var($_POST["scadenzaa"], FILTER_VALIDATE_INT) || strlen($_POST["scadenzaa"]) != 4 || $_POST["scadenzaa"] < date("Y"))) {
+        $annoError = "Formato anno errato";
+    }
+
+    // Se ci sono errori di validazione, reindirizza al carrello con gli errori
+    if ($titolareError != "" || $capError != "" || $cartaError != "" || $cvvError != "" || $annoError != "") {
+        $_SESSION["titolareError"] = $titolareError;
+        $_SESSION["capError"] = $capError;
+        $_SESSION["cartaError"] = $cartaError;
+        $_SESSION["cvvError"] = $cvvError;
+        $_SESSION["annoError"] = $annoError;
+        $_SESSION["ordine_data"] = $ordineData; // Mantiene i dati inseriti per comodità
+        header("Location: carrello.php");
+        exit();
+    }
+
     $_SESSION["ordine"] = $ordineData;
 
     $utente = $_SESSION["ID_utente"];
@@ -201,7 +232,7 @@ if ($_POST["action"] == 12) {
     if ($prodottiNelCarrello) {
         foreach ($prodottiNelCarrello as $prodotto) {
             $idProdotto = $prodotto['ID_prodotto'];
-            $quantitaAcquistata = $prodotto['quantita']; 
+            $quantitaAcquistata = $prodotto['quantita'];
 
             //  Ottieni la quantità attuale dal database**
             $currentQuantity = $dbh->getProductQuantity($idProdotto);
