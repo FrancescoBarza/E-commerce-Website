@@ -3,14 +3,14 @@ require_once("bootstrap.php");
 
 $templateParams["titolo"] = "Registrazione";
 $templateParams["categorie"] = $dbh->getCategories();
-$templateParams["nome-main"] = "form-registrazione.php"; 
-$templateParams["errore"] = ""; 
+$templateParams["nome-main"] = "form-registrazione.php";
+$templateParams["errore"] = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = filter_input(INPUT_POST, "nome", FILTER_SANITIZE_STRING);
-    $cognome = filter_input(INPUT_POST, "cognome", FILTER_SANITIZE_STRING);
+    $nome = $_POST["nome"];
+    $cognome = $_POST["cognome"];
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
-    $password = $_POST["password"];  
+    $password = $_POST["password"];
     $is_vendor = isset($_POST["venditore"]) ? 'Y' : 'N'; // Convert checkbox to Y/N
 
     if (empty($nome) || empty($cognome) || empty($email) || empty($password)) {
@@ -21,11 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($dbh->checkMail($email)) {
             $templateParams["errore"] = "Email già registrata.";
         } else {
-            if ($dbh->addUser($nome, $cognome, $email, $password, $is_vendor)) {
-                header("Location: login.php"); // Reindirizza sempre a login.php
-                exit;
+            //  CONTROLLO PER VENDITORE UNICO
+            if ($is_vendor == 'Y' && $dbh->checkIfVendorExists()) {
+                $templateParams["errore"] = "È già presente un account venditore.";
             } else {
-                $templateParams["errore"] = "Errore durante la registrazione. Riprova più tardi.";
+                if ($dbh->addUser($nome, $cognome, $email, $password, $is_vendor)) {
+                    header("Location: login.php"); // Reindirizza sempre a login.php
+                    exit;
+                } else {
+                    $templateParams["errore"] = "Errore durante la registrazione. Riprova più tardi.";
+                }
             }
         }
     }

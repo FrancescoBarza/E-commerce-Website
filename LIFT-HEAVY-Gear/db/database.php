@@ -200,6 +200,18 @@ class DatabaseHelper{
         
         return $stmt->insert_id;
     }
+    public function checkIfVendorExists() {
+        $query = "SELECT 1 FROM utente WHERE venditore = 'Y'";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $stmt->store_result(); // Store the result to get the number of rows
+    
+        $num_rows = $stmt->num_rows;
+    
+        $stmt->close();
+    
+        return $num_rows > 0;
+    }
 
     //QUERY VENDITORE 
     public function addProduct($nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria) {
