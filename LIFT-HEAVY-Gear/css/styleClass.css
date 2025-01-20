@@ -109,7 +109,9 @@
     height: 40px;
     margin: 10px 0;
 }
-.header-search form{
+
+.header-search form {
+    display: inline-block;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -117,6 +119,7 @@
     align-content: center;
 
 }
+
 .header-search span {
     float: left;
     padding: 8px 0 8px 1%;
@@ -186,7 +189,7 @@ button.next {
 
 button.prev:hover,
 button.next:hover {
-    background-color:   #5370ff;
+    background-color: #5370ff;
     opacity: 0.8;
 }
 
@@ -267,6 +270,7 @@ footer>.copyright a {
 .prodotto {
     background-color: #333;
     border-width: 2px;
+    width: 49%;
     max-width: 227px;
     margin: 20px auto;
     text-align: center;
@@ -440,7 +444,23 @@ footer>.copyright a {
         margin: 0;
     }
 
-    .header-search>input {
+    .header-search form {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 46px;
+        align-content: center;
+
+    }
+
+    .header-search span {
+        float: left;
+        padding: 8px 0 8px 1%;
+        height: 46px;
+    }
+
+    .header-search input {
         background-color: #474747;
         color: #fff;
         border: none;
@@ -466,5 +486,11 @@ footer>.copyright a {
     .articolo {
         min-width: 330px;
         width: 33%;
+    }
+
+    .articolo h3 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }
