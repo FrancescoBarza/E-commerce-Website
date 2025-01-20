@@ -128,10 +128,8 @@ INSERT INTO utente (ID_utente, nome, cognome, email, password, venditore) VALUES
 (1, 'Mario', 'Rossi', 'mario.rossi@example.com', 'password1', 'Y'),
 (2, 'Luca', 'Bianchi', 'luca.bianchi@example.com', 'password2', 'N'),
 (3, 'Sofia', 'Verdi', 'sofia.verdi@example.com', 'password3', 'N'),
-(4, 'Paolo', 'Viola', 'paolo.viola@example.com', 'password4', 'Y'),
-(5, 'Davide', 'Neri', 'davide.neri@example.com', 'password5', 'N'),
-(6, 'Francesco', 'Liverani', 'francesco.liverani@example.com', 'password6', 'N'),
-(7, 'Piero', 'Gentile', 'piero.gentile@example.com', 'password7', 'Y');
+(4, 'Davide', 'Neri', 'davide.neri@example.com', 'password5', 'N'),
+(5, 'Francesco', 'Liverani', 'francesco.liverani@example.com', 'password6', 'N');
 
 
 -- Popolamento Tabella "ordine"
@@ -139,12 +137,10 @@ INSERT INTO ordine (ID_ordine, data_ordine, prezzo_totale, stato_ordine, ID_uten
 (1, '2024-12-01', 729.98, 'Spedito', 2),
 (2, '2024-12-05', 369.98, 'Consegnato', 5),
 (3, '2024-12-12', 519.00, 'Carrello', 1),
-(4, '2024-12-23', 1119.95, 'Pronto per il ritiro', 7),
-(5, '2024-12-04', 1599.99, 'Consegnato', 3),
-(6, '2024-12-05', 0.00, 'Carrello', 6), -- Nessun prodotto
-(7, '2024-12-07', 1039.94, 'In Elaborazione', 1),
-(8, '2024-12-16', 909.98, 'Spedito', 4),
-(9, '2024-12-15', 974.99, 'Pronto per il ritiro', 2);
+(4, '2024-12-04', 1599.99, 'Consegnato', 3),
+(5, '2024-12-05', 0.00, 'Carrello', 5), -- Nessun prodotto
+(6, '2024-12-07', 1039.94, 'In Elaborazione', 1),
+(7, '2024-12-15', 974.99, 'Pronto per il ritiro', 2);
 
 -- Popolamento Tabella "ordini_prodotti" (aggiunta di nuovi dati)
 INSERT INTO ordini_prodotti (quantita_prodotto, ID_ordine, ID_prodotto) VALUES
@@ -156,9 +152,6 @@ INSERT INTO ordini_prodotti (quantita_prodotto, ID_ordine, ID_prodotto) VALUES
 (2, 3, 1), -- Eleiko Brush
 (1, 3, 6), -- Eleiko Curl Bar
 
--- Ordine 4
-(3, 4, 9), -- Strength Shop Safety Squat Bar
-(2, 4, 7), -- Strength Shop IPF Calibrated Competition Collars
 
 -- Ordine 5
 (1, 5, 5), -- Eleiko IPF Powerlifting Competition Bar
@@ -168,25 +161,20 @@ INSERT INTO ordini_prodotti (quantita_prodotto, ID_ordine, ID_prodotto) VALUES
 (4, 7, 2), -- Strength Shop Cambered Bar
 (2, 7, 10), -- Strength Shop EZ Curl Bar
 
--- Ordine 8
-(1, 8, 8), -- Strength Shop Deadlift Jack
-(1, 8, 4), -- Kabuki Strength Deadlift Bar
 
--- Ordine 9
-(1, 9, 3), -- Lacertosus Magnetic Metal Collars
-(2, 9, 12); -- Rogue Trap Bar
+-- Ordine 2
+(1, 2, 3), -- Lacertosus Magnetic Metal Collars
+(2, 2, 12); -- Rogue Trap Bar
 
 
 -- Popolamento Tabella "notifica" (aggiunta di nuovi dati)
 INSERT INTO notifica (ID_notifica, testo, data_creazione, stato_notifica, ID_utente) VALUES
-(1, 'Il tuo ordine è pronto per il ritiro', '2024-12-23', 'Non letta', 7),
-(2, 'Il tuo ordine è stato consegnato', '2024-12-02', 'Letta', 3),
-(3, 'Il tuo ordine è in elaborazione', '2024-12-08', 'Letta', 1),
-(4, 'Il tuo ordine è stato spedito', '2024-12-17', 'Non letta', 2),
-(5, 'Il tuo ordine è pronto per il ritiro', '2024-12-25', 'Non letta', 4),
-(6, 'Il tuo ordine è stato consegnato', '2024-12-03', 'Letta', 5),
-(7, 'Il tuo ordine è in elaborazione', '2024-12-09', 'Letta', 1),
-(8, 'Il tuo ordine è stato spedito', '2024-12-21', 'Non letta', 2);
+(1, 'Il tuo ordine è stato consegnato', '2024-12-02', 'Letta', 3),
+(2, 'Il tuo ordine è in elaborazione', '2024-12-08', 'Letta', 1),
+(3, 'Il tuo ordine è stato spedito', '2024-12-17', 'Non letta', 2),
+(4, 'Il tuo ordine è stato consegnato', '2024-12-03', 'Letta', 5),
+(5, 'Il tuo ordine è in elaborazione', '2024-12-09', 'Letta', 1),
+(6, 'Il tuo ordine è stato spedito', '2024-12-21', 'Non letta', 2);
 
 -- Popolamento Tabella "articolo"
 INSERT INTO articolo (ID_articolo, titolo_articolo, testo_articolo, data_articolo, immagine_articolo) VALUES 
