@@ -70,6 +70,20 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function searchProducts($searchTerm) {
+        // Query SQL
+        $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria 
+                  FROM prodotto 
+                  WHERE nome LIKE CONCAT('%', ?, '%')";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $searchTerm);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    
     public function getProductByIdOnCart($id) {
         // Query corretta con il nome della tabella e colonne
         $query = "SELECT ID_prodotto, nome, immagine, prezzo FROM prodotto WHERE ID_prodotto = ?";

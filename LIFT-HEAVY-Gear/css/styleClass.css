@@ -109,13 +109,20 @@
     height: 40px;
     margin: 10px 0;
 }
+.header-search form{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 40px;
+    align-content: center;
 
-.header-search>span {
+}
+.header-search span {
     float: left;
     padding: 8px 0 8px 1%;
 }
 
-.header-search>input {
+.header-search input {
     background-color: #474747;
     color: #fff;
     float: inline-start;
