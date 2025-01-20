@@ -72,7 +72,6 @@ class DatabaseHelper{
     }
 
     public function searchProducts($searchTerm) {
-        // Query SQL
         $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria 
                   FROM prodotto 
                   WHERE nome LIKE CONCAT('%', ?, '%')";
