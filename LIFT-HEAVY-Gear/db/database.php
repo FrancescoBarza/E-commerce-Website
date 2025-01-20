@@ -110,6 +110,14 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    public function getOrdersByUserId($userId) {
+        $query = "SELECT * FROM ordine WHERE ID_utente = ? AND stato_ordine != 'Carrello' ORDER BY data_ordine DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function getOrderById($id) {
         $query = "SELECT ordine.ID_ordine, data_ordine, stato_ordine, prezzo_totale, prodotto.immagine, prodotto.nome 
                   FROM ordine 
