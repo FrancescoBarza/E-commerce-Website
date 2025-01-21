@@ -11,8 +11,13 @@ if (!$userData) {
 }
 $templateParams["titolo"] = "Area Cliente";
 $templateParams["categorie"] = $dbh->getCategories();
-$templateParams["nome"] = $userData["nome"]; // Pass the user's name to the template
+$templateParams["nome"] = $userData["nome"];
 $templateParams["nome-main"] = "info-cliente.php";
+
+// Ottieni il numero di notifiche non lette
+$numNotificheNonLette = $dbh->getNumeroNotificheNonLette($_SESSION["ID_utente"]);
+$templateParams["num_notifiche_non_lette"] = $numNotificheNonLette;
+
 if (isset($_GET["logout"])) {
     session_start();
     session_unset();

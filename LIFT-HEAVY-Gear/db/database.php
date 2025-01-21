@@ -396,7 +396,36 @@ public function countProductsInCart($idOrdine) {
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    //USO
+    public function getNotificheNonLette($utente_id) {
+        $stmt = $this->db->prepare("SELECT * FROM notifica WHERE ID_utente = ? AND stato_notifica = 'Non letta' ORDER BY data_creazione DESC");
+        $stmt->bind_param("i", $utente_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    //USO
+    public function aggiornaStatoNotifica($notifica_id, $stato) {
+        $stmt = $this->db->prepare("UPDATE notifica SET stato_notifica = ? WHERE ID_notifica = ?");
+        $stmt->bind_param("si", $stato, $notifica_id);
+        return $stmt->execute();
+    }
+    //USO
+    public function segnaNotificaComeLetta($notifica_id) {
+        return $this->aggiornaStatoNotifica($notifica_id, 'Letta');
+    }
+    //USO
+    public function getNumeroNotificheNonLette($utente_id) {
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM notifica WHERE ID_utente = ? AND stato_notifica = 'Non letta'");
+        $stmt->bind_param("i", $utente_id);
+        $stmt->execute();
+        $stmt->bind_result($count);
+        $stmt->fetch();
+        $stmt->close();
+        return $count;
+    }
     
+    // NON USO
     public function getNotification($utente) {
         $query = "SELECT ID_notifica, testo, stato_notifica 
                   FROM notifica WHERE ID_utente = ? 
@@ -408,7 +437,7 @@ public function countProductsInCart($idOrdine) {
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    
+    // NON USO
     public function addNotification($testo, $utente) {
         $stato = 0; // Stato predefinito
         $query = "INSERT INTO notifica (testo, ID_utente, stato_notifica) VALUES (?, ?, ?)";
@@ -418,6 +447,7 @@ public function countProductsInCart($idOrdine) {
         
         return $stmt->insert_id; // Restituisce l'ID della notifica appena inserita
     }
+    // NON USO
     public function deleteNotification($idnotifica) {
         $query = "DELETE FROM notifica WHERE ID_notifica = ?";
         $stmt = $this->db->prepare($query);

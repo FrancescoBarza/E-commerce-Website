@@ -1,11 +1,11 @@
 -- Database Section
--- ________________ 
+-- ________________
 
 CREATE DATABASE liftheavygear;
 USE liftheavygear;
 
 -- Tables Section
--- _____________ 
+-- _____________
 
 CREATE TABLE categoria (
      ID_categoria INT NOT NULL AUTO_INCREMENT,
@@ -19,6 +19,7 @@ CREATE TABLE notifica (
      data_creazione DATE NOT NULL,
      stato_notifica VARCHAR(100) NOT NULL,
      ID_utente INT NOT NULL,
+     ID_ordine INT NULL,  -- Aggiunta della colonna per il riferimento all'ordine
      CONSTRAINT ID_notifica_ID PRIMARY KEY (ID_notifica)
 );
 
@@ -68,12 +69,17 @@ CREATE TABLE articolo (
      immagine_articolo VARCHAR(255) NOT NULL,
      CONSTRAINT ID_articolo_ID PRIMARY KEY (ID_articolo)
 );
+
 -- Constraints Section
--- ___________________ 
+-- ___________________
 
 ALTER TABLE notifica ADD CONSTRAINT REF_notif_utent_FK
      FOREIGN KEY (ID_utente)
      REFERENCES utente (ID_utente);
+
+ALTER TABLE notifica ADD CONSTRAINT FK_notifica_ordine  -- Aggiunto il vincolo per ID_ordine
+     FOREIGN KEY (ID_ordine)
+     REFERENCES ordine (ID_ordine);
 
 ALTER TABLE ordine ADD CONSTRAINT REF_ordin_utent_FK
      FOREIGN KEY (ID_utente)
@@ -92,7 +98,7 @@ ALTER TABLE prodotto ADD CONSTRAINT REF_prodo_categ_FK
      REFERENCES categoria (ID_categoria);
 
 -- Index Section
--- _____________ 
+-- _____________
 
 CREATE UNIQUE INDEX ID_categoria_IND
      ON categoria (ID_categoria);
@@ -102,6 +108,9 @@ CREATE UNIQUE INDEX ID_notifica_IND
 
 CREATE INDEX REF_notif_utent_IND
      ON notifica (ID_utente);
+
+CREATE INDEX REF_notif_ordin_IND  -- Aggiunto l'indice per ID_ordine
+     ON notifica (ID_ordine);
 
 CREATE UNIQUE INDEX ID_ordine_IND
      ON ordine (ID_ordine);

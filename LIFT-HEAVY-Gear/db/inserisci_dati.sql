@@ -168,13 +168,13 @@ INSERT INTO ordini_prodotti (quantita_prodotto, ID_ordine, ID_prodotto) VALUES
 
 
 -- Popolamento Tabella "notifica" (aggiunta di nuovi dati)
-INSERT INTO notifica (ID_notifica, testo, data_creazione, stato_notifica, ID_utente) VALUES
-(1, 'Il tuo ordine è stato consegnato', '2024-12-02', 'Letta', 3),
-(2, 'Il tuo ordine è in elaborazione', '2024-12-08', 'Letta', 1),
-(3, 'Il tuo ordine è stato spedito', '2024-12-17', 'Non letta', 2),
-(4, 'Il tuo ordine è stato consegnato', '2024-12-03', 'Letta', 5),
-(5, 'Il tuo ordine è in elaborazione', '2024-12-09', 'Letta', 1),
-(6, 'Il tuo ordine è stato spedito', '2024-12-21', 'Non letta', 2);
+INSERT INTO notifica (ID_notifica, testo, data_creazione, stato_notifica, ID_utente, ID_ordine) VALUES
+(1, 'Il tuo ordine è stato consegnato', '2024-12-02', 'Letta', 3, 4),  -- Collegato all'ordine con ID_ordine = 4
+(2, 'Il tuo ordine è in elaborazione', '2024-12-08', 'Letta', 1, 6),  -- Collegato all'ordine con ID_ordine = 6
+(3, 'Il tuo ordine è stato spedito', '2024-12-17', 'Non letta', 2, 7), -- Collegato all'ordine con ID_ordine = 7
+(4, 'Il tuo ordine è stato consegnato', '2024-12-03', 'Letta', 5, 2),  -- Collegato all'ordine con ID_ordine = 2
+(5, 'Il tuo ordine è in elaborazione', '2024-12-09', 'Letta', 1, 6),  -- Collegato all'ordine con ID_ordine = 6 (potrebbe essere una notifica ripetuta, verifica la logica)
+(6, 'Il tuo ordine è stato spedito', '2024-12-21', 'Non letta', 2, 7); -- Collegato all'ordine con ID_ordine = 7 (potrebbe essere una notifica ripetuta, verifica la logica)
 
 -- Popolamento Tabella "articolo"
 INSERT INTO articolo (ID_articolo, titolo_articolo, testo_articolo, data_articolo, immagine_articolo) VALUES 
