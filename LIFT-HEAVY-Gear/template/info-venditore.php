@@ -18,7 +18,7 @@
                         <path
                             d="M155.109,205.95h-86.5c-5.522,0-10,4.477-10,10v50.095c0,5.523,4.477,10,10,10h86.5c5.522,0,10-4.477,10-10V215.95   C165.109,210.427,160.632,205.95,155.109,205.95z" />
                     </svg>
-                    <a href="./gestioneProdotti.php">I miei prodotti</a>
+                    <a href="gestioneProdotti.php">I miei prodotti</a>
                 </div>
                 <div class="card">
                     <svg viewBox="0 0 485.32 485.32">
