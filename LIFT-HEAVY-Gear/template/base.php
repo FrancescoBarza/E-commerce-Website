@@ -39,7 +39,7 @@
                                             $userRole = $_SESSION["venditore"];
                                             echo $userRole === 'Y' ? '#' : 'categoria.php?id=' . $categoria["ID_categoria"];
                                         } else {
-                                            echo 'categoria.php?id=' . $categoria["ID_categoria"]; 
+                                            echo 'categoria.php?id=' . $categoria["ID_categoria"];
                                         }
                                         ?>">
                                 <?php echo $categoria["nome_categoria"]; ?>
@@ -67,9 +67,9 @@
                         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
                             $userRole = $_SESSION["venditore"];
                             echo $userRole === 'Y' ? '#' : 'index.php';
-                        }else {
-                            echo 'categoria.php?id=' . $categoria["ID_categoria"]; 
-                        } 
+                        } else {
+                            echo 'categoria.php?id=' . $categoria["ID_categoria"];
+                        }
                         ?>" id="link-index">
                 <img src="images/logos/Logo_Main.png" alt="logo" /></a>
         </div>
@@ -92,10 +92,13 @@
                 </svg>
             </a>
             <a href="<?php
-                        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+                        if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+                            echo 'login.php';
+                        } else {
                             $userRole = $_SESSION["venditore"];
                             echo $userRole === 'Y' ? '#' : 'carrello.php';
-                        } ?>" id="link-carrello">
+                        }
+                        ?>" id="link-carrello">
                 <svg>
                     <path fill="currentColor"
                         d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
@@ -129,15 +132,15 @@
             </form>
         </div>
         <script>
-    <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && isset($_SESSION["venditore"]) && $_SESSION["venditore"] == 'Y'): ?>
-        const searchForm = document.getElementById('searchForm');
-        if (searchForm) {
-            searchForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Impedisce l'invio del form
-                alert('La funzione di ricerca non è disponibile per gli utenti venditori.');
-            });
-        }
-    <?php endif; ?>
+            <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && isset($_SESSION["venditore"]) && $_SESSION["venditore"] == 'Y'): ?>
+                const searchForm = document.getElementById('searchForm');
+                if (searchForm) {
+                    searchForm.addEventListener('submit', function(event) {
+                        event.preventDefault(); // Impedisce l'invio del form
+                        alert('La funzione di ricerca non è disponibile per gli utenti venditori.');
+                    });
+                }
+            <?php endif; ?>
         </script>
     </header>
     <!-- END HEADER -->
@@ -192,6 +195,8 @@
     </footer>
     <!-- SCRIPT JAVASCRIPT-->
     <script src="js/functions.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
 </body>
 
 </html>
