@@ -121,17 +121,24 @@
                         <h1>AGGIUNGI PRODOTTO</h1>
                         <p>Completa i seguenti campi per aggiungere un nuovo prodotto.</p><br />
                         <label for="categoria"><b>Categoria: </b></label>
-                        <select name="categoria" required>
+                        <select name="categoria" id="categoria" required>
+                            <option value="" disabled selected>Seleziona una categoria</option>
                             <option value="comp">Bilanciere da competizione</option>
                             <option value="special">Bilanciere speciale</option>
                             <option value="accessori">Accessorio</option>
                         </select>
                         <br /><br />
                         <label for="nome"><b>Nome</b></label>
-                        <input type="text" placeholder="Inserisci Nome Prodotto" name="nome" required>
+                        <input type="text" placeholder="Inserisci Nome Prodotto" name="nome" id="nome" required>
 
                         <label for="prezzo"><b>Prezzo</b></label>
-                        <input type="number" placeholder="Inserisci Prezzo" name="prezzo" required>
+                        <input type="number" placeholder="Inserisci Prezzo" name="prezzo" id="prezzo" required>
+
+                        <label for="prezzo"><b>Peso</b></label>
+                        <input type="number" placeholder="Inserisci Peso" name="peso" id="peso" required>
+
+                        <label for="prezzo"><b>Lunghezza</b></label>
+                        <input type="number" placeholder="Inserisci Lunghezza" name="lunghezza" id="lunghezza" required>
 
                         <label for="immagine"><b>Immagine prodotto:</b></label>
                         <input type="file" name="immagine" id="immagine" required />

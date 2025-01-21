@@ -32,5 +32,5 @@ $templateParams["titolo"] = "I Miei Dati";
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["nome-main"] = "modifica-dati-utente.php";
 $templateParams["userData"] = $dbh->getUserDataById($_SESSION["ID_utente"]);
-
+$templateParams["show-aside"] = false;
 require("template/base.php");

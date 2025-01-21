@@ -225,7 +225,7 @@ class DatabaseHelper{
     public function addProduct($nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria) {
         $query = "INSERT INTO prodotto (nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssfiffsi', $nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria);
+        $stmt->bind_param('ssdiidsi', $nome, $descrizione, $prezzo, $quantita, $peso, $lunghezza, $immagine, $ID_categoria);
         $stmt->execute();
         
         return $stmt->insert_id;
@@ -234,7 +234,7 @@ class DatabaseHelper{
     public function supplyProduct($idprodotto, $quantita) {
         $query = "UPDATE prodotto SET quantita = quantita + ? WHERE ID_prodotto = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ii', $idprodotto, $quantita);
+        $stmt->bind_param('ii', $quantita, $idprodotto);
         $stmt->execute();
     }
     public function updateOrderStatus($id, $stato) {
