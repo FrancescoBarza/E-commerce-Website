@@ -39,7 +39,7 @@
                                             $userRole = $_SESSION["venditore"];
                                             echo $userRole === 'Y' ? '#' : 'categoria.php?id=' . $categoria["ID_categoria"];
                                         } else {
-                                            echo '#'; // Se non loggato, non fare nulla o reindirizza al login
+                                            echo 'categoria.php?id=' . $categoria["ID_categoria"]; 
                                         }
                                         ?>">
                                 <?php echo $categoria["nome_categoria"]; ?>
@@ -67,7 +67,10 @@
                         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
                             $userRole = $_SESSION["venditore"];
                             echo $userRole === 'Y' ? '#' : 'index.php';
-                        } ?>" id="link-index">
+                        }else {
+                            echo 'index.php';
+                        } 
+                        ?>" id="link-index">
                 <img src="images/logos/Logo_Main.png" alt="logo" /></a>
         </div>
         <div class="header-icon">
