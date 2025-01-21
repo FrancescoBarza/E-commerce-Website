@@ -68,7 +68,7 @@
                             $userRole = $_SESSION["venditore"];
                             echo $userRole === 'Y' ? '#' : 'index.php';
                         }else {
-                            echo 'index.php';
+                            echo 'categoria.php?id=' . $categoria["ID_categoria"]; 
                         } 
                         ?>" id="link-index">
                 <img src="images/logos/Logo_Main.png" alt="logo" /></a>
@@ -115,8 +115,8 @@
                 });
             </script>
         </div>
-        <div class="header-search">
-            <form method="GET" action="search-bar.php">
+        <div class="header-search" id="headerSearch">
+            <form method="GET" action="search-bar.php" id="searchForm">
                 <span type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -125,9 +125,20 @@
                         <path d="M18.1553 18.1553L21.8871 21.8871" stroke="#fff" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </span>
-                <input type="search" name="search" autocomplete="off" placeholder="Search..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" />
+                <input type="search" name="search" autocomplete="off" placeholder="Search..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" id="searchInput" />
             </form>
         </div>
+        <script>
+    <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && isset($_SESSION["venditore"]) && $_SESSION["venditore"] == 'Y'): ?>
+        const searchForm = document.getElementById('searchForm');
+        if (searchForm) {
+            searchForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Impedisce l'invio del form
+                alert('La funzione di ricerca non è disponibile per gli utenti venditori.');
+            });
+        }
+    <?php endif; ?>
+        </script>
     </header>
     <!-- END HEADER -->
     <main>
