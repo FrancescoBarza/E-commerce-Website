@@ -51,5 +51,9 @@
             ?>
         </div>
     </section>
-    <button type="button" onclick="window.location.href='ordiniPassati.php'">Torna agli ordini</button>
+    <?php if ($userData['venditore'] == 'Y') : ?>
+        <button type="button" onclick="window.location.href='ordiniEvasi.php'">Torna agli ordini</button>
+    <?php else : ?>
+        <button type="button" onclick="window.location.href='ordiniPassati.php'">Torna agli ordini</button>
+    <?php endif; ?>
 </main>

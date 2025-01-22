@@ -34,7 +34,7 @@
                         if ($ordine_corrispondente) {
                             echo "Il tuo ordine numero " . $notifica["ID_ordine"] . " è ";
                             switch ($ordine_corrispondente["stato_ordine"]) {
-                                case "Elaborazione":
+                                case "In Elaborazione":
                                     echo "stato ricevuto ed è in fase di elaborazione.";
                                     break;
                                 case "Spedito":
@@ -76,15 +76,15 @@
                     <button type="submit" name="elimina_notifica"><span class="fas fa-trash"></span></button>
                 </form>
             </div>
-            <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
+        <?php endforeach; ?>
+    <?php else : ?>
+        <p>Non ci sono nuove notifiche.</p>
+    <?php endif; ?>
+    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
             <script>
                 function tornaAreaUtente() {
 
                     window.location.href = 'areaCliente.php';
                 }
             </script>
-        <?php endforeach; ?>
-    <?php else : ?>
-        <p>Non ci sono nuove notifiche.</p>
-    <?php endif; ?>
 </section>

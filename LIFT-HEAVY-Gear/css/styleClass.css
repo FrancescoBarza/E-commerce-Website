@@ -349,6 +349,11 @@ footer>.copyright a {
 }
 
 /* ================= ORDINI ================= */
+.ordine form{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
 .ordine button a {
     color: #fff;
 }

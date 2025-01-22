@@ -19,7 +19,7 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
                 $idOrdine = [['ID_ordine' => $newOrderId]];
             } else {
                 error_log("Errore durante la creazione di un nuovo carrello per l'utente: " . $utente);
-                
+
                 exit("Si è verificato un errore durante l'aggiunta al carrello.");
             }
         }
@@ -35,7 +35,6 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
                     $dbh->setQuantityProduct($idOrdine[0]["ID_ordine"], $idprodotto, $quantitaProdotto[0]["quantita_prodotto"]);
                 } else {
                     error_log("Errore: Impossibile recuperare le informazioni sul prodotto nel carrello.");
-                    
                 }
             }
 
@@ -46,10 +45,9 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
                 $dbh->updateTotalCart($idOrdine[0]["ID_ordine"], $totale);
             } else {
                 error_log("Errore: Impossibile recuperare il prezzo del prodotto con ID: " . $idprodotto);
-                
             }
 
-            
+
             if ($_POST["action"] == 7) {
                 header("location: index.php");
             } else if ($_POST["action"] == 8) {
@@ -57,12 +55,12 @@ if ($_POST["action"] == 7 || $_POST["action"] == 8) {
             }
         } else {
             error_log("Errore: Impossibile recuperare o creare l'ID dell'ordine per l'utente: " . $utente);
-            
+
             exit("Si è verificato un errore durante l'aggiunta al carrello.");
         }
     } else {
         error_log("Errore: idprodotto o quantita mancanti nella richiesta POST.");
-       
+
         exit("Parametri mancanti per l'aggiunta al carrello.");
     }
 }
@@ -100,7 +98,7 @@ if ($_POST["action"] == 9) {
 
 /*Aggiorna carrello*/
 if ($_POST["action"] == 10) {
-   
+
     if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || !isset($_SESSION["ID_utente"])) {
         header("Location: login.php");
         exit;
@@ -130,7 +128,7 @@ if ($_POST["action"] == 10) {
                         // Verifica se il carrello è vuoto dopo la rimozione
                         $prodottiNelCarrello = $dbh->getProductOnCart($idOrdineValue);
                         if (empty($prodottiNelCarrello)) {
-                            
+
                             $dbh->resetTotalCart($idOrdineValue);
                         } else {
                             error_log("Errore durante la rimozione del prodotto...");
@@ -155,7 +153,7 @@ if ($_POST["action"] == 10) {
     }
 }
 
-if ($_POST["action"] == 11) {
+/*if ($_POST["action"] == 11) {
     if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         header("Location: login.php");
         exit;
@@ -170,7 +168,7 @@ if ($_POST["action"] == 11) {
     $dbh->updateNotificationStatus($idOrdine, $stato);
 
     header("location: carrello.php");
-}
+}*/
 $titolareError = $capError = $cartaError = $cvvError = $annoError = ""; // Inizializza le variabili di errore
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
@@ -258,7 +256,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
         exit();
     }
 
-    // Cambia lo stato dell'ordine in "In elaborazione" SOLO se non ci sono stati errori di quantità
+
     if (!$erroreAggiornamentoQuantita) {
         $stato = "In Elaborazione";
         if (!$dbh->updateOrderStatus($idOrdineToClear, $stato)) {
@@ -267,8 +265,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
             header("Location: carrello.php");
             exit();
         }
+    }
+    try {
+        // Notifica per il cliente
+        $testoCliente = "Ordine #" . $idOrdineToClear . " " . $stato;
+        $dbh->addNotification($testoCliente, $utente, $idOrdineToClear);
 
-        header("Location: conferma-acquisto.php");
+        // Recupera l'ID del venditore
+        $venditoreId = $dbh->getVenditoreId();
+        $testoVenditore = "Nuovo ordine #" . $idOrdineToClear . " da elaborare.";
+        $dbh->addNotification($testoVenditore, $venditoreId, $idOrdineToClear);
+    } catch (Exception $e) {
+        error_log("Errore durante la creazione delle notifiche: " . $e->getMessage());
+        $_SESSION["errore_carrello"] = "Si è verificato un errore durante la creazione delle notifiche. Riprova o contatta l'assistenza.";
+        header("Location: carrello.php");
         exit();
     }
+
+
+    header("Location: conferma-acquisto.php");
+    exit();
 }
