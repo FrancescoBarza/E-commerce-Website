@@ -42,7 +42,24 @@ class DatabaseHelper{
     
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    //USO
+    public function getProdottiInEsaurimento() {
+        $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza FROM prodotto WHERE quantita <= 10";
+        $result = $this->db->query($query);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    //USO
+    public function getNumeroProdottiInEsaurimento() {
+        $query = "SELECT COUNT(*) AS numero_prodotti_in_esaurimento FROM prodotto WHERE quantita <= 10";
+        $result = $this->db->query($query);
 
+        if ($result) {
+            $row = $result->fetch_assoc();
+            return $row["numero_prodotti_in_esaurimento"];
+        } else {
+            return false; 
+        }
+    }
     public function getProductById($id) {
         $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria FROM prodotto WHERE ID_prodotto = ?";
         $stmt = $this->db->prepare($query);

@@ -46,7 +46,7 @@
 				c9.531,0,17.258-7.727,17.258-17.258c0-55.217,44.923-100.139,100.142-100.139c9.531,0,17.258-7.727,17.258-17.258
 				C323.259,126.96,315.532,119.235,306.001,119.235z" />
                     </svg>
-                    <a href="./notifiche.php">Notifiche</a>
+                    <a href="./notifiche-venditore.php">Notifiche <?php if ($templateParams["num_prodotti_in_esaurimento"] > 0) : ?><span class="badge"><?php echo $templateParams["num_prodotti_in_esaurimento"]; ?></span><?php endif; ?></a>
                 </div>
             </div>
             <button type="button" class="logout" onclick="confirmLogout()">Logout</button>
@@ -57,5 +57,19 @@
                     }
                     }
                 </script>
+            <?php if ($templateParams["num_prodotti_in_esaurimento"] > 0) : ?>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                if (<?php echo $templateParams["num_prodotti_in_esaurimento"]; ?> > 0) {
+                    $.notify("Prodotti in esaurimento", {
+                        position: "top center",
+                        className: "info"
+                    });
+                }
+            });
+        </script>
+    <?php endif; ?>
         </section>
    

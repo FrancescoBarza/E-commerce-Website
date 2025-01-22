@@ -21,5 +21,6 @@ if (isset($_GET["logout"])) {
     exit;
 }
 $templateParams["show-aside"] = false;
+$templateParams["num_prodotti_in_esaurimento"] = $dbh->getNumeroProdottiInEsaurimento();
 require("template/base.php");
 ?>
