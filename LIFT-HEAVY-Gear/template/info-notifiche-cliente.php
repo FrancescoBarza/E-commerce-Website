@@ -23,7 +23,6 @@
                 <h3 class="unread">
                     <?php
                     if (isset($notifica["ID_ordine"])) {
-                        // Cerca l'ordine corrispondente nell'array degli ordini dell'utente
                         $ordine_corrispondente = null;
                         foreach ($templateParams["ordini_utente"] as $ordine) {
                             if ($ordine["ID_ordine"] == $notifica["ID_ordine"]) {
@@ -48,7 +47,7 @@
                                     echo "stato consegnato. Grazie per il tuo acquisto!";
                                     break;
                                 default:
-                                    echo "aggiornato allo stato: " . $ordine_corrispondente["stato_ordine"]; // Fallback nel caso di stati non previsti
+                                    echo "aggiornato allo stato: " . $ordine_corrispondente["stato_ordine"]; 
                                     break;
                             }
                         } else {

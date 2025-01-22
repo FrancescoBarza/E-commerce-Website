@@ -16,7 +16,7 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         $categories = $result->fetch_all(MYSQLI_ASSOC);
         if (empty($categories)) {
-            return [];  // Restituisce un array vuoto per gestire l'assenza di categorie
+            return [];  
         }
         return $categories;
     }
@@ -26,7 +26,7 @@ class DatabaseHelper{
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc(); // Restituisce un singolo record come array associativo
+        return $result->fetch_assoc(); 
     }
     public function getProduct($n=-1) {
         $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza, immagine, ID_categoria FROM prodotto";
