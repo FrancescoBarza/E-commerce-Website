@@ -7,18 +7,22 @@
             </li>
             <li>Data: <?php echo date("d/m/Y", strtotime($templateParams["ordine"]["data_ordine"])); ?></li>
             <li>Stato: <?php echo $templateParams["ordine"]["stato_ordine"]; ?></li>
-            <li>Totale: <?php echo $templateParams["ordine"]["prezzo_totale"]; ?></li>
+            <li>Totale: <strong><?php echo $templateParams["ordine"]["prezzo_totale"]; ?> </strong></li>
             <li>Prodotti ordinati:</li>
         </ul>
         <ul>
             <?php if (count($templateParams["prodotti"]) > 0) : ?>
                 <?php foreach ($templateParams["prodotti"] as $prodotto) : ?>
-                    <li>
-                        <?php if (!empty($prodotto["immagine"])) : ?>
-                            <img src="<?php echo UPLOAD_DIR_UPLOADS . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome_prodotto"]; ?>" style="max-width: 150px; max-height: 150px;  float: left;">
-                        <?php endif; ?><br>
-                        <?php echo $prodotto["nome_prodotto"]; ?> (Quantità: <?php echo $prodotto["quantita"]; ?>) - Prezzo unitario: <?php echo $prodotto["prezzo"]; ?>€<div style="clear: both;"></div>
-                    </li>
+                    <div class="prodotto">
+                        <a href="prodotto.php?id=<?php echo $prodotto["ID_prodotto"]; ?>">
+                            <?php if (!empty($prodotto["immagine"])) : ?>
+                                <img src="<?php echo UPLOAD_DIR_UPLOADS . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome_prodotto"]; ?>" />
+                            <?php endif; ?>
+                            <h3><?php echo $prodotto["nome_prodotto"]; ?></h3>
+                            <p>Prezzo unitario: <?php echo $prodotto["prezzo"]; ?> €</p>
+                            <p>Quantità: <?php echo $prodotto["quantita"]; ?></p>
+                        </a>
+                    </div>
                 <?php endforeach; ?>
             <?php else : ?>
                 <li>Nessun prodotto in questo ordine.</li>
