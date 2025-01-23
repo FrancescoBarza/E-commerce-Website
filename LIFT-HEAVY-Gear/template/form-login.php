@@ -5,9 +5,9 @@
         <label for="email">Email</label>
         <br>
         <input type="email" id="email" name="email" required value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>" <?php if (!empty($templateParams["errore"])) echo 'class="error-input"'; ?>>
-        <br><br>
+        <br/><br/>
         <label for="password">Password</label>
-        <br>
+        <br/>
         <input type="password" id="password" name="password" required <?php if (!empty($templateParams["errore"])) echo 'class="error-input"'; ?>>
         <br>
         <?php if (!empty($templateParams["errore"])): ?>
@@ -20,8 +20,8 @@
         </a>
         <button type="submit" name="submit">Sign In</button>
 
-        <br><br>
-        <p>Nuovo cliente?<a href="registrazione.php"> Crea un account</a></p><br />
+        <br/><br/>
+        <p>Nuovo cliente?<a href="registrazione.php"> Crea un account</a></p><br/>
 
     </form>
     <img src="<?php echo UPLOAD_DIR_LOGINS; ?>login.png" alt="login-img">
