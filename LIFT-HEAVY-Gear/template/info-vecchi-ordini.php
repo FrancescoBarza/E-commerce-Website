@@ -7,7 +7,7 @@
             </li>
             <li>Data: <?php echo date("d/m/Y", strtotime($templateParams["ordine"]["data_ordine"])); ?></li>
             <li>Stato: <?php echo $templateParams["ordine"]["stato_ordine"]; ?></li>
-            <li>Totale: <strong><?php echo $templateParams["ordine"]["prezzo_totale"]; ?> </strong></li>
+            <li>Totale: <strong><?php echo $templateParams["ordine"]["prezzo_totale"]; ?>€ </strong></li>
             <li>Prodotti ordinati:</li>
         </ul>
         <ul>
@@ -19,7 +19,7 @@
                                 <img src="<?php echo UPLOAD_DIR_UPLOADS . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome_prodotto"]; ?>" />
                             <?php endif; ?>
                             <h2><?php echo $prodotto["nome_prodotto"]; ?></h2>
-                            <p>Prezzo unitario: <?php echo $prodotto["prezzo"]; ?> €</p>
+                            <p>Prezzo unitario: <?php echo $prodotto["prezzo"]; ?>€</p>
                             <p>Quantità: <?php echo $prodotto["quantita"]; ?></p>
                         </a>
                     </div>

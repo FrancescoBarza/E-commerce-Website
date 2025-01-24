@@ -402,34 +402,34 @@ class DatabaseHelper
     //USO
     public function getOrdiniNonConsegnati()
     {
-
         $query = "SELECT ID_ordine, data_ordine, prezzo_totale, stato_ordine, ID_utente
                   FROM ordine
-                  WHERE stato_ordine <> ?";
-
+                  WHERE stato_ordine <> ? AND stato_ordine <> ?";
+    
         $stmt = $this->db->prepare($query);
-
+    
         if ($stmt === false) {
             throw new Exception("Errore nella preparazione della query: " . $this->db->error);
         }
-
-        $stato = 'Consegnato';
-        $stmt->bind_param("s", $stato);
-
+    
+        $statoConsegnato = 'Consegnato';
+        $statoCarrello = 'Carrello';
+        $stmt->bind_param("ss", $statoConsegnato, $statoCarrello);
+    
         $stmt->execute();
-
+    
         $result = $stmt->get_result();
-
+    
         $ordini = [];
-
+    
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 $ordini[] = $row;
             }
         }
-
+    
         $stmt->close();
-
+    
         return $ordini;
     }
     //USO
