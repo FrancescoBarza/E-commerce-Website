@@ -18,7 +18,6 @@ $templateParams["nome-main"] = "info-ordiniEvasi.php";
 $ordini = $dbh->getOrdiniNonConsegnati();
 $templateParams["ordini"] = $ordini;
 
-
 if (isset($_POST['ordine_id']) && isset($_POST['stato'])) {
     $ordineId = $_POST['ordine_id'];
     $nuovoStato = $_POST['stato'];
@@ -30,11 +29,30 @@ if (isset($_POST['ordine_id']) && isset($_POST['stato'])) {
         $utenteOrdineId = $ordine["ID_utente"];
         $statoOrdineAttuale = $ordine["stato_ordine"];
         if ($nuovoStato === $statoOrdineAttuale) {
-
+          //do nothing
         } else {
             $success = $dbh->updateOrderStatus($ordineId, $nuovoStato);
             if ($success) {
-                $notificaTesto = "Lo stato del tuo ordine n. " . $ordineId . " è stato aggiornato a: " . $nuovoStato;
+               
+                $notificaTesto = "Il tuo ordine n. " . $ordineId . " è ";
+                switch ($nuovoStato) {
+                    case "In Elaborazione":
+                        $notificaTesto .= "stato ricevuto ed è in fase di elaborazione.";
+                        break;
+                    case "Spedito":
+                        $notificaTesto .= "stato spedito.";
+                        break;
+                    case "Pronto per il ritiro":
+                        $notificaTesto .= "pronto per il ritiro.";
+                        break;
+                    case "Consegnato":
+                        $notificaTesto .= "stato consegnato. Grazie per il tuo acquisto!";
+                        break;
+                    default:
+                        $notificaTesto .= " stato aggiornato allo stato: " . $nuovoStato;
+                        break;
+                }
+
                 try {
                     $dbh->addNotification($notificaTesto, $utenteOrdineId, $ordineId);
                 } catch (Exception $e) {
@@ -53,3 +71,4 @@ if (isset($_POST['ordine_id']) && isset($_POST['stato'])) {
 
 $templateParams["show-aside"] = false;
 require("template/base.php");
+?>

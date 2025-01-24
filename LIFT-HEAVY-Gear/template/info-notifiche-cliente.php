@@ -20,42 +20,7 @@
                     C323.259,126.96,315.532,119.235,306.001,119.235z" />
                 </svg>
                 <h2 class="unread">
-                    <?php
-                    if (isset($notifica["ID_ordine"])) {
-                        $ordine_corrispondente = null;
-                        foreach ($templateParams["ordini_utente"] as $ordine) {
-                            if ($ordine["ID_ordine"] == $notifica["ID_ordine"]) {
-                                $ordine_corrispondente = $ordine;
-                                break;
-                            }
-                        }
-
-                        if ($ordine_corrispondente) {
-                            echo "Il tuo ordine numero " . $notifica["ID_ordine"] . " è ";
-                            switch ($ordine_corrispondente["stato_ordine"]) {
-                                case "In Elaborazione":
-                                    echo "stato ricevuto ed è in fase di elaborazione.";
-                                    break;
-                                case "Spedito":
-                                    echo "stato spedito.";
-                                    break;
-                                case "Pronto per il ritiro":
-                                    echo "pronto per il ritiro.";
-                                    break;
-                                case "Consegnato":
-                                    echo "stato consegnato. Grazie per il tuo acquisto!";
-                                    break;
-                                default:
-                                    echo "aggiornato allo stato: " . $ordine_corrispondente["stato_ordine"]; 
-                                    break;
-                            }
-                        } else {
-                            echo $notifica["testo"];
-                        }
-                    } else {
-                        echo $notifica["testo"];
-                    }
-                    ?>
+                    <?php echo $notifica["testo"]; ?>
                 </h2>
                 <p>Data notifica: <?php echo date('d/m/Y', strtotime($notifica["data_creazione"])); ?></p>
 
