@@ -30,17 +30,5 @@
     <?php else: ?>
         <p>Non ci sono prodotti in esaurimento.</p>
     <?php endif; ?>
-    <script>
-        // Passa il valore venditore a una variabile JavaScript
-        const isVenditore = '<?php echo $templateParams["userData"]["venditore"]; ?>';
-
-        function tornaAreaUtente() {
-            if (isVenditore === 'Y') {
-                window.location.href = 'areaVenditore.php';
-            } else {
-                window.location.href = 'areaCliente.php';
-            }
-        }
-    </script>
-    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
+    <button type="button" onclick="window.location.href='areaVenditore.php'">Torna alla tua area utente</button>
 </section>

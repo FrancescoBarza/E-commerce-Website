@@ -6,7 +6,6 @@ $templateParams["titolo-main"] = "NOTIFICHE";
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["show-aside"] = false;
 
-$templateParams["userData"] = $dbh->getUserDataById($_SESSION["ID_utente"]);
 
 
 if (!isset($_SESSION["ID_utente"]) || !isset($_SESSION["venditore"]) || $_SESSION["venditore"] !== "Y") {

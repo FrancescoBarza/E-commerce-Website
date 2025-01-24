@@ -12,7 +12,6 @@ $templateParams["notifiche"] = $dbh->getNotificheNonLette($utente_id);
 
 $templateParams["ordini_utente"] = $dbh->getOrdersByUserId($utente_id);
 
-$templateParams["userData"] = $dbh->getUserDataById($_SESSION["ID_utente"]);
 
 
 if (isset($_POST["action"]) && $_POST["action"] == "1" && isset($_POST["notifica_id"])) {

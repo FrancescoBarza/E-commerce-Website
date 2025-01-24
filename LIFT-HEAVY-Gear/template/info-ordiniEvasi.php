@@ -30,9 +30,5 @@
     <?php else: ?>
         <p>Non ci sono ordini da evadere.</p>
     <?php endif; ?>
-    <?php if ($userData['venditore'] == 'Y') : ?>
         <button type="button" onclick="window.location.href='areaVenditore.php'">Torna alla tua area utente</button>
-    <?php else : ?>
-        <button type="button" onclick="window.location.href='areaCliente.php'">Torna alla tua area utente</button>
-    <?php endif; ?>
 </section>
