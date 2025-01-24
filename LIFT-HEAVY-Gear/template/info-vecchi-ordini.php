@@ -3,7 +3,7 @@
     <section class="info-ordine">
         <ul>
             <li>
-                <h3>Numero Ordine: <?php echo $templateParams["ordine"]["ID_ordine"]; ?></h3>
+                <h2>Numero Ordine: <?php echo $templateParams["ordine"]["ID_ordine"]; ?></h2>
             </li>
             <li>Data: <?php echo date("d/m/Y", strtotime($templateParams["ordine"]["data_ordine"])); ?></li>
             <li>Stato: <?php echo $templateParams["ordine"]["stato_ordine"]; ?></li>
@@ -18,7 +18,7 @@
                             <?php if (!empty($prodotto["immagine"])) : ?>
                                 <img src="<?php echo UPLOAD_DIR_UPLOADS . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome_prodotto"]; ?>" />
                             <?php endif; ?>
-                            <h3><?php echo $prodotto["nome_prodotto"]; ?></h3>
+                            <h2><?php echo $prodotto["nome_prodotto"]; ?></h2>
                             <p>Prezzo unitario: <?php echo $prodotto["prezzo"]; ?> €</p>
                             <p>Quantità: <?php echo $prodotto["quantita"]; ?></p>
                         </a>
@@ -28,7 +28,7 @@
                 <li>Nessun prodotto in questo ordine.</li>
             <?php endif; ?>
         </ul>
-        <h3><span class="fas fa-route"></span> Spedizione</h3>
+        <h2><span class="fas fa-route"></span> Spedizione</h2>
         <div class="stato">
             <?php
             switch ($templateParams["ordine"]["stato_ordine"]) {

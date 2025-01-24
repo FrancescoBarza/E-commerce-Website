@@ -5,13 +5,14 @@
         <div class="prodotto">
             <a href="prodotto.php?id=<?php echo $prodotto["ID_prodotto"]; ?>">
                 <img src="<?php echo UPLOAD_DIR_UPLOADS . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome"]; ?>" />
-                <h3><?php echo $prodotto["nome"]; ?></h3>
+                <h2><?php echo $prodotto["nome"]; ?></h2>
                 <p><?php echo $prodotto["prezzo"]; ?> €</p>
                 <p>Quantità: <?php echo $prodotto["quantita"]; ?></p>
                 <p class="rifornisci"><span>Rifornisci</span></p>
             </a>
             <form action="processa-rifornimento.php" method="POST">
                 <input type="hidden" name="id_prodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
+                <label style="display:none;" for="quantita">Rifornisci di</label>
                 <input type="number" name="quantita" min="1" value="1" />
                 <button type="submit">Invio</button>
             </form>     
@@ -27,7 +28,7 @@
                     <div class="container">
                         <h1>AGGIUNGI PRODOTTO</h1>
                         <p>Completa i seguenti campi per aggiungere un nuovo prodotto.</p><br />
-                        <label for="categoria"><b>Categoria: </b></label>
+                        <label for="categoria">Categoria: </label>
                         <select name="categoria" id="categoria" required>
                             <option value="" disabled selected>Seleziona una categoria</option>
                             <option value=1>Bilanciere da competizione</option>
@@ -35,22 +36,22 @@
                             <option value=3>Accessorio</option>
                         </select>
                         <br /><br />
-                        <label for="nome"><b>Nome</b></label>
+                        <label for="nome">Nome</label>
                         <input type="text" placeholder="Inserisci Nome Prodotto" name="nome" id="nome" required>
 
-                        <label for="prezzo"><b>Prezzo</b></label>
+                        <label for="prezzo">Prezzo</label>
                         <input type="number" placeholder="Inserisci Prezzo" name="prezzo" id="prezzo" required>
 
-                        <label for="prezzo"><b>Peso</b></label>
+                        <label for="peso">Peso</label>
                         <input type="number" placeholder="Inserisci Peso" name="peso" id="peso" required>
 
-                        <label for="prezzo"><b>Lunghezza</b></label>
+                        <label for="lunghezza">Lunghezza</label>
                         <input type="number" placeholder="Inserisci Lunghezza" name="lunghezza" id="lunghezza" required>
 
-                        <label for="immagine"><b>Immagine prodotto:</b></label>
-                        <input type="file" name="immagine" id="immagine" accept="image/*" required />
+                        <label for="immagine">Immagine prodotto:</label>
+                        <input type="file" name="immagine" id="immagine" required />
 
-                        <label for="descrizione"><b>Descrizione:</b></label>
+                        <label for="descrizione">Descrizione:</label>
                         <textarea class="form-control" name="descrizione" id="descrizione" required></textarea>
                         <br /><br />
 
@@ -61,11 +62,17 @@
                     </div>
                 </form>
             </div>
-            <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
             <script>
-                function tornaAreaUtente() {
+        // Passa il valore venditore a una variabile JavaScript
+        const isVenditore = '<?php echo $templateParams["userData"]["venditore"]; ?>';
 
-                    window.location.href = 'areaCliente.php';
-                }
-            </script>
+        function tornaAreaUtente() {
+            if (isVenditore === 'Y') {
+                window.location.href = 'areaVenditore.php';
+            } else {
+                window.location.href = 'areaCliente.php';
+            }
+        }
+    </script>
+    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
         </section>

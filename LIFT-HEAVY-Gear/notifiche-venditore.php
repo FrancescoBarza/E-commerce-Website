@@ -1,10 +1,12 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["titolo"] = "LIFT HEAVY Gear";
+$templateParams["titolo"] = "Notifiche";
 $templateParams["titolo-main"] = "NOTIFICHE";
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["show-aside"] = false;
+
+$templateParams["userData"] = $dbh->getUserDataById($_SESSION["ID_utente"]);
 
 
 if (!isset($_SESSION["ID_utente"]) || !isset($_SESSION["venditore"]) || $_SESSION["venditore"] !== "Y") {
@@ -16,6 +18,9 @@ $templateParams["nome-main"] = "info-notifiche-venditore.php";
 
 
 $templateParams["prodotti_in_esaurimento"] = $dbh->getProdottiInEsaurimento();
+
+
+
 
 
 require("template/base.php");

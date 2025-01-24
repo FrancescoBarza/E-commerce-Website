@@ -13,7 +13,7 @@
         <div class="prodotto">
             <a href="prodotto.php?id=<?php echo $prodotto["ID_prodotto"]; ?>">
                 <img src="<?php echo UPLOAD_DIR_UPLOADS . $prodotto["immagine"]; ?>" alt="<?php echo $prodotto["nome"]; ?>" />
-                <h3><?php echo $prodotto["nome"]; ?></h3>
+                <h2><?php echo $prodotto["nome"]; ?></h2>
                 <p><?php echo $prodotto["prezzo"]; ?> €</p>
             </a>
             <p>

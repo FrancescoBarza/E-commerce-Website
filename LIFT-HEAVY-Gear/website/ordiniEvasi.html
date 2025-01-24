@@ -22,7 +22,7 @@
 <body>
     <header>
         <div class="header-menu">
-            <a href="#" id="menu-toggle">
+            <a href="#" id="menu-toggle" aria-label="Apri il menù" title="Clicca per aprire il menù">
                 <svg xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 18L20 18" stroke="#fff" stroke-width="2" stroke-linecap="round" />
                     <path d="M4 12L20 12" stroke="#fff" stroke-width="2" stroke-linecap="round" />
@@ -31,20 +31,17 @@
             </a>
             <nav>
                 <ul id="dropdown-menu" class="hidden">
-                    <li><a href="../website/compBars.html">BILANCIERI DA COMPETIZIONE</a></li>
+                    <li><a href="../website/catergorie.html">BILANCIERI DA COMPETIZIONE</a></li>
                     <li><a href="../website/specialBars.html">BILANCIERI SPECIALI</a></li>
                     <li><a href="../website/accessori.html">ACCESSORI</a></li>
                 </ul>
             </nav>
         </div>
-
-
         <div class="header-logo">
-            <a href="./index.html"><img src="../images/logos/Logo_Main.png" alt="logo" /></a>
+            <a href="./index.html"><img src="../images/logos/Logo_Main.png" alt="Logo" /></a>
         </div>
-
         <div class="header-icon">
-            <a href="./login.html">
+            <a href="./login.html" title="Login" aria-label="Login">
                 <svg>
                     <path fill="currentColor"
                         d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.429a3.571 3.571 0 1 0 0 7.142 3.571 3.571 0 0 0 0-7.142zm0 10c2.558 0 5.114.471 7.664 1.411A3.571 3.571 0 0 1 22 18.19v3.096c0 .394-.32.714-.714.714H2.714A.714.714 0 0 1 2 21.286V18.19c0-1.495.933-2.833 2.336-3.35 2.55-.94 5.106-1.411 7.664-1.411zm0 1.428c-2.387 0-4.775.44-7.17 1.324a2.143 2.143 0 0 0-1.401 2.01v2.38H20.57v-2.38c0-.898-.56-1.7-1.401-2.01-2.395-.885-4.783-1.324-7.17-1.324z">
@@ -52,7 +49,7 @@
                     </path>
                 </svg>
             </a>
-            <a href="./carrello.html">
+            <a href="./carrello.html" title="Carrello" aria-label="Carrello">
                 <svg>
                     <path fill="currentColor"
                         d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
@@ -60,7 +57,6 @@
                 </svg>
             </a>
         </div>
-
         <div class="header-search">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg">
@@ -70,6 +66,7 @@
                     <path d="M18.1553 18.1553L21.8871 21.8871" stroke="#fff" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </span>
+            <label style="display: none;" for="header-search">Cerca</label>
             <input type="search" name="search" id="header-search" autocomplete="off" placeholder="Search..." />
         </div>
     </header>
@@ -82,40 +79,49 @@
                 <div>
                     <span class="fas fa-clipboard-list"></span>
                 </div>
-                <h3>Numero ordine</h3>
+                <h2>Numero ordine</h2>
                 <p>Data ordine: 5/12/2024</p>
                 <p class="editable" data-key="Stato">Stato: stato</p>
                 <button type="button" class="modificaOrdine">Modifica stato</button>
-                <button type="button" onclick="window.location.href='infoOrdine.html'"><span class="fas fa-info-circle"> </span> Info ordine</button>
+                <button type="button" onclick="window.location.href='infoOrdine.html'"><span class="fas fa-info-circle">
+                    </span> Info ordine</button>
             </div>
             <div class="ordine">
                 <div>
                     <span class="fas fa-clipboard-list"></span>
                 </div>
-                <h3>Numero ordine</h3>
+                <h2>Numero ordine</h2>
                 <p>Data ordine: 4/12/2024</p>
                 <p class="editable" data-key="Stato">Stato: stato</p>
                 <button type="button" class="modificaOrdine">Modifica stato</button>
-                <button type="button" onclick="window.location.href='infoOrdine.html' "><span class="fas fa-info-circle"></span> Info ordine</button>
+                <button type="button" onclick="window.location.href='infoOrdine.html' "><span
+                        class="fas fa-info-circle"></span> Info ordine</button>
             </div>
         </section>
     </main>
     <footer>
         <section class="social">
             <h2>SEGUICI SU:</h2>
-            <a href="http://www.facebook.com"><span class="fab fa-facebook-f" style="color: #333;"></span></a>
-            <a href="http://instagram.com"><span class="fab fa-instagram" style="color: #333;"></span></a>
-            <a href="http://twitter.com"><span class="fab fa-twitter" style="color: #333;"></span></a>
+            <a href="http://www.facebook.com" title="Facebook" aria-label="Facebook"><span class="fab fa-facebook-f"
+                    style="color: #333;"></span></a>
+            <a href="http://instagram.com" title="Instagram" aria-label="Instagram"><span class="fab fa-instagram"
+                    style="color: #333;"></span></a>
+            <a href="http://twitter.com" title="Twitter" aria-label="Twitter"><span class="fab fa-twitter"
+                    style="color: #333;"></span></a>
         </section>
 
         <section class="pagamenti">
             <p>Pagamenti con:</p>
-            <a href="https://americanexpress.com"><span class="fab fa-cc-amex" style="color: #006FCF;"></span></a>
-            <a href="https://visa.com"><span class="fab fa-cc-visa" style="color: navy;"></span></a>
-            <a href="https://mastercard.com"><span class="fab fa-cc-mastercard" style="color: red;"></span></a>
-            <a href="https://www.paypal.com"><span class="fab fa-cc-paypal" style="color: #001C64;"></span></a>
-            <a href="https://www.apple.com/it/apple-pay/"><span class="fab fa-cc-apple-pay"
-                    style="color: #000000;"></span></a>
+            <a href="https://americanexpress.com" title="American Express" aria-label="American Express"><span
+                    class="fab fa-cc-amex" style="color: #006FCF;"></span></a>
+            <a href="https://visa.com" title="Visa" aria-label="Visa"><span class="fab fa-cc-visa"
+                    style="color: navy;"></span></a>
+            <a href="https://mastercard.com" title="MasterCard" aria-label="MasterCard"><span
+                    class="fab fa-cc-mastercard" style="color: red;"></span></a>
+            <a href="https://www.paypal.com" title="PayPal" aria-label="PayPal"><span class="fab fa-cc-paypal"
+                    style="color: #001C64;"></span></a>
+            <a href="https://www.apple.com/it/apple-pay/" title="Apple Pay" aria-label="Apple Pay"><span
+                    class="fab fa-cc-apple-pay" style="color: #000000;"></span></a>
         </section>
 
         <section class="copyright">

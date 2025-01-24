@@ -4,6 +4,5 @@
     <img src="<?php echo UPLOAD_DIR_ARTICLES.$articolo["immagine_articolo"] ?>" alt="<?php echo $articolo["titolo_articolo"]; ?>">
     <p><?php echo $articolo["data_articolo"]; ?></p>
     <p><?php echo $articolo["testo_articolo"]; ?></p><br />
-    <a href="../website/prodotto.html">LINK PER ACQUISTARLO</a>
     <?php endforeach; ?>
 </section>

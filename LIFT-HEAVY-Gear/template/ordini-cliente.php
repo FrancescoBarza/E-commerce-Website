@@ -7,7 +7,7 @@
                 <div>
                     <span class="fas fa-clipboard-list"></span>
                 </div>
-                <h3>Numero ordine: <?php echo $ordine["ID_ordine"]; ?></h3>
+                <h2>Numero ordine: <?php echo $ordine["ID_ordine"]; ?></h2>
                 <p>Data ordine: <?php echo date("d/m/Y", strtotime($ordine["data_ordine"])); ?></p>
                 <p>Stato: <?php echo $ordine["stato_ordine"]; ?></p>
                 <button type="button" onclick="window.location.href='infoOrdine.php?id=<?php echo $ordine["ID_ordine"]; ?>' "><span class="fas fa-info-circle"> </span> Info ordine</button>
@@ -16,11 +16,9 @@
     <?php else : ?>
         <p>Non hai ancora effettuato ordini.</p>
     <?php endif; ?>
-    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
-            <script>
-                function tornaAreaUtente() {
-
-                    window.location.href = 'areaCliente.php';
-                }
-            </script>
+    <?php if ($userData['venditore'] == 'Y') : ?>
+        <button type="button" onclick="window.location.href='areaVenditore.php'">Torna alla tua area utente</button>
+    <?php else : ?>
+        <button type="button" onclick="window.location.href='areaCliente.php'">Torna alla tua area utente</button>
+    <?php endif; ?>
 </section>

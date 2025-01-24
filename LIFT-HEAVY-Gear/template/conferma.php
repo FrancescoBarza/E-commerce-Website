@@ -25,8 +25,8 @@
         <h3>Indirizzo di fatturazione: </h3>
         <address>
             <ul>
-                <li><i class="fa fa-address-card-o"></i> Indirizzo: <?php echo isset($templateParams["ordine"]["indirizzo"]) ? htmlspecialchars($templateParams["ordine"]["indirizzo"]) : "Non disponibile"; ?></li>
-                <li><i class="fa fa-institution"></i> Città: <?php echo isset($templateParams["ordine"]["citta"]) ? htmlspecialchars($templateParams["ordine"]["citta"]) : "Non disponibile"; ?></li>
+                <li>Indirizzo: <?php echo isset($templateParams["ordine"]["indirizzo"]) ? htmlspecialchars($templateParams["ordine"]["indirizzo"]) : "Non disponibile"; ?></li>
+                <li>Città: <?php echo isset($templateParams["ordine"]["citta"]) ? htmlspecialchars($templateParams["ordine"]["citta"]) : "Non disponibile"; ?></li>
                 <li>Cap: <?php echo isset($templateParams["ordine"]["cap"]) ? htmlspecialchars($templateParams["ordine"]["cap"]) : "Non disponibile"; ?></li>
             </ul>
         </address>

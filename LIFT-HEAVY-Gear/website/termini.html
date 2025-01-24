@@ -22,7 +22,7 @@
 <body>
     <header>
         <div class="header-menu">
-            <a href="#" id="menu-toggle">
+            <a href="#" id="menu-toggle" aria-label="Apri il menù" title="Clicca per aprire il menù">
                 <svg xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 18L20 18" stroke="#fff" stroke-width="2" stroke-linecap="round" />
                     <path d="M4 12L20 12" stroke="#fff" stroke-width="2" stroke-linecap="round" />
@@ -31,20 +31,17 @@
             </a>
             <nav>
                 <ul id="dropdown-menu" class="hidden">
-                    <li><a href="../website/compBars.html">BILANCIERI DA COMPETIZIONE</a></li>
+                    <li><a href="../website/catergorie.html">BILANCIERI DA COMPETIZIONE</a></li>
                     <li><a href="../website/specialBars.html">BILANCIERI SPECIALI</a></li>
                     <li><a href="../website/accessori.html">ACCESSORI</a></li>
                 </ul>
             </nav>
         </div>
-
-
         <div class="header-logo">
-            <a href="./index.html"><img src="../images/logos/Logo_Main.png" alt="logo" /></a>
+            <a href="./index.html"><img src="../images/logos/Logo_Main.png" alt="Logo" /></a>
         </div>
-
         <div class="header-icon">
-            <a href="./login.html">
+            <a href="./login.html" title="Login" aria-label="Login">
                 <svg>
                     <path fill="currentColor"
                         d="M12 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.429a3.571 3.571 0 1 0 0 7.142 3.571 3.571 0 0 0 0-7.142zm0 10c2.558 0 5.114.471 7.664 1.411A3.571 3.571 0 0 1 22 18.19v3.096c0 .394-.32.714-.714.714H2.714A.714.714 0 0 1 2 21.286V18.19c0-1.495.933-2.833 2.336-3.35 2.55-.94 5.106-1.411 7.664-1.411zm0 1.428c-2.387 0-4.775.44-7.17 1.324a2.143 2.143 0 0 0-1.401 2.01v2.38H20.57v-2.38c0-.898-.56-1.7-1.401-2.01-2.395-.885-4.783-1.324-7.17-1.324z">
@@ -52,15 +49,14 @@
                     </path>
                 </svg>
             </a>
-            <a href="./carrello.html">
+            <a href="./carrello.html" title="Carrello" aria-label="Carrello">
                 <svg>
                     <path fill="currentColor"
-                        d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
+                        d="M17 18a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h2.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7 2.78-5H6.14l2.36 5H16Z">
                     </path>
                 </svg>
             </a>
         </div>
-
         <div class="header-search">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg">
@@ -70,6 +66,7 @@
                     <path d="M18.1553 18.1553L21.8871 21.8871" stroke="#fff" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </span>
+            <label style="display: none;" for="header-search">Cerca</label>
             <input type="search" name="search" id="header-search" autocomplete="off" placeholder="Search..." />
         </div>
     </header>
@@ -82,7 +79,7 @@
                 Utilizzando il nostro sito, accetti espressamente questi Termini e Condizioni.</p>
             <ul>
                 <li>
-                    <h3>Definizioni</h3>
+                    <h2>Definizioni</h2>
                     <p>
                         Sito: Si intende il sito web ufficiale di LIFT HEAVY Gear. <br />
                         Utente: Qualsiasi persona fisica o giuridica che accede al sito. <br />
@@ -90,7 +87,7 @@
                     </p>
                 </li>
                 <li>
-                    <h3>Accettazione dei Termini</h3>
+                    <h2>Accettazione dei Termini</h2>
                     <p>
                         L'accesso e l'utilizzo del sito implicano l'accettazione integrale dei presenti Termini e
                         Condizioni. In
@@ -98,7 +95,7 @@
                     </p>
                 </li>
                 <li>
-                    <h3>Modifiche ai Termini</h3>
+                    <h2>Modifiche ai Termini</h2>
                     <p>LIFT HEAVY Gear si riserva il diritto di modificare, aggiornare o rivedere i Termini e Condizioni
                         in
                         qualsiasi momento. Le modifiche saranno comunicate tramite il sito e avranno effetto immediato.
@@ -106,14 +103,14 @@
                         è invitato a consultare periodicamente questa pagina.</p>
                 </li>
                 <li>
-                    <h3>Utilizzo del Sito</h3>
+                    <h2>Utilizzo del Sito</h2>
                     <p> È vietato utilizzare il sito per scopi illeciti, fraudolenti o che possano danneggiare LIFT
                         HEAVY Gear o terzi.
                         Non è consentito accedere o tentare di accedere ad aree riservate del sito senza autorizzazione.
                     </p>
                 </li>
                 <li>
-                    <h3>Acquisto dei Prodotti</h3>
+                    <h2>Acquisto dei Prodotti</h2>
                     <p>Tutti i prezzi sono indicati in euro (€) e includono le tasse applicabili, salvo diversa
                         indicazione.
                         Gli ordini sono soggetti a disponibilità del prodotto. In caso di indisponibilità, l’utente
@@ -122,14 +119,14 @@
                         L’acquisto è confermato solo dopo la ricezione della mail di conferma dell’ordine.</p>
                 </li>
                 <li>
-                    <h3>Metodi di Pagamento</h3>
+                    <h2>Metodi di Pagamento</h2>
                     <p> Accettiamo i principali metodi di pagamento, inclusi carte di credito, PayPal e bonifici
                         bancari.
                         LIFT
                         HEAVY Gear si impegna a garantire la sicurezza delle transazioni.</p>
                 </li>
                 <li>
-                    <h3>Spedizioni e Consegne</h3>
+                    <h2>Spedizioni e Consegne</h2>
                     <p>I tempi di consegna variano in base alla destinazione e saranno specificati al momento
                         dell’acquisto.
                         Eventuali ritardi nella consegna non dipendenti da LIFT HEAVY Gear non daranno diritto a
@@ -138,7 +135,7 @@
                         risarcimento.</p>
                 </li>
                 <li>
-                    <h3>Resi e Rimborsi</h3>
+                    <h2>Resi e Rimborsi</h2>
                     <p>Gli utenti hanno diritto di recedere dal contratto entro 14 giorni dalla ricezione del prodotto,
                         come
                         previsto dalla normativa vigente.
@@ -147,21 +144,21 @@
                         Per maggiori dettagli, consulta la nostra Politica di Reso, disponibile sul sito.</p>
                 </li>
                 <li>
-                    <h3>Responsabilità</h3>
+                    <h2>Responsabilità</h2>
                     <p>LIFT HEAVY Gear non è responsabile per eventuali danni indiretti, perdita di profitti o
                         interruzione
                         dell’attività derivanti dall’uso del sito o dall’acquisto dei prodotti.
                         Non garantiamo che il sito sarà privo di errori o interruzioni.</p>
                 </li>
                 <li>
-                    <h3>Proprietà Intellettuale</h3>
+                    <h2>Proprietà Intellettuale</h2>
                     <p>Tutti i contenuti del sito, inclusi loghi, immagini, testi e design, sono di proprietà di LIFT
                         HEAVY
                         Gear e protetti dalle leggi sul copyright. È vietata qualsiasi riproduzione senza autorizzazione
                         scritta.</p>
                 </li>
                 <li>
-                    <h3>Legge Applicabile</h3>
+                    <h2>Legge Applicabile</h2>
                     <p>I presenti Termini e Condizioni sono regolati dalla legge italiana. Eventuali controversie
                         saranno
                         sottoposte alla giurisdizione esclusiva del tribunale competente del luogo di residenza o
@@ -170,7 +167,7 @@
                         consumatore.</p>
                 </li>
                 <li>
-                    <h3>Contatti</h3>
+                    <h2>Contatti</h2>
                     <p>Per qualsiasi domanda o segnalazione, puoi contattare il nostro servizio clienti all’indirizzo
                         email
                         support@liftheavygear.com o al numero +39 123 456 789.</p>
@@ -181,20 +178,27 @@
     </main>
     <footer>
         <section class="social">
-            <h3>SEGUICI SU:</h3>
-            <a href="http://www.facebook.com"><span class="fab fa-facebook-f" style="color: #333;"></span></a>
-            <a href="http://instagram.com"><span class="fab fa-instagram" style="color: #333;"></span></a>
-            <a href="http://twitter.com"><span class="fab fa-twitter" style="color: #333;"></span></a>
+            <h2>SEGUICI SU:</h2>
+            <a href="http://www.facebook.com" title="Facebook" aria-label="Facebook"><span class="fab fa-facebook-f"
+                    style="color: #333;"></span></a>
+            <a href="http://instagram.com" title="Instagram" aria-label="Instagram"><span class="fab fa-instagram"
+                    style="color: #333;"></span></a>
+            <a href="http://twitter.com" title="Twitter" aria-label="Twitter"><span class="fab fa-twitter"
+                    style="color: #333;"></span></a>
         </section>
 
         <section class="pagamenti">
             <p>Pagamenti con:</p>
-            <a href="https://americanexpress.com"><span class="fab fa-cc-amex" style="color: #006FCF;"></span></a>
-            <a href="https://visa.com"><span class="fab fa-cc-visa" style="color: navy;"></span></a>
-            <a href="https://mastercard.com"><span class="fab fa-cc-mastercard" style="color: red;"></span></a>
-            <a href="https://www.paypal.com"><span class="fab fa-cc-paypal" style="color: #001C64;"></span></a>
-            <a href="https://www.apple.com/it/apple-pay/"><span class="fab fa-cc-apple-pay"
-                    style="color: #000000;"></span></a>
+            <a href="https://americanexpress.com" title="American Express" aria-label="American Express"><span
+                    class="fab fa-cc-amex" style="color: #006FCF;"></span></a>
+            <a href="https://visa.com" title="Visa" aria-label="Visa"><span class="fab fa-cc-visa"
+                    style="color: navy;"></span></a>
+            <a href="https://mastercard.com" title="MasterCard" aria-label="MasterCard"><span
+                    class="fab fa-cc-mastercard" style="color: red;"></span></a>
+            <a href="https://www.paypal.com" title="PayPal" aria-label="PayPal"><span class="fab fa-cc-paypal"
+                    style="color: #001C64;"></span></a>
+            <a href="https://www.apple.com/it/apple-pay/" title="Apple Pay" aria-label="Apple Pay"><span
+                    class="fab fa-cc-apple-pay" style="color: #000000;"></span></a>
         </section>
 
         <section class="copyright">

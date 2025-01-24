@@ -27,7 +27,7 @@ unset($_SESSION["ordine_data"]);
       <?php if (count($currentCart) == 0 || number_format($currentCart[0]["prezzo_totale"], 2) == 0) { ?>
         <section class="empty-cart">
           <div>
-            <h4>Il tuo carrello è vuoto</h4>
+            <h2>Il tuo carrello è vuoto</h2>
             <p>Aggiungi degli elementi e procedi al pagamento</p>
           </div>
         </section>

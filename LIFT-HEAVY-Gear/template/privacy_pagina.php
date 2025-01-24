@@ -2,13 +2,13 @@
             <h1>PRIVACY</h1>
             <ul>
                 <li>
-                    <h3>Introduzione</h3>
+                    <h2>Introduzione</h2>
                     <p>Benvenuto su LIFT HEAVY Gear! La tua privacy è importante per noi. In questa pagina descriviamo
                         come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali quando visiti il nostro sito e
                         utilizzi i nostri servizi.</p>
                 </li>
                 <li>
-                    <h3>Informazioni che raccogliamo</h3>
+                    <h2>Informazioni che raccogliamo</h2>
                     <p>Quando utilizzi il nostro e-commerce, possiamo raccogliere le seguenti informazioni:</p>
                     <ul>
                         <li>Dati personali forniti direttamente da te, come nome, indirizzo email, indirizzo di
@@ -20,7 +20,7 @@
                     </ul>
                 </li>
                 <li>
-                    <h3>Come utilizziamo i tuoi dati</h3>
+                    <h2>Come utilizziamo i tuoi dati</h2>
                     <p>I dati raccolti vengono utilizzati per:</p>
                     <ul>
                         <li>Elaborare i tuoi ordini e gestire la consegna dei prodotti.</li>
@@ -31,7 +31,7 @@
                     </ul>
                 </li>
                 <li>
-                    <h3>Condivisione delle informazioni</h3>
+                    <h2>Condivisione delle informazioni</h2>
                     <p>Non vendiamo né affittiamo i tuoi dati personali a terzi. Tuttavia, potremmo condividere i tuoi
                         dati
                         con:
@@ -42,14 +42,14 @@
                     </ul>
                 </li>
                 <li>
-                    <h3>Protezione dei dati</h3>
+                    <h2>Protezione dei dati</h2>
                     <p>Adottiamo misure di sicurezza tecniche e organizzative per proteggere i tuoi dati personali da
                         accessi non autorizzati, perdite o distruzioni accidentali. Tutte le transazioni sul nostro sito
                         sono
                         protette da crittografia SSL.</p>
                 </li>
                 <li>
-                    <h3>I tuoi diritti</h3>
+                    <h2>I tuoi diritti</h2>
                     <p>Hai il diritto di:</p>
                     <ul>
                         <li>Accedere ai tuoi dati personali e richiederne una copia.</li>
@@ -60,12 +60,12 @@
                     </ul>
                 </li>
                 <li>
-                    <h3>Modifiche alla Privacy Policy</h3>
+                    <h2>Modifiche alla Privacy Policy</h2>
                     <p>Potremmo aggiornare questa Privacy Policy di tanto in tanto. Ti invitiamo a controllare questa
                         pagina periodicamente per rimanere informato su eventuali modifiche.</p>
                 </li>
                 <li>
-                    <h3>Contatti</h3>
+                    <h2>Contatti</h2>
                     <p>Per qualsiasi domanda o richiesta relativa alla nostra Privacy Policy, puoi contattarci a:</p>
                     <address>
                         Email: privacy@liftheavygear.com<br>

@@ -9,7 +9,7 @@ if (!$userData) {
     header("Location: login.php");
     exit;
 }
-$templateParams["titolo"] = "Ordini passati";
+$templateParams["titolo"] = "Ordini Passati";
 $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["nome"] = $userData["nome"];
 $templateParams["nome-main"] = "ordini-cliente.php";

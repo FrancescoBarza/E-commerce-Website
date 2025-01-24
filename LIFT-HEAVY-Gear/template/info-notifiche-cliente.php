@@ -19,7 +19,7 @@
                     c9.531,0,17.258-7.727,17.258-17.258c0-55.217,44.923-100.139,100.142-100.139c9.531,0,17.258-7.727,17.258-17.258
                     C323.259,126.96,315.532,119.235,306.001,119.235z" />
                 </svg>
-                <h3 class="unread">
+                <h2 class="unread">
                     <?php
                     if (isset($notifica["ID_ordine"])) {
                         $ordine_corrispondente = null;
@@ -56,7 +56,7 @@
                         echo $notifica["testo"];
                     }
                     ?>
-                </h3>
+                </h2>
                 <p>Data notifica: <?php echo date('d/m/Y', strtotime($notifica["data_creazione"])); ?></p>
 
                 <form method="POST" action="notifiche.php" enctype="multipart/form-data">
@@ -79,11 +79,17 @@
     <?php else : ?>
         <p>Non ci sono nuove notifiche.</p>
     <?php endif; ?>
-    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
-            <script>
-                function tornaAreaUtente() {
+    <script>
+        // Passa il valore venditore a una variabile JavaScript
+        const isVenditore = '<?php echo $templateParams["userData"]["venditore"]; ?>';
 
-                    window.location.href = 'areaCliente.php';
-                }
-            </script>
+        function tornaAreaUtente() {
+            if (isVenditore === 'Y') {
+                window.location.href = 'areaVenditore.php';
+            } else {
+                window.location.href = 'areaCliente.php';
+            }
+        }
+    </script>
+    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
 </section>
