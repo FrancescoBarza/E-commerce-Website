@@ -25,9 +25,11 @@
 }
 
 /* Menu nascosto */
+.hidden {
+    display: none;
+}
 
 .header-menu nav ul {
-    display: none;
     background-color: #333;
     list-style: none;
     width: 60%;
