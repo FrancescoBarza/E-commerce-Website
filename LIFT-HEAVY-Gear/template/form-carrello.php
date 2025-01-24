@@ -86,12 +86,12 @@ unset($_SESSION["ordine_data"]);
             </table>
           </div>
           <div class="container">
-            <h4>Riepilogo ordine <span class="prezzo" style="color:white"><span class="fa fa-shopping-cart"></span> <?php echo count($templateParams["prodottoCarrello"]); ?></span></h4>
+            <h2>Riepilogo ordine <span class="prezzo"><span class="fa fa-shopping-cart"></span> <?php echo count($templateParams["prodottoCarrello"]); ?></span></h2>
             <?php foreach ($templateParams["prodottoCarrello"] as $prodotto): ?>
               <p><a href="#"><?php echo $prodotto["nome"]; ?></a> <span class="prezzo"><?php echo number_format($prodotto["prezzo"] * $prodotto["quantita_prodotto"], 2); ?> €</span></p>
             <?php endforeach; ?>
             <hr>
-            <h4>Totale <span class="prezzo" style="color:white"><?php echo number_format($currentCart[0]["prezzo_totale"], 2); ?> €</span></h4>
+            <p>Totale <span class="prezzo"><strong><?php echo number_format($currentCart[0]["prezzo_totale"], 2); ?> € </strong></span></p>
           </div>
         </div>
         <?php
@@ -137,12 +137,6 @@ unset($_SESSION["ordine_data"]);
                   </div>
                   <div class="col-50">
                     <h3>Metodo di Pagamento</h3>
-                    <label>Carte valide</label>
-                    <div class="icon-container">
-                      <span class="fab fa-cc-visa" style="color:navy;"></span>
-                      <span class="fab fa-cc-amex" style="color:blue;"></span>
-                      <span class="fab fa-cc-mastercard" style="color:red;"></span>
-                    </div>
                     <label for="titolare">Titolare carta</label>
                     <input type="text" id="titolare" name="titolare" placeholder="Mario Rossi" required>
                     <span class="error">

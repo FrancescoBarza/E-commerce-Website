@@ -145,11 +145,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    white-space: nowrap; /* Impedisce la rottura di riga */
-    overflow: hidden; /* Nasconde il testo in eccesso */
-    text-overflow: ellipsis; /* Aggiunge i tre punti di sospensione */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
-
+.container strong {
+    color: #FFFFFF; 
+}
 .container p a {
     flex: 1;
     text-align: left;
@@ -170,14 +172,12 @@
 table {
     width: 100%;
     border-spacing: 0;
-    /*tolgo lo spazio tra i bordi delle celle*/
     border-collapse: separate;
     text-align: center;
     background-color: #222;
     margin-bottom: 5%;
     border: 1px solid white;
     border-radius: 10px;
-    /* Applica border-radius */
     overflow: hidden;
 }
 
@@ -210,7 +210,6 @@ table button {
     width: 60%;
     box-sizing: border-box;
 }
-
 table input {
     max-width: 50px;
     padding: 6px;
@@ -313,6 +312,15 @@ tr form button {
     color: white;
     padding: 1%;
     text-align: center;
+}
+h2 {
+    font-size: 1rem; /* Adatta la dimensione */
+    line-height: 1.2;
+    font-weight: bold;
+    white-space: nowrap; /* Evita che il testo vada su più righe */
+    overflow: hidden; /* Nasconde il testo che supera i confini */
+    text-overflow: ellipsis; /* Mostra i tre puntini */
+
 }
 
 /* Footer */
