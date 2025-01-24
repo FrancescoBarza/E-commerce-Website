@@ -30,4 +30,11 @@
     <?php else: ?>
         <p>Non ci sono ordini da evadere.</p>
     <?php endif; ?>
+    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
+            <script>
+                function tornaAreaUtente() {
+
+                    window.location.href = 'areaCliente.php';
+                }
+            </script>
 </section>

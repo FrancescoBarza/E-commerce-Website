@@ -178,8 +178,127 @@ INSERT INTO notifica (ID_notifica, testo, data_creazione, stato_notifica, ID_ute
 
 -- Popolamento Tabella "articolo"
 INSERT INTO articolo (ID_articolo, titolo_articolo, testo_articolo, data_articolo, immagine_articolo) VALUES 
-(1,'SHEFFIELD 2024: RECORD INFRANTI E CLASSIFICA','testo' , '2024-12-01', 'article1.png'),
-(2,'BILANCIERI SPECIALI: PERCHÉ OGNI PALESTRA DOVREBBE AVERLI','testo' , '2025-01-07', 'article2.png' ),
-(3,'BILANCIERE LIBERO E METODO CONIUGATO', 'testo' , '2025-01-16', 'article3.png'),
-(4,'DALLA SVEZIA AL MONDO: LA STORIA DEL BILANCIERE DA COMPETIZIONE ELEIKO', 'testo', '2024-12-14', 'article4.png'),
-(5,'FIPL: NUOVA ATTREZZATURA DA COMPETIZIONE PER IL POWERLIFTING ITALIANO', 'testo', '2024-12-19', 'article5.png' );
+(1,'SHEFFIELD 2024: RECORD INFRANTI E CLASSIFICA','La Sheffield Powerlifting Championship 2024, tenutasi il 10 febbraio 2024 presso la City Hall di Sheffield, ha rappresentato un evento di spicco nel panorama del powerlifting internazionale. Organizzata da SBD, la competizione ha visto la partecipazione di 24 atleti d\'élite, 12 uomini e 12 donne, provenienti da diverse categorie di peso, impegnati in una sfida unica focalizzata sull\'infrangere i record mondiali della International Powerlifting Federation (IPF). 
+Risultati Femminili:
+Nella competizione femminile, le atlete della categoria 69 kg hanno dominato il podio, grazie a un record mondiale totale relativamente più basso rispetto ad altre categorie, facilitando il superamento dei precedenti primati. 
+Agata Sitko (69 kg): Totale di 600 kg, pari al 109,3% del precedente record mondiale.
+Prescillia Bavoil (69 kg): Totale di 585 kg, 106,6%.
+Carola Garra (69 kg): Totale di 582,5 kg, 106,1%.
+Un momento saliente è stato l\'incredibile prestazione di Sonita Muluh, che ha stabilito un nuovo record mondiale di squat femminile sollevando 300,5 kg. 
+Risultati Maschili:
+Tra gli uomini, la categoria 93 kg ha offerto una competizione serrata.
+Gustav Hedlund (93 kg): Totale di 895 kg, 100,8% del precedente record mondiale.
+Jonathan Cayco (93 kg): Totale di 890,5 kg, 100,6%.
+Delaney Wallace (83 kg): Totale di 842,5 kg, 100,2%.
+Degna di nota è stata la performance di Jesus Olivares, che ha stabilito un nuovo record mondiale di squat nella categoria supermassimi (+120 kg) con un sollevamento di 478 kg, superando il precedente record di Ray Williams. 
+Record Infranti:
+La competizione ha registrato un totale impressionante di 51 record mondiali infranti, evidenziando l\'altissimo livello degli atleti partecipanti e l\'importanza dell\'evento nel calendario del powerlifting internazionale. 
+Bilanciere Utilizzato:
+Per quanto riguarda l\'attrezzatura, in competizioni di questo calibro, si utilizzano bilancieri omologati dall\'IPF, progettati per sostenere carichi elevati e garantire standard di sicurezza e performance adeguati. Questi bilancieri hanno specifiche precise, tra cui un diametro di 29 mm e una lunghezza di 2,2 metri, con una capacità di carico che può superare i 600 kg.
+In particolare, il bilanciere utilizzato nella Sheffield Powerlifting Championship 2024, come in molte altre competizioni di powerlifting di alto livello, è prodotto da Eleiko, uno dei marchi più rinomati al mondo per l\'attrezzatura da sollevamento pesi e powerlifting.
+' , '2024-12-01', 'article1.png'),
+(2,'BILANCIERI SPECIALI: PERCHÉ OGNI PALESTRA DOVREBBE AVERLI','Nel powerlifting, l\'utilizzo di bilancieri speciali come la trap bar, la safety squat bar (SSB), la cambered bar e la EZ curl bar è fondamentale per migliorare le prestazioni, prevenire infortuni e sviluppare una forza equilibrata. Questi strumenti offrono variazioni agli esercizi tradizionali, permettendo di affrontare punti deboli specifici, ridurre lo stress articolare e introdurre nuovi stimoli nell\'allenamento.
+
+1. Trap Bar
+La trap bar, o bilanciere esagonale, è utilizzata principalmente per il deadlift e varianti di squat.
+
+Benefici:
+
+Riduzione dello stress lombare: la posizione centrale del corpo all\'interno della barra consente un baricentro più naturale, diminuendo la tensione sulla colonna vertebrale.
+Maggiore coinvolgimento delle gambe: rispetto al deadlift tradizionale, la trap bar distribuisce il carico in modo più equilibrato tra gambe e schiena.
+Sicurezza: ideale per atleti con limitazioni di mobilità o che desiderano evitare sollecitazioni eccessive sulla colonna.
+Applicazioni:
+
+Sviluppo della forza esplosiva, utile per migliorare lo stacco da terra.
+Adatta per il condizionamento generale e l’allenamento di principianti o atleti in fase di riabilitazione.
+2. Safety Squat Bar (SSB)
+La SSB è un bilanciere dotato di cuscinetti e maniglie anteriori, progettato per facilitare lo squat mantenendo una postura più eretta.
+
+Benefici:
+
+Riduzione dello stress sulle spalle: le maniglie anteriori evitano il sovraccarico articolare delle spalle, comune negli squat tradizionali.
+Miglioramento della postura: aiuta a mantenere una posizione eretta, risultando utile per atleti con debolezza nella parte alta della schiena o limitazioni di mobilità.
+Rafforzamento della catena posteriore: l\'angolo del carico sollecita maggiormente glutei, femorali e parte bassa della schiena.
+Applicazioni:
+
+Sviluppo della forza specifica per lo squat tradizionale.
+Ideale per il recupero da infortuni alle spalle o alla schiena.
+3. Cambered Bar
+La cambered bar presenta una struttura a U che sposta il baricentro più in basso rispetto a un bilanciere standard.
+
+Benefici:
+
+Miglioramento della stabilità: il peso oscillante costringe l\'atleta a mantenere una posizione più stabile, rafforzando il core e i muscoli stabilizzatori.
+Riduzione del carico sulla parte superiore della schiena: spostando il peso in basso, si allevia la pressione su collo e spalle.
+Applicazioni:
+
+Allenamento avanzato per squat e good mornings.
+Utile per atleti che desiderano sviluppare una forza di base solida e migliorare il controllo neuromuscolare.
+4. EZ Curl Bar
+La EZ curl bar è comunemente utilizzata per esercizi di isolamento, come curl per i bicipiti e skull crushers per i tricipiti.
+
+Benefici:
+
+Riduzione dello stress sui polsi: la curvatura del bilanciere offre una presa più naturale e confortevole.
+Isolamento muscolare: consente di lavorare specificamente su bicipiti e tricipiti in modo efficace.
+Varietà: la possibilità di cambiare l\'angolo di presa permette di stimolare i muscoli da diverse angolazioni.
+Applicazioni:
+
+Costruzione della forza accessoria per migliorare il lockout nella panca piana e la stabilità negli stacchi.
+Allenamento di supporto per rafforzare i muscoli delle braccia e prevenire squilibri.
+
+Conclusione
+L\'uso di bilancieri speciali, secondo Louie Simmons, rappresenta una strategia indispensabile per il successo nel powerlifting. Oltre a offrire variazioni essenziali per superare i plateau, contribuiscono a prevenire infortuni, sviluppare forza accessoria e rafforzare i punti deboli. Atleti di ogni livello possono trarre enormi benefici dall’integrazione di questi strumenti nei loro programmi, seguendo l\'esempio di una delle menti più innovative nella storia del powerlifting.
+' , '2025-01-07', 'article2.png' ),
+(3,'WEST SIDE E METODO CONIUGATO', 'L\'Influenza di Louie Simmons  
+Louie Simmons, fondatore della Westside Barbell e figura leggendaria nel mondo del powerlifting, ha enfatizzato l\'importanza dell\'utilizzo di bilancieri speciali nell\'allenamento. Attraverso il suo Metodo Coniugato, Simmons ha integrato l\'uso di questi strumenti per sviluppare forza massimale, velocità e resistenza, sottolineando come la variazione degli esercizi sia cruciale per evitare il plateau e stimolare continuamente l\'adattamento muscolare.  
+
+Approccio di Simmons:  
+Variazione continua: l\'introduzione di bilancieri speciali permette di modificare gli schemi di movimento, prevenendo l\'adattamento eccessivo e promuovendo progressi costanti.  
+Sviluppo della forza speciale: strumenti come la cambered bar o la SSB sono utilizzati per rafforzare specifici gruppi muscolari e migliorare parti del movimento che possono rappresentare punti deboli.  
+Prevenzione degli infortuni: l\'uso di bilancieri come la SSB riduce lo stress su articolazioni vulnerabili, permettendo un allenamento intenso con minori rischi.  
+Simmons ha anche sviluppato attrezzature innovative, come la reverse hyper-extension e la belt squat machine, per affrontare specifiche esigenze di allenamento e riabilitazione, dimostrando l\'importanza di attrezzature e bilancieri specializzati nel miglioramento delle prestazioni dei powerlifter. Louie Simmons ha costantemente sostenuto che strumenti come la cambered bar, la safety squat bar e la trap bar sono fondamentali per costruire una base di forza completa e preparare gli atleti a eccellere nei tre movimenti principali del powerlifting: squat, panca e stacco.  
+
+L\'Importanza di Bilancieri Speciali nel Metodo Westside  
+Louie Simmons ha integrato bilancieri speciali nel suo approccio con finalità specifiche:  
+
+Trap Bar:  
+
+Usata per sviluppare la forza esplosiva e la capacità di spingere con le gambe, elemento cruciale per lo stacco da terra.  
+La neutralità della presa è particolarmente utile per atleti con debolezza nella presa o difficoltà con il bilanciere tradizionale.  
+Safety Squat Bar (SSB):  
+
+Fondamentale per rafforzare la parte superiore della schiena, un punto critico per lo squat pesante e la tenuta posturale sotto carico.  
+Simmons ha spesso evidenziato come l\'SSB migliori la resilienza complessiva, poiché il design spinge il corpo in avanti, obbligando i muscoli stabilizzatori a lavorare più intensamente.  
+Cambered Bar:  
+
+Simmons la utilizzava per sviluppare il core e migliorare la stabilità sotto carichi pesanti, un elemento cruciale per i movimenti multi-articolari.  
+Ha sottolineato come il peso oscillante creato dalla cambered bar simuli situazioni di instabilità che si possono incontrare in competizione.  
+EZ Curl Bar:  
+
+Pur non essendo direttamente collegata ai movimenti principali, è un’ottima scelta per allenare braccia e avambracci, che giocano un ruolo fondamentale nella stabilità durante la panca piana e la forza di presa nello stacco.  
+
+Prevenzione e Riabilitazione  
+Louie Simmons ha anche promosso l\'uso di bilancieri speciali per la prevenzione degli infortuni e il recupero. L\'uso strategico di attrezzature come la safety squat bar e la reverse hyper-extension è stato un elemento cardine della filosofia di Westside Barbell per:  
+
+Ridurre lo stress su articolazioni e legamenti.  
+Rafforzare i muscoli stabilizzatori, spesso trascurati negli esercizi tradizionali.  
+Facilitare il ritorno all\'allenamento intenso senza compromettere la salute a lungo termine.  
+
+Un Approccio Dinamico  
+Simmons credeva fermamente che la monotonia nell\'allenamento fosse il nemico della progressione. Cambiare frequentemente gli strumenti, l’intensità e i movimenti consente al corpo di adattarsi a nuovi stimoli, migliorando costantemente forza, potenza e resistenza.  
+' , '2025-01-16', 'article3.png'),
+(4,'DALLA SVEZIA AL MONDO: LA STORIA DEL BILANCIERE DA COMPETIZIONE ELEIKO', 'L\'Eleiko IPF Powerlifting Competition Bar è il risultato di decenni di innovazione e dedizione all\'eccellenza nel sollevamento pesi. Fondata nel 1957, 
+Eleiko ha iniziato come produttore di piccoli elettrodomestici da cucina, come le piastre per waffle.
+Tuttavia, un\'idea ispirata ha cambiato per sempre la direzione dell\'azienda, portandola a diventare un leader nella produzione di bilancieri di alta qualità. 
+
+Nel corso degli anni, Eleiko ha perfezionato la progettazione e la produzione dei suoi bilancieri, utilizzando acciaio svedese proprietario noto per la sua resistenza e flessibilità. 
+Questo impegno ha portato alla creazione di bilancieri che hanno visto oltre 1.000 record mondiali stabiliti con il loro utilizzo. 
+
+L\'IPF Powerlifting Competition Bar è stato progettato specificamente per le tre discipline del powerlifting: squat, panca piana e stacco da terra. Con un diametro di 29 mm, 
+offre una rigidità ottimale per sollevamenti pesanti. La zigrinatura aggressiva e non rivestita garantisce una presa sicura, 
+mentre i robusti boccole in bronzo con aggiunta di grafite permettono un\'auto-lubrificazione che migliora le prestazioni e la longevità del bilanciere. 
+
+Questo bilanciere è certificato dalla International Powerlifting Federation (IPF) per l\'uso in competizione, 
+riflettendo l\'impegno di Eleiko nel soddisfare gli standard più elevati nello sport del powerlifting. La combinazione di materiali di alta qualità, 
+design meticoloso e una lunga storia di eccellenza rende l\'Eleiko IPF Powerlifting Competition Bar una scelta privilegiata per gli atleti di élite in tutto il mondo.', '2024-12-14', 'article4.png');

@@ -20,7 +20,6 @@
                     C323.259,126.96,315.532,119.235,306.001,119.235z" />
                 </svg>
                 <h3 class="unread">
-                <h3 class="unread">
                     <?php
                     if (isset($notifica["ID_ordine"])) {
                         $ordine_corrispondente = null;

@@ -61,4 +61,11 @@
                     </div>
                 </form>
             </div>
+            <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
+            <script>
+                function tornaAreaUtente() {
+
+                    window.location.href = 'areaCliente.php';
+                }
+            </script>
         </section>

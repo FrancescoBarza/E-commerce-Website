@@ -118,7 +118,7 @@
                 });
             </script>
         </div>
-        <div class="header-search" id="headerSearch">
+        <div class="header-search">
             <form method="GET" action="search-bar.php" id="searchForm">
                 <span type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg">

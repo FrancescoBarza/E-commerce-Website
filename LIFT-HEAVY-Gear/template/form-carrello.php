@@ -22,11 +22,10 @@ unset($_SESSION["ordine_data"]);
 <div class="cart-main">
   <main>
     <section>
-      <h1><span class="fas fa-shopping-cart"></span> <?php echo $templateParams["titolo"]; ?></h1>
+      <h1><?php echo $templateParams["titolo"]; ?></h1>
       <!-- Modalita vuoto-->
       <?php if (count($currentCart) == 0 || number_format($currentCart[0]["prezzo_totale"], 2) == 0) { ?>
         <section class="empty-cart">
-          <span class="fas fa-cart-arrow-down"></span>
           <div>
             <h4>Il tuo carrello è vuoto</h4>
             <p>Aggiungi degli elementi e procedi al pagamento</p>

@@ -22,8 +22,6 @@
             <button type="button" onclick="toggleModificaDati()">Annulla</button>
         </form>
     </div>
-
-    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
     <script>
         // Passa il valore venditore a una variabile JavaScript
         const isVenditore = '<?php echo $templateParams["userData"]["venditore"]; ?>';
@@ -36,6 +34,7 @@
             }
         }
     </script>
+    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
 </section>
 
 <script>

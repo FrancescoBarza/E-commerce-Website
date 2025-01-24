@@ -12,6 +12,7 @@ body {
     background-color: #222;
     font-family: 'Libre Franklin';
     font-size: 16px;
+    min-height: 100%;
 }
 
 body svg {
@@ -146,7 +147,7 @@ button {
 }
 
 button:hover {
-    background-color:   #5370ff;
+    background-color: #5370ff;
 }
 
 /* Aside */
@@ -161,12 +162,12 @@ aside {
 
 /* Footer */
 footer {
-    
     background-color: #fff;
     color: #333;
     text-align: center;
     width: 100%;
     padding: 0 5%;
+
 }
 
 footer>section {
@@ -178,5 +179,10 @@ footer>section {
     body {
         background-color: #222;
     }
-    
+
+    footer>section {
+        padding: 10px 0;
+        margin: 0 5%;
+    }
+
 }

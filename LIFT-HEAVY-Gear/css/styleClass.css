@@ -25,11 +25,9 @@
 }
 
 /* Menu nascosto */
-.hidden {
-    display: none;
-}
 
 .header-menu nav ul {
+    display: none;
     background-color: #333;
     list-style: none;
     width: 60%;
@@ -349,11 +347,12 @@ footer>.copyright a {
 }
 
 /* ================= ORDINI ================= */
-.ordine form{
+.ordine form {
     margin: 0;
     padding: 0;
     text-align: left;
 }
+
 .ordine button a {
     color: #fff;
 }
@@ -489,8 +488,9 @@ footer>.copyright a {
     }
 
     .articolo {
-        min-width: 330px;
-        width: 33%;
+        min-width: 260px;
+        width: 20%;
+        margin: 2% auto;
     }
 
     .articolo h3 {

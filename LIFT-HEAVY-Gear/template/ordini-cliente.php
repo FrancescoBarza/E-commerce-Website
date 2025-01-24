@@ -16,5 +16,11 @@
     <?php else : ?>
         <p>Non hai ancora effettuato ordini.</p>
     <?php endif; ?>
-    <button type="button" onclick="window.location.href='areaCliente.php'">Torna all'area cliente</button>
+    <button type="button" class="tornaAreaCliente" onclick="tornaAreaUtente()">Torna alla tua area utente</button>
+            <script>
+                function tornaAreaUtente() {
+
+                    window.location.href = 'areaCliente.php';
+                }
+            </script>
 </section>
