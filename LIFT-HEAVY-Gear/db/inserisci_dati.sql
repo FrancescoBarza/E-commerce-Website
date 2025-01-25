@@ -125,10 +125,10 @@ Consente inoltre ai principianti o agli atleti in riabilitazione di concentrarsi
 
 -- Popolamento Tabella "utente"
 INSERT INTO utente (ID_utente, nome, cognome, email, password, venditore) VALUES
-(1, 'Mario', 'Rossi', 'mario.rossi@example.com', 'password1', 'Y'),
-(2, 'Luca', 'Bianchi', 'luca.bianchi@example.com', 'password2', 'N'),
-(3, 'Sofia', 'Verdi', 'sofia.verdi@example.com', 'password3', 'N'),
-(4, 'Davide', 'Neri', 'davide.neri@example.com', 'password5', 'N'),
+(1, 'Mario', 'Rossi', 'mario.rossi@example.com', 'P@ssw0rd111!', 'Y'),
+(2, 'Luca', 'Bianchi', 'luca.bianchi@example.com', 'P@ssw0rd112!', 'N'),
+(3, 'Sofia', 'Verdi', 'sofia.verdi@example.com', 'P@ssw0rd113!', 'N'),
+(4, 'Davide', 'Neri', 'davide.neri@example.com', 'P@ssw0rd114!', 'N'),
 (5, 'Francesco', 'Liverani', 'francesco.liverani@example.com', 'password6', 'N');
 
 -- Popolamento Tabella "articolo"

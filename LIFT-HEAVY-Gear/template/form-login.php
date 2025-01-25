@@ -11,7 +11,7 @@
         <div class="password-container">
             <input type="password" id="password" name="password" required <?php if (!empty($templateParams["errore"])) echo 'class="error-input"'; ?>>
             <span class="toggle-password" id="togglePassword">
-                <i class="fas fa-eye"></i>
+                <em class="fas fa-eye"></em>
             </span>
         </div>
         <br>
@@ -39,6 +39,6 @@
     togglePasswordButton.addEventListener('click', function() {
         const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
         passwordInput.setAttribute('type', type);
-        this.querySelector('i').classList.toggle('fa-eye-slash'); 
+        this.querySelector('em').classList.toggle('fa-eye-slash'); 
     });
 </script>
