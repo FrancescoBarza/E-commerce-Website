@@ -383,7 +383,20 @@ footer>.copyright a {
     margin: 5px 0;
     width: 150px;
 }
+.password-container {
+    position: relative;
+}
 
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer; 
+}
+.password-container input {
+    transition: all 0.3s ease;
+}
 /* ================= MEDIA QUERY PER DESKTOP ================= */
 @media screen and (min-width: 768px) {
     body {

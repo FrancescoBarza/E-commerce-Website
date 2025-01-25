@@ -5,7 +5,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-// Verifica se l'ID dell'ordine è presente nella query string
+
 if (!isset($_GET["id"])) {
     header("Location: ordiniPassati.php"); 
     exit;
@@ -17,14 +17,14 @@ if (!$userData) {
 }
 $ordine_id = $_GET["id"];
 
-// Ottieni i dettagli dell'ordine specifico
+
 $ordine = $dbh->getOrderById($ordine_id);
 if (!$ordine) {
     header("Location: ordiniPassati.php");
     exit;
 }
 
-// Ottieni i prodotti inclusi nell'ordine
+
 $prodotti_ordine = $dbh->getProductFromOrder($ordine_id);
 
 $templateParams["titolo"] = "Dettagli Ordine " . $ordine["ID_ordine"];

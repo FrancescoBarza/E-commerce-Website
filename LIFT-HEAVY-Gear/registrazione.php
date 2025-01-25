@@ -21,12 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($dbh->checkMail($email)) {
             $templateParams["errore"] = "Email già registrata.";
         } else {
-            //  CONTROLLO PER VENDITORE UNICO
+            
             if ($is_vendor == 'Y' && $dbh->checkIfVendorExists()) {
                 $templateParams["errore"] = "È già presente un account venditore.";
             } else {
                 if ($dbh->addUser($nome, $cognome, $email, $password, $is_vendor)) {
-                    header("Location: login.php"); // Reindirizza sempre a login.php
+                    header("Location: login.php"); 
                     exit;
                 } else {
                     $templateParams["errore"] = "Errore durante la registrazione. Riprova più tardi.";

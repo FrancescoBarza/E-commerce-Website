@@ -14,7 +14,7 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["nome"] = $userData["nome"];
 $templateParams["nome-main"] = "ordini-cliente.php";
 
-// Ottieni gli ordini dell'utente loggato
+
 $ordiniUtente = $dbh->getOrdersByUserId($_SESSION["ID_utente"]);
 $templateParams["ordini"] = $ordiniUtente;
 

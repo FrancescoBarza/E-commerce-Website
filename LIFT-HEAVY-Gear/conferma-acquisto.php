@@ -6,7 +6,7 @@ $templateParams["categorie"] = $dbh->getCategories();
 $templateParams["nome-main"] = "conferma.php";
 $templateParams["show-aside"] = false;
 
-// Recupera i dati salvati in sessione
+
 if (isset($_SESSION["ordine"]) && is_array($_SESSION["ordine"])) {
     $templateParams["ordine"] = $_SESSION["ordine"];
     $templateParams["prodotti_ordine"] = $dbh->getProductFromOrder($_SESSION["ordine"]['ID_ordine']);

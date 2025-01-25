@@ -7,7 +7,7 @@ class DatabaseHelper
     {
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
-            die("Connection failed: " /* . $db->connect_error */);
+            die("Connection failed: ");
         }
     }
 
@@ -47,14 +47,14 @@ class DatabaseHelper
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    //USO
+   
     public function getProdottiInEsaurimento()
     {
         $query = "SELECT ID_prodotto, nome, descrizione, prezzo, quantita, peso, lunghezza FROM prodotto WHERE quantita <= 10";
         $result = $this->db->query($query);
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    //USO
+   
     public function getNumeroProdottiInEsaurimento()
     {
         $query = "SELECT COUNT(*) AS numero_prodotti_in_esaurimento FROM prodotto WHERE quantita <= 10";
@@ -113,7 +113,7 @@ class DatabaseHelper
 
     public function getProductByIdOnCart($id)
     {
-        // Query corretta con il nome della tabella e colonne
+        
         $query = "SELECT ID_prodotto, nome, immagine, prezzo FROM prodotto WHERE ID_prodotto = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id);
@@ -149,7 +149,7 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    //USO
+    
     public function getOrderById($id)
     {
         $query = "SELECT ordine.ID_ordine, ordine.ID_utente, data_ordine, stato_ordine, prezzo_totale, prodotto.immagine, prodotto.nome
@@ -157,7 +157,7 @@ class DatabaseHelper
                   JOIN ordini_prodotti ON ordine.ID_ordine = ordini_prodotti.ID_ordine
                   JOIN prodotto ON ordini_prodotti.ID_prodotto = prodotto.ID_prodotto
                   WHERE ordine.ID_ordine = ?";
-        $stmt = $this->db->prepare($query); // Use $this->db as requested
+        $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -234,7 +234,7 @@ class DatabaseHelper
         }
 
         $result = $stmt->get_result();
-        return $result->fetch_assoc(); // Restituisce un singolo record
+        return $result->fetch_assoc(); 
     }
 
     public function addUser($nome, $cognome, $email, $password, $venditore)
@@ -251,7 +251,7 @@ class DatabaseHelper
         $query = "SELECT 1 FROM utente WHERE venditore = 'Y'";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
-        $stmt->store_result(); // Store the result to get the number of rows
+        $stmt->store_result(); 
 
         $num_rows = $stmt->num_rows;
 
@@ -299,7 +299,7 @@ class DatabaseHelper
 
         $stmt->execute();
 
-        return $stmt->insert_id; // Restituisce l'ID del nuovo carrello
+        return $stmt->insert_id; 
     }
     public function checkProductOnCart($idOrdine, $idprodotto)
     {
@@ -321,7 +321,7 @@ class DatabaseHelper
             throw new Exception("Errore nella query INSERT: " . $stmt->error);
         }
 
-        return $stmt->insert_id; // Restituisce l'ID del prodotto appena inserito nel carrello
+        return $stmt->insert_id; 
     }
     public function setQuantityProduct($idOrdine, $idprodotto, $quantita)
     {
@@ -333,14 +333,14 @@ class DatabaseHelper
             throw new Exception("Errore nella query UPDATE: " . $stmt->error);
         }
 
-        return $stmt->affected_rows; // Restituisce il numero di righe aggiornate
+        return $stmt->affected_rows; 
     }
     public function updateTotalCart($idOrdine, $totale)
     {
         error_log("updateTotalCart chiamato con ID Ordine: " . $idOrdine . ", Totale: " . $totale);
         $query = "UPDATE ordine SET prezzo_totale = prezzo_totale + ? WHERE ID_ordine = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('di', $totale, $idOrdine); // Use 'di' for double (float) and integer
+        $stmt->bind_param('di', $totale, $idOrdine); 
 
         if (!$stmt->execute()) {
             throw new Exception("Errore nella query UPDATE: " . $stmt->error);
@@ -363,10 +363,10 @@ class DatabaseHelper
 
         $result = $stmt->get_result();
         if ($row = $result->fetch_assoc()) {
-            // If there are products in the cart, return the total, otherwise return 0
+            
             return $row['totale_prodotti'] ?: 0;
         } else {
-            // If the cart is empty or the order doesn't exist, return 0
+            
             return 0;
         }
     }
@@ -381,12 +381,12 @@ class DatabaseHelper
     {
         $query = "UPDATE prodotto SET quantita = quantita - ? WHERE ID_prodotto = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ii', $quantita, $prodottoId);  // 'ii' specifica due parametri interi
+        $stmt->bind_param('ii', $quantita, $prodottoId);  
 
         if (!$stmt->execute()) {
             throw new Exception("Errore nell'aggiornamento della quantità del prodotto: " . $stmt->error);
         }
-        return $stmt->affected_rows > 0;  // Restituisce true se le righe sono state aggiornate
+        return $stmt->affected_rows > 0;  
     }
     public function getProductQuantity($prodottoId)
     {
@@ -399,7 +399,7 @@ class DatabaseHelper
         $stmt->close();
         return $quantita;
     }
-    //USO
+   
     public function getOrdiniNonConsegnati()
     {
         $query = "SELECT ID_ordine, data_ordine, prezzo_totale, stato_ordine, ID_utente
@@ -432,7 +432,7 @@ class DatabaseHelper
     
         return $ordini;
     }
-    //USO
+    
     public function countOrdiniInElaborazione() {
         $query = "SELECT COUNT(*) as totale_ordini FROM ordine WHERE stato_ordine = ?";
         
@@ -471,7 +471,7 @@ class DatabaseHelper
         }
 
         $result = $stmt->get_result();
-        return $result->fetch_assoc(); // Restituisce un singolo record
+        return $result->fetch_assoc(); 
     }
     public function getProductOnCart($currentCart)
     {
@@ -511,7 +511,7 @@ class DatabaseHelper
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    //USO
+   
     public function getNotificheNonLette($utente_id)
     {
         $stmt = $this->db->prepare("SELECT * FROM notifica WHERE ID_utente = ? AND stato_notifica = 'Non letta' ORDER BY data_creazione DESC");
@@ -520,19 +520,19 @@ class DatabaseHelper
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    //USO
+    
     public function aggiornaStatoNotifica($notifica_id, $stato)
     {
         $stmt = $this->db->prepare("UPDATE notifica SET stato_notifica = ? WHERE ID_notifica = ?");
         $stmt->bind_param("si", $stato, $notifica_id);
         return $stmt->execute();
     }
-    //USO
+    
     public function segnaNotificaComeLetta($notifica_id)
     {
         return $this->aggiornaStatoNotifica($notifica_id, 'Letta');
     }
-    //USO
+    
     public function getNumeroNotificheNonLette($utente_id)
     {
         $stmt = $this->db->prepare("SELECT COUNT(*) FROM notifica WHERE ID_utente = ? AND stato_notifica = 'Non letta'");
@@ -544,7 +544,7 @@ class DatabaseHelper
         return $count;
     }
 
-    // NON USO
+    
     public function getNotification($utente)
     {
         $query = "SELECT ID_notifica, testo, stato_notifica 
@@ -557,7 +557,7 @@ class DatabaseHelper
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    //  USO
+    
     public function addNotification($testo, $utenteId, $ordineId = null)
     {
         $stato = "Non letta";
@@ -578,7 +578,7 @@ class DatabaseHelper
     }
 
 
-    // NON USO
+    
     public function deleteNotification($idnotifica)
     {
         $query = "DELETE FROM notifica WHERE ID_notifica = ?";
@@ -589,7 +589,7 @@ class DatabaseHelper
             throw new Exception("Errore nella query DELETE: " . $stmt->error);
         }
     }
-    //USO
+    
     public function getVenditoreId()
     {
         $query = "SELECT ID_utente FROM utente WHERE venditore = 'Y' LIMIT 1";
@@ -606,7 +606,7 @@ class DatabaseHelper
 
     public function updateNotificationStatus($utente)
     {
-        $letto = 1; // Indica che la notifica è stata letta
+        $letto = 1; 
         $query = "UPDATE notifica SET stato_notifica = ? WHERE ID_utente = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ii', $letto, $utente);

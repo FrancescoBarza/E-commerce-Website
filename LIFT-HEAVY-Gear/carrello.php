@@ -12,7 +12,7 @@ $templateParams["nome-main"] = "form-carrello.php";
 if(isset($_SESSION["ID_utente"])){
     $templateParams["notifica"] = $dbh->getNotification($_SESSION["ID_utente"]);
 }
-//Carrello Template
+
 $utente = $_SESSION["ID_utente"];
 $currentCart = $dbh->checkEmptyCart($utente);
 

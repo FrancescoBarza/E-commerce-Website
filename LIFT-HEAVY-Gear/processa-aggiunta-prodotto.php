@@ -35,13 +35,13 @@ if (!is_int($ID_categoria)) {
     die("Errore: l'ID categoria deve essere un numero intero.");
 }
 
-    // Gestione upload dell'immagine
+    
     if (isset($_FILES['immagine']) && $_FILES['immagine']['error'] == UPLOAD_ERR_OK) {
-        $uploadDir = UPLOAD_DIR_UPLOADS; // Assicurati che questa costante sia definita correttamente
+        $uploadDir = UPLOAD_DIR_UPLOADS; 
         $imageName = basename($_FILES['immagine']['name']);
         $uploadFile = $uploadDir . $imageName;
     
-        // Verifica estensione immagine
+      
         $allowedExtensions = ['jpg', 'jpeg', 'png', 'gif'];
         $fileExtension = strtolower(pathinfo($_FILES['immagine']['name'], PATHINFO_EXTENSION));
         if (!in_array($fileExtension, $allowedExtensions)) {
@@ -55,20 +55,20 @@ if (!is_int($ID_categoria)) {
         }
     
         // Verifica la dimensione dell'immagine
-        $maxFileSize = 5 * 1024 * 1024; // 5 MB
+        $maxFileSize = 5 * 1024 * 1024; 
         if ($_FILES['immagine']['size'] > $maxFileSize) {
             die("Errore: l'immagine è troppo grande. La dimensione massima consentita è 5MB.");
         }
     
-        // Usa exif_imagetype() per verificare che sia effettivamente un'immagine
+        
         $imageType = exif_imagetype($_FILES['immagine']['tmp_name']);
         if ($imageType === false) {
             die("Il file caricato non è un'immagine valida (usando exif_imagetype).");
         }
     
-        // Spostiamo il file nella directory di upload
+        
         if (move_uploaded_file($_FILES['immagine']['tmp_name'], $uploadFile)) {
-    // Aggiungi il prodotto nel database
+    // Aggiunta il prodotto nel database
     $result = $dbh->addProduct(
         $nome,
         $descrizione,
@@ -76,10 +76,10 @@ if (!is_int($ID_categoria)) {
         $quantita,
         $peso,
         $lunghezza,
-        $imageName, // Usa il nome del file immagine
+        $imageName,
         $ID_categoria
     );
-    // Verifica se il prodotto è stato aggiunto con successo
+    
     if ($result) {
         // Reindirizza alla pagina di gestione dei prodotti
         header("Location: GestioneProdotti.php");

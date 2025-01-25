@@ -76,7 +76,7 @@ if ($_POST["action"] == 9) {
         $quantitaProdotto = $dbh->checkProductOnCart($idOrdineValue, $idprodotto);
         $prezzoProdotto = $dbh->getPriceProduct($idprodotto);
 
-        if ($quantitaProdotto && $prezzoProdotto) { // Verifica che i dati siano stati recuperati correttamente
+        if ($quantitaProdotto && $prezzoProdotto) { 
             $totaleDaSottrarre = - ($prezzoProdotto["prezzo"] * $quantitaProdotto[0]["quantita_prodotto"]);
             $rimozioneRiuscita = $dbh->removeFromCart($idOrdineValue, $idprodotto);
             $dbh->updateTotalCart($idOrdineValue, $totaleDaSottrarre);
@@ -106,8 +106,8 @@ if ($_POST["action"] == 10) {
 
     if (isset($_POST["idprodotto"]) && isset($_POST["quantita"])) {
         $utente = $_SESSION["ID_utente"];
-        $idprodotto = htmlspecialchars($_POST["idprodotto"]); // Corretto: recupera l'ID del prodotto
-        $quantita = intval($_POST["quantita"]); // Corretto: recupera la quantità desiderata
+        $idprodotto = htmlspecialchars($_POST["idprodotto"]); 
+        $quantita = intval($_POST["quantita"]); 
 
         $idOrdine = $dbh->checkEmptyCart($utente);
 
@@ -153,23 +153,7 @@ if ($_POST["action"] == 10) {
     }
 }
 
-/*if ($_POST["action"] == 11) {
-    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-        header("Location: login.php");
-        exit;
-    }
-    $utente = $_SESSION["ID_utente"];
-    $idOrdine = htmlspecialchars($_POST["ID_ordine"]);
-    //Inserire notifica
-    //Modificare tutti gli stati nell'ordine
-    $stato = "Effettuato";
-    $testo = "Ordine " . $idOrdine . " " . $stato;
-    $dbh->addNotification($testo, $utente);
-    $dbh->updateNotificationStatus($idOrdine, $stato);
-
-    header("location: carrello.php");
-}*/
-$titolareError = $capError = $cartaError = $cvvError = $annoError = ""; // Inizializza le variabili di errore
+$titolareError = $capError = $cartaError = $cvvError = $annoError = ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
 
@@ -203,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
         $annoError = "Formato anno errato";
     }
 
-    // Se ci sono errori di validazione, reindirizza al carrello con gli errori
+    
     if ($titolareError != "" || $capError != "" || $cartaError != "" || $cvvError != "" || $annoError != "") {
         $_SESSION["titolareError"] = $titolareError;
         $_SESSION["capError"] = $capError;
@@ -220,7 +204,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
     $utente = $_SESSION["ID_utente"];
     $idOrdineToClear = htmlspecialchars($_POST["ID_ordine"]);
 
-    // Ottieni tutti i prodotti nell'ordine (con la quantità acquistata)
+    
     $prodottiNelCarrello = $dbh->getProductFromOrder($idOrdineToClear);
 
     $erroreAggiornamentoQuantita = false;
@@ -230,7 +214,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
             $idProdotto = $prodotto['ID_prodotto'];
             $quantitaAcquistata = $prodotto['quantita'];
 
-            //  Ottieni la quantità attuale dal database
+           
             $currentQuantity = $dbh->getProductQuantity($idProdotto);
 
             //  Controlla se la quantità acquistata è disponibile

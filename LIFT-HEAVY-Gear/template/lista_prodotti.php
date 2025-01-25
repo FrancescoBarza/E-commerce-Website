@@ -21,7 +21,6 @@
                 <input type="hidden" name="idprodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>">
                 <input type="hidden" name="action" value="7">
                 <input type="hidden" name="quantita" value="1"> <!-- Quantità di default -->
-                 <!-- Action impostato a 7 -->
                 <button type="submit"><span class="fas fa-cart-plus"></span></button>
             </form>
             </p>

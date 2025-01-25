@@ -11,7 +11,7 @@ if (!$userData) {
 }
 $templateParams["titolo"] = "Area Venditore";
 $templateParams["categorie"] = $dbh->getCategories();
-$templateParams["nome"] = $userData["nome"]; // Pass the user's name to the template
+$templateParams["nome"] = $userData["nome"]; 
 $templateParams["nome-main"] = "info-venditore.php";
 if (isset($_GET["logout"])) {
     session_start();

@@ -23,7 +23,7 @@
         </form>
     </div>
     <script>
-        // Passa il valore venditore a una variabile JavaScript
+        
         const isVenditore = '<?php echo $templateParams["userData"]["venditore"]; ?>';
 
         function tornaAreaUtente() {
