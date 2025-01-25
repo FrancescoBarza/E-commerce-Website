@@ -131,51 +131,6 @@ INSERT INTO utente (ID_utente, nome, cognome, email, password, venditore) VALUES
 (4, 'Davide', 'Neri', 'davide.neri@example.com', 'password5', 'N'),
 (5, 'Francesco', 'Liverani', 'francesco.liverani@example.com', 'password6', 'N');
 
-
--- Popolamento Tabella "ordine"
-INSERT INTO ordine (ID_ordine, data_ordine, prezzo_totale, stato_ordine, ID_utente) VALUES
-(1, '2024-12-01', 729.98, 'Spedito', 2),
-(2, '2024-12-05', 369.98, 'Consegnato', 5),
-(3, '2024-12-12', 519.00, 'Carrello', 1),
-(4, '2024-12-04', 1599.99, 'Consegnato', 3),
-(5, '2024-12-05', 0.00, 'Carrello', 5), -- Nessun prodotto
-(6, '2024-12-07', 1039.94, 'In Elaborazione', 1),
-(7, '2024-12-15', 974.99, 'Pronto per il ritiro', 2);
-
--- Popolamento Tabella "ordini_prodotti" (aggiunta di nuovi dati)
-INSERT INTO ordini_prodotti (quantita_prodotto, ID_ordine, ID_prodotto) VALUES
--- Ordine 1
-(2, 1, 2), -- Strength Shop Cambered Bar
-(1, 1, 4), -- Kabuki Strength Deadlift Bar
-
--- Ordine 3
-(2, 3, 1), -- Eleiko Brush
-(1, 3, 6), -- Eleiko Curl Bar
-
-
--- Ordine 5
-(1, 5, 5), -- Eleiko IPF Powerlifting Competition Bar
-(1, 5, 11), -- Strength Shop Calibrated Bastard Power Bar
-
--- Ordine 7
-(4, 7, 2), -- Strength Shop Cambered Bar
-(2, 7, 10), -- Strength Shop EZ Curl Bar
-
-
--- Ordine 2
-(1, 2, 3), -- Lacertosus Magnetic Metal Collars
-(2, 2, 12); -- Rogue Trap Bar
-
-
--- Popolamento Tabella "notifica" (aggiunta di nuovi dati)
-INSERT INTO notifica (ID_notifica, testo, data_creazione, stato_notifica, ID_utente, ID_ordine) VALUES
-(1, 'Il tuo ordine è stato consegnato', '2024-12-02', 'Letta', 3, 4),  -- Collegato all'ordine con ID_ordine = 4
-(2, 'Il tuo ordine è in elaborazione', '2024-12-08', 'Letta', 1, 6),  -- Collegato all'ordine con ID_ordine = 6
-(3, 'Il tuo ordine è stato spedito', '2024-12-17', 'Non letta', 2, 7), -- Collegato all'ordine con ID_ordine = 7
-(4, 'Il tuo ordine è stato consegnato', '2024-12-03', 'Letta', 5, 2),  -- Collegato all'ordine con ID_ordine = 2
-(5, 'Il tuo ordine è in elaborazione', '2024-12-09', 'Letta', 1, 6),  -- Collegato all'ordine con ID_ordine = 6 (potrebbe essere una notifica ripetuta, verifica la logica)
-(6, 'Il tuo ordine è stato spedito', '2024-12-21', 'Non letta', 2, 7); -- Collegato all'ordine con ID_ordine = 7 (potrebbe essere una notifica ripetuta, verifica la logica)
-
 -- Popolamento Tabella "articolo"
 INSERT INTO articolo (ID_articolo, titolo_articolo, testo_articolo, data_articolo, immagine_articolo) VALUES 
 (1,'SHEFFIELD 2024: RECORD INFRANTI E CLASSIFICA','La Sheffield Powerlifting Championship 2024, tenutasi il 10 febbraio 2024 presso la City Hall di Sheffield, ha rappresentato un evento di spicco nel panorama del powerlifting internazionale. Organizzata da SBD, la competizione ha visto la partecipazione di 24 atleti d\'élite, 12 uomini e 12 donne, provenienti da diverse categorie di peso, impegnati in una sfida unica focalizzata sull\'infrangere i record mondiali della International Powerlifting Federation (IPF). 
