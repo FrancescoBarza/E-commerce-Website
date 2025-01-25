@@ -149,7 +149,7 @@ unset($_SESSION["ordine_data"]);
                       ?>
                     </span>
                     <label for="numero">Numero carta</label>
-                    <input type="text" id="numero" name="numero" placeholder="1111-2222-3333-4444" required>
+                    <input type="text" id="numero" name="numero" placeholder="1111222233334444" required>
                     <span class="error"> <?php
                                           if ($cartaError != "") {
                                             echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
