@@ -68,7 +68,7 @@
                             $userRole = $_SESSION["venditore"];
                             echo $userRole === 'Y' ? '#' : 'index.php';
                         } else {
-                            echo 'categoria.php?id=' . $categoria["ID_categoria"];
+                            echo 'index.php';
                         }
                         ?>" id="link-index" >
                 <img src="images/logos/Logo_Main.png" alt="Logo" /></a>
