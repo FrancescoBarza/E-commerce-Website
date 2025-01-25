@@ -170,7 +170,7 @@ unset($_SESSION["ordine_data"]);
                                                 echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
                                                 echo '<em class="fas fa-exclamation-triangle"></em> ';
                                                 echo $annoError;
-                                                echo '</div></br>';S
+                                                echo '</div></br>';
                                               }
                                               ?>
                         </span>
