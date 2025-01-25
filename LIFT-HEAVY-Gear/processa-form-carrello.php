@@ -252,12 +252,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 12) {
     }
     try {
         // Notifica per il cliente
-        $testoCliente = "Ordine #" . $idOrdineToClear . " " . $stato;
+        $testoCliente = "Ordine n." . $idOrdineToClear . " " . $stato;
         $dbh->addNotification($testoCliente, $utente, $idOrdineToClear);
 
         // Recupera l'ID del venditore
         $venditoreId = $dbh->getVenditoreId();
-        $testoVenditore = "Nuovo ordine #" . $idOrdineToClear . " da elaborare.";
+        $testoVenditore = "Nuovo ordine n." . $idOrdineToClear . " da elaborare.";
         $dbh->addNotification($testoVenditore, $venditoreId, $idOrdineToClear);
     } catch (Exception $e) {
         error_log("Errore durante la creazione delle notifiche: " . $e->getMessage());
