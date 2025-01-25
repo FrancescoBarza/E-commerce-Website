@@ -12,12 +12,9 @@
         <br>
         <?php if (!empty($templateParams["errore"])): ?>
             <p class="error">
-                <i class="fas fa-exclamation-triangle"></i> <?php echo $templateParams["errore"]; ?>
+                <em class="fas fa-exclamation-triangle"></em> <?php echo $templateParams["errore"]; ?>
             </p>
         <?php endif; ?>
-        <a href="password-dimenticata.php" style="display: block; margin-top: 10px; text-decoration: none; color: #007bff;">
-            Password dimenticata?
-        </a>
         <button type="submit" name="submit">Sign In</button>
 
         <br/><br/>

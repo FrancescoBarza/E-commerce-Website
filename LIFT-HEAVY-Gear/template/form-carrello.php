@@ -96,10 +96,10 @@ unset($_SESSION["ordine_data"]);
         <?php
         if (isset($_SESSION["errore_carrello"])) {
           echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
-          echo '<i class="fas fa-exclamation-triangle"></i> ';
+          echo '<em class="fas fa-exclamation-triangle"></em> ';
           echo $_SESSION["errore_carrello"];
-          echo '</div>';
-          echo '<br>';
+          echo '</div></br>';
+        
           unset($_SESSION["errore_carrello"]);
         }
         ?>
@@ -125,9 +125,9 @@ unset($_SESSION["ordine_data"]);
                           <?php
                           if ($capError != "") {
                             echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
-                            echo '<i class="fas fa-exclamation-triangle"></i> ';
+                            echo '<em class="fas fa-exclamation-triangle"></em> ';
                             echo $capError;
-                            echo '</div>';
+                            echo '</div></br>';
                           }
                           ?>
                         </span>
@@ -142,9 +142,9 @@ unset($_SESSION["ordine_data"]);
                       <?php
                       if (($titolareError != "")) {
                         echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
-                        echo '<i class="fas fa-exclamation-triangle"></i> ';
+                        echo '<em class="fas fa-exclamation-triangle"></em> ';
                         echo $titolareError;
-                        echo '</div>';
+                        echo '</div></br>';
                       }
                       ?>
                     </span>
@@ -153,9 +153,9 @@ unset($_SESSION["ordine_data"]);
                     <span class="error"> <?php
                                           if ($cartaError != "") {
                                             echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
-                                            echo '<i class="fas fa-exclamation-triangle"></i> ';
+                                            echo '<em class="fas fa-exclamation-triangle"></em> ';
                                             echo $cartaError;
-                                            echo '</div>';
+                                            echo '</div></br>';
                                           }
                                           ?>
                     </span>
@@ -168,9 +168,9 @@ unset($_SESSION["ordine_data"]);
                         <span class="error"> <?php
                                               if (($annoError != "")) {
                                                 echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
-                                                echo '<i class="fas fa-exclamation-triangle"></i> ';
+                                                echo '<em class="fas fa-exclamation-triangle"></em> ';
                                                 echo $annoError;
-                                                echo '</div>';
+                                                echo '</div></br>';S
                                               }
                                               ?>
                         </span>
@@ -181,9 +181,9 @@ unset($_SESSION["ordine_data"]);
                         <span class="error"> <?php
                                               if (($cvvError != "")) {
                                                 echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
-                                                echo '<i class="fas fa-exclamation-triangle"></i> ';
+                                                echo '<em class="fas fa-exclamation-triangle"></em> ';
                                                 echo $cvvError;
-                                                echo '</div>';
+                                                echo '</div></br>';
                                               }
                                               ?>
                         </span>

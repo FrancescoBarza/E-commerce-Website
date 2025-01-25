@@ -9,7 +9,7 @@ INSERT INTO prodotto (ID_prodotto, nome, descrizione, prezzo, quantita, peso, lu
 (1, 'Eleiko Brush', 'Mantieni il tuo bilanciere pulito da gesso e sporcizia con una spazzola magnetica per bilancieri.\r\n
 Grazie alla funzione magnetica, la spazzola per bilancieri può essere facilmente attaccata al tuo squat rack o a tutto ciò che è magnetico, tenendolo comodamente a portata di mano.\r\n
 Spazzola la zigrinatura del tuo bilanciere con la spazzola in nylon dopo ogni utilizzo.
-', 7.00, '200', 0.5, 0.3, 'brush.png', 3),
+', 6.99, '200', 0.5, 0.3, 'brush.png', 3),
 (2, 'Strength Shop Cambered Bar', 'Il bilanciere Cambered offre un\'esperienza nuova, che prende di mira i muscoli del core e migliora la stabilità, facilitando in definitiva un\'esperienza di sollevamento più confortevole ed efficiente.\r\n
 Specifiche:\n
 - Lunghezza totale: 2010mm,\n
