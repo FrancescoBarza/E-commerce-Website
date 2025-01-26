@@ -508,7 +508,7 @@ footer>.copyright a {
         margin: 2% auto;
     }
 
-    .articolo h3 {
+    .articolo h2 {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
