@@ -12,10 +12,10 @@
             </a>
             <form action="processa-rifornimento.php" method="POST">
                 <input type="hidden" name="id_prodotto" value="<?php echo $prodotto["ID_prodotto"]; ?>" />
-                <label style="display:none;" for="quantita">Rifornisci di</label>
-                <input type="number" name="quantita" min="1" value="1" />
+                <label class="visually-hidden" for="quantita_rifornisci_<?php echo $prodotto["ID_prodotto"]; ?>"> Quantità</label>
+                <input type="number" name="quantita" id="quantita_rifornisci_<?php echo $prodotto["ID_prodotto"]; ?>" min="1" value="1" />
                 <button type="submit">Invio</button>
-            </form>     
+            </form>
         </div>
     <?php endforeach; ?>
 
@@ -23,7 +23,7 @@
                 onclick="document.getElementById('aggiunta').style.display='block'">Aggiungi un nuovo prodotto</button>
             <div id="aggiunta" class="modal">
                 <span onclick="document.getElementById('aggiunta').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
+                    title="Close Modal">×</span>
                 <form class="modal-content" action="processa-aggiunta-prodotto.php" method="POST" enctype="multipart/form-data">
                     <div class="container">
                         <h1>AGGIUNGI PRODOTTO</h1>
@@ -55,8 +55,8 @@
                         <textarea class="form-control" name="descrizione" id="descrizione" required></textarea>
                         <br /><br />
 
-                        <label for="quantita">Quantità; disponibile in magazzino: </label>
-                        <input type="number" id="quantita" name="quantita" min="1" value="1" required />
+                        <label for="quantita_magazzino">Quantità disponibile in magazzino: </label>
+                        <input type="number" id="quantita_magazzino" name="quantita" min="1" value="1" required />
 
                         <button type="submit">Aggiungi</button>
                     </div>
