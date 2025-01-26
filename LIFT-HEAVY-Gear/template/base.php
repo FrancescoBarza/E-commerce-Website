@@ -48,6 +48,7 @@
                     <?php endforeach; ?>
                 </ul>
 
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/notify.js/0.4.2/notify.min.js"></script>
                 <script>
                     const linksCategorie = document.querySelectorAll('#dropdown-menu a');
 
@@ -55,7 +56,7 @@
                         link.addEventListener('click', function(event) {
                             if (this.getAttribute('href') === '#') {
                                 event.preventDefault();
-                                alert('Solo i clienti possono accedere a questa sezione.');
+                                $.notify("Riservato ai soli clienti.", { type: "error" , position: "top center" });
                             }
                         });
                     });
@@ -105,6 +106,7 @@
                     </path>
                 </svg>
             </a>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/notify.js/0.4.2/notify.min.js"></script>
             <script>
                 const linksCheRichiedonoCliente = document.querySelectorAll('#link-carrello, #link-index');
 
@@ -112,7 +114,7 @@
                     link.addEventListener('click', function(event) {
                         if (this.getAttribute('href') === '#') {
                             event.preventDefault();
-                            alert('Solo i clienti possono accedere a questa sezione.');
+                            $.notify("Riservato ai soli clienti.", { type: "error" ,position: "top center", });
                         }
                     });
                 });
@@ -131,19 +133,21 @@
                 <label style="display: none;" for="searchInput">Cerca</label>
                 <input type="search" name="search" autocomplete="off" placeholder="Search..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>" id="searchInput" />
             </form>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/notify.js/0.4.2/notify.min.js"></script>
+            <script>
+                <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && isset($_SESSION["venditore"]) && $_SESSION["venditore"] == 'Y'): ?>
+                    const searchForm = document.getElementById('searchForm');
+                    if (searchForm) {
+                        searchForm.addEventListener('submit', function(event) {
+                            event.preventDefault(); 
+                            $.notify("Ricerca disabilitata per venditori", { type: "error", position: "top left",});
+                        });
+                    }
+                <?php endif; ?>
+            </script>
         </div>
-        <script>
-            <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true && isset($_SESSION["venditore"]) && $_SESSION["venditore"] == 'Y'): ?>
-                const searchForm = document.getElementById('searchForm');
-                if (searchForm) {
-                    searchForm.addEventListener('submit', function(event) {
-                        event.preventDefault(); // Impedisce l'invio del form
-                        alert('La funzione di ricerca non è disponibile per gli utenti venditori.');
-                    });
-                }
-            <?php endif; ?>
-        </script>
     </header>
+</body>
     <!-- END HEADER -->
     <main>
         <?php
