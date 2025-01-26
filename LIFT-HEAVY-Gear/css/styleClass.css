@@ -200,8 +200,8 @@ button.next:hover {
     display: inline-block;
     vertical-align: top;
     text-align: left;
+    width: 100%;
 }
-
 .articolo img {
     width: 100%;
     height: auto;

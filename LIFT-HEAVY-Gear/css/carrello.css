@@ -136,7 +136,9 @@
 .table-div div:first-child {
     width: 100%;
 }
-
+.table-div img {
+    display: none;
+}
 .table-div>.container {
     margin-bottom: 15px;
     width: 100%;
@@ -314,12 +316,12 @@ tr form button {
     text-align: center;
 }
 h2 {
-    font-size: 1rem; /* Adatta la dimensione */
+    font-size: 1rem; 
     line-height: 1.2;
     font-weight: bold;
-    white-space: nowrap; /* Evita che il testo vada su più righe */
-    overflow: hidden; /* Nasconde il testo che supera i confini */
-    text-overflow: ellipsis; /* Mostra i tre puntini */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 
 }
 
@@ -451,8 +453,10 @@ footer>.copyright a {
         width: 23%;
 
     }
-
-
+    .table-div img {
+        display:block;
+        margin: 5px;
+    }
     .social,
     .pagamenti,
     .copyright {

@@ -514,7 +514,7 @@ class DatabaseHelper
    
     public function getNotificheNonLette($utente_id)
     {
-        $stmt = $this->db->prepare("SELECT * FROM notifica WHERE ID_utente = ? AND stato_notifica = 'Non letta' ORDER BY data_creazione DESC");
+        $stmt = $this->db->prepare("SELECT * FROM notifica WHERE ID_utente = ? AND stato_notifica = 'Non letta' ORDER BY ID_notifica DESC");
         $stmt->bind_param("i", $utente_id);
         $stmt->execute();
         $result = $stmt->get_result();
