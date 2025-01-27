@@ -17,13 +17,20 @@
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($templateParams["userData"]["email"]); ?>" required>
             <label for="password">Nuova Password:</label>
-            <input type="password" id="password" name="password" placeholder="Lascia vuoto per mantenere la password attuale">
+            <div class="password-container">
+                <input type="password" id="password" name="password" placeholder="Lascia vuoto per mantenere la password attuale"
+                       pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+                       title="La password deve contenere almeno 8 caratteri, una lettera maiuscola, una minuscola, un numero e un carattere speciale.">
+                       <span id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                <em class="fas fa-eye"></em> 
+            </span>
+            </div>
             <button type="submit">Salva modifiche</button>
             <button type="button" onclick="toggleModificaDati()">Annulla</button>
         </form>
     </div>
     <script>
-        
+
         const isVenditore = '<?php echo $templateParams["userData"]["venditore"]; ?>';
 
         function tornaAreaUtente() {
@@ -46,11 +53,21 @@ function toggleModificaDati() {
     if (form.style.display === 'none') {
         form.style.display = 'block';
         staticView.style.display = 'none';
-        tornaAreaClienteButton.style.display = 'none';
+        tornaAreaUtenteButton.style.display = 'none';
     } else {
         form.style.display = 'none';
         staticView.style.display = 'block';
-        tornaAreaClienteButton.style.display = 'block';
+        tornaAreaUtenteButton.style.display = 'block';
     }
 }
 </script>
+<script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const passwordInput = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<em class="fas fa-eye"></em>' : '<em class="fas fa-eye-slash"></em>';
+        });
+    </script>
